@@ -21,3 +21,33 @@ scp code backup:archives/
 or to clone git repository:
 
 git clone backup:my_project.git
+
+### Shortcuts
+!! Previously executed command
+!$ last argument of previous command
+!:n n-th argument of the previous command
+history View previously executed command
+!n to run the n-th command from history
+!echo Re-run a command by name
+^r interactive search of history
+^from^to replace first occurence and re-run
+
+
+Examples:
+→
+___________________
+→ sudo !!
+
+___________________
+→ touch README.txt
+→ gvim !$
+
+___________________
+→ gvim README.mk 
+
+→ ^README^INSTALL
+gvim INSTALL.mk 
+
+___________________
+→ mv README.{txt,mk} 
+

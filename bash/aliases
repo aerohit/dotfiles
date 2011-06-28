@@ -1,0 +1,14 @@
+# Bash
+alias sb='. ~/.bashrc' # source bashrc
+alias ea='gvim ~/bin/dotfiles/bash/aliases &'
+
+# Git
+alias gs='git status'
+alias gd='git diff'
+
+# Directories
+alias ..='cd ..'
+alias cdd='cd -'
+
+# Misc
+alias eclipse='~/Software/eclipse/eclipse'
