@@ -1,0 +1,4 @@
+Host myserver
+	HostName aerohit.heroku.com
+	User aerohi
+	Port 2332
