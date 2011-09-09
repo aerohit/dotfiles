@@ -1,14 +1,15 @@
 # Bash
-alias sb='. ~/.bashrc' # source bashrc
+alias sb='. ~/bin/dotfiles/bashrc' # source bashrc
 alias ea='gvim ~/bin/dotfiles/bash/aliases &'
 
 # Git
-alias gs='git status'
-alias gd='git diff'
+alias g='git'
 
 # Directories
 alias ..='cd ..'
 alias cdd='cd -'
+alias cdi='cd ~/codes/ec_wspace/official/ilodge'
+alias cdo='cd ~/bin/dotfiles'
 
 # Misc
-alias eclipse='~/Software/eclipse/eclipse'
+#alias eclipse='~/Software/eclipse/eclipse'

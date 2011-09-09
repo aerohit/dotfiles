@@ -15,4 +15,5 @@ For configuring vim:
     ln -s ~/bin/dotfiles/vim/bundle/vim-colorschemes/colors ~/.vim/colors
 
 For configuring Git:
+
     ln -s ~/bin/dotfiles/git/gitconfig ~/.gitconfig

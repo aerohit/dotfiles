@@ -2,6 +2,25 @@
   name = rohit saxena
   email = aerohit.saxena@gmail.com
 
+[merge]
+  tool = threesome
+
+[mergetool "threesome"]
+  cmd = "gvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
+  trustExitCode = true
+
+[alias]
+  st = status
+  cm = commit -m
+  cam = commit -am
+  a = add
+  cob = checkout -b
+  co = checkout
+  aa= !git add -u && git add . && git status
+  up = !git fetch origin && git rebase origin/master
+  ir = !git rebase -i origin/master
+  done = !git fetch && git rebase origin/master && git checkout master && git merge @{-1} && rake && git push
+
 [color]
   branch = auto
   diff = auto
@@ -22,10 +41,3 @@
   added = yellow
   changed = green
   untracked = cyan
-
-[merge]
-tool = threesome
-
-[mergetool "threesome"]
-cmd = "gvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
-trustExitCode = true

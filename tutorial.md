@@ -36,7 +36,6 @@ history 	View previously executed command
 
 Examples:
 
-    →
     ___________________
     → sudo !!
     
