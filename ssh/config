@@ -1,3 +1,4 @@
+# CAUTION: This is on public repository, disable password access
 Host myserver
 	HostName aerohit.heroku.com
 	User aerohi
