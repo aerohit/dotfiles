@@ -57,3 +57,4 @@ ___________________
 ln -s ~/bin/dotfiles/vim/vimrc ~/.vimrc
 ln -s ~/bin/dotfiles/vim ~/.vim
 ln -s ~/bin/dotfiles/vim/bundle/vim-colorschemes/colors ~/.vim/colors
+ln -s ~/bin/dotfiles/git/gitconfig ~/.gitconfig

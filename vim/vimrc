@@ -42,6 +42,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'sjl/threesome.vim'
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
