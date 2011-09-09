@@ -51,3 +51,7 @@ gvim INSTALL.mk
 ___________________
 → mv README.{txt,mk} 
 
+
+### Vim
+
+ln -s ~/bin/dotfiles/vim/vimrc ~/.vimrc
