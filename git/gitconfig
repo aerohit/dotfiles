@@ -14,6 +14,7 @@
   cm = commit -m
   cam = commit -am
   a = add
+  p = push
   cob = checkout -b
   co = checkout
   aa= !git add -u && git add . && git status
