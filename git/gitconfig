@@ -10,7 +10,7 @@
   trustExitCode = true
 
 [alias]
-  st = status
+  s = status
   cm = commit -m
   cam = commit -am
   a = add
@@ -42,3 +42,9 @@
   added = yellow
   changed = green
   untracked = cyan
+[giggle]
+	main-window-maximized = true
+	main-window-geometry = 700x550+336+101
+	history-view-vpane-position = 461
+	main-window-view = HistoryView
+	file-view-vpane-position = 240
