@@ -5,11 +5,16 @@ alias ea='gvim ~/bin/dotfiles/bash/aliases &'
 # Git
 alias g='git'
 
+# Maven
+alias mi='mvn install'
+alias mc='mvn clean'
+alias me='mvn eclipse:eclipse'
+
 # Directories
 alias ..='cd ..'
 alias cdd='cd -'
-alias cdi='cd ~/codes/ec_wspace/official/ilodge'
-alias cdo='cd ~/bin/dotfiles'
+alias cdil='cd ~/codes/ec_wspace/official/ilodge'
+alias cddot='cd ~/bin/dotfiles'
 
 # Misc
 #alias eclipse='~/Software/eclipse/eclipse'
