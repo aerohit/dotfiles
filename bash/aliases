@@ -9,6 +9,11 @@ alias g='git'
 alias mi='mvn install'
 alias mc='mvn clean'
 alias me='mvn eclipse:eclipse'
+alias mif='mi -f'
+alias mcf='mc -f'
+alias mef='me -f'
+alias mcr='rm -r ~/.m2/repository/com/ilodge'
+alias mit='mvn install -DskipTests=false'
 
 # Directories
 alias ..='cd ..'
@@ -16,5 +21,6 @@ alias cdd='cd -'
 alias cdil='cd ~/codes/ec_wspace/official/ilodge'
 alias cddot='cd ~/bin/dotfiles'
 
+alias pgtick='padsp gtick'
 # Misc
 #alias eclipse='~/Software/eclipse/eclipse'

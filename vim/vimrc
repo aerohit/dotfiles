@@ -94,7 +94,8 @@ set background=dark
 syntax on " syntax highlighting
 " colorscheme wuye
 " colorscheme ir_black
-colorscheme mustang
+" colorscheme mustang
+colorscheme solarized
  
 
 " Files/Backups Directories ****************************************************
@@ -235,7 +236,7 @@ set guifont=Monaco\ 9	"TextMate (Mac) like font.
 "set transparency=0
  
 " Default size of window
-set columns=80
+set columns=100
 set lines=70
 "set go-=m
 "set go-=T
@@ -370,10 +371,10 @@ nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " Easy window navigation
-"map <C-h> <C-w>h
-"map <C-j> <C-w>j
-"map <C-k> <C-w>k
-"map <C-l> <C-w>l
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Tired of clearing highlighted searches by searching for “ldsfhjkhgakjks”
 nmap <silent> ,/ :nohlsearch<CR>
