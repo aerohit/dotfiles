@@ -8,12 +8,14 @@ alias g='git'
 # Maven
 alias mi='mvn install'
 alias mc='mvn clean'
+alias mci='mvn clean install'
 alias me='mvn eclipse:eclipse'
 alias mif='mi -f'
 alias mcf='mc -f'
+alias mcif='mvn clean install -f'
 alias mef='me -f'
-alias mcr='rm -r ~/.m2/repository/com/ilodge'
 alias mit='mvn install -DskipTests=false'
+alias mcr='rm -r ~/.m2/repository/com/ilodge; cd third-party; ant install; ..'
 
 # Directories
 alias ..='cd ..'
@@ -21,6 +23,9 @@ alias cdd='cd -'
 alias cdil='cd ~/codes/ec_wspace/official/ilodge'
 alias cddot='cd ~/bin/dotfiles'
 
+# Applications
+alias gsm='gnome-system-monitor'
 alias pgtick='padsp gtick'
 # Misc
 #alias eclipse='~/Software/eclipse/eclipse'
+#make && notify-send "Successfully compiled the kernel" || notify-send "Error while compiling the kernel"
