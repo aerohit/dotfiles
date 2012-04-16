@@ -20,12 +20,12 @@ alias mcr='rm -r ~/.m2/repository/com/ilodge; cd third-party; ant install; ..'
 # Directories
 alias ..='cd ..'
 alias cdd='cd -'
-alias cdil='cd ~/codes/ec_wspace/official/ilodge'
+alias cdil='cd ~/codes/ilodge'
 alias cddot='cd ~/bin/dotfiles'
 
 # Applications
 alias gsm='gnome-system-monitor'
 alias pgtick='padsp gtick'
 # Misc
-#alias eclipse='~/Software/eclipse/eclipse'
+alias eclipse='~/Downloads/eclipse/eclipse'
 #make && notify-send "Successfully compiled the kernel" || notify-send "Error while compiling the kernel"

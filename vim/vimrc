@@ -47,6 +47,7 @@ Bundle 'sjl/threesome.vim'
 Bundle 'othree/html5.vim'
 Bundle 'othree/html5-syntax.vim'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'Lokaltog/vim-powerline'
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}

@@ -26,3 +26,7 @@ For configuring ZSH, first clone [oh-my-zsh](https://github.com/robbyrussell/oh-
 
     ln -s ~/bin/dotfiles/zshrc ~/.zshrc
     ln -s ~/bin/dotfiles/zsh/aerohit.zsh-theme ~/codes/oh-my-zsh/themes/aerohit.zsh-theme
+
+For configuring default gemrc (Gemfile):
+
+    ln -s ~/bin/dotfiles/gemrc ~/.gemrc 
