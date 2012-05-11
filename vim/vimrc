@@ -239,7 +239,7 @@ end
 set anti " Antialias font
 "set guifont=Lucida\ Console\ Semi-Condensed\ 11 " topcoder like font.
 "set guifont=Monaco\ 11	"TextMate (Mac) like font.
-set guifont=Anonymous\ Pro\ 12 
+set guifont=Anonymous\ Pro\ 11
 "set transparency=0
  
 " Default size of window

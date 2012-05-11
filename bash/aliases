@@ -22,6 +22,7 @@ alias ..='cd ..'
 alias cdd='cd -'
 alias cdil='cd ~/codes/ilodge'
 alias cddot='cd ~/bin/dotfiles'
+alias cdblog='cd ~/codes/sinatra/aerohitblog'
 
 # Applications
 alias gsm='gnome-system-monitor'
@@ -29,3 +30,5 @@ alias pgtick='padsp gtick'
 # Misc
 alias eclipse='~/Downloads/eclipse/eclipse'
 #make && notify-send "Successfully compiled the kernel" || notify-send "Error while compiling the kernel"
+alias extmon='xrandr --output VGA1 --primary; xrandr --output LVDS1 --off'
+alias lapmon='xrandr --output LVDS1 --primary; xrandr --output VGA1 --off'

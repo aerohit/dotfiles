@@ -14,7 +14,7 @@ For configuring vim:
     ln -s ~/bin/dotfiles/vim ~/.vim
     ln -s ~/bin/dotfiles/vim/bundle/vim-colorschemes/colors ~/.vim/colors
 
-For installing vundle:
+For installing [vundle](https://github.com/gmarik/vundle):
 
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
