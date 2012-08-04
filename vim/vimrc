@@ -43,11 +43,13 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rvm'
 Bundle 'flazz/vim-colorschemes'
-Bundle 'sjl/threesome.vim'
+Bundle 'sjl/splice.vim'
 Bundle 'othree/html5.vim'
 Bundle 'othree/html5-syntax.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplcache-snippets-complete'
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -101,7 +103,7 @@ set background=dark
 syntax on " syntax highlighting
 " colorscheme wuye
 " colorscheme ir_black
-" colorscheme mustang
+" colorscheme adobe
 " colorscheme solarized
 colorscheme topfunky-light 
 
@@ -239,7 +241,7 @@ end
 set anti " Antialias font
 "set guifont=Lucida\ Console\ Semi-Condensed\ 11 " topcoder like font.
 "set guifont=Monaco\ 11	"TextMate (Mac) like font.
-set guifont=Anonymous\ Pro\ 11
+set guifont=Anonymous\ 10  " Don't use pro, get it from (http://cooltext.com/Download-Font-Anonymous)
 "set transparency=0
  
 " Default size of window
@@ -392,6 +394,7 @@ map Y :TlistToggle<CR>		" Keymap for TagList
 
 imap jk <Esc>
 imap uu _
+imap hh =>
 
 map <F2> :tabnew $MYVIMRC <CR>
 

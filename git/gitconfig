@@ -1,5 +1,5 @@
 [user]
-  name = rohit saxena
+	name = rohit saxena\n
   email = aerohit.saxena@gmail.com
 
 [merge]
@@ -21,6 +21,7 @@
   up = !git fetch origin && git rebase origin/master
   ir = !git rebase -i origin/master
   done = !git fetch && git rebase origin/master && git checkout master && git merge @{-1} && rake && git push
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 
 [color]
   branch = auto
@@ -43,8 +44,8 @@
   changed = green
   untracked = cyan
 [giggle]
-	main-window-maximized = true
-	main-window-geometry = 0x0+0+0
-	history-view-vpane-position = 461
+	main-window-maximized = false
+	main-window-geometry = 700x550+3+108
+	history-view-vpane-position = 469
 	main-window-view = HistoryView
-	file-view-vpane-position = 240
+	file-view-vpane-position = 667

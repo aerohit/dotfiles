@@ -24,8 +24,7 @@ For configuring Git:
 
 For configuring ZSH, first clone [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh). Then:
 
-    ln -s ~/bin/dotfiles/zshrc ~/.zshrc
-    ln -s ~/bin/dotfiles/zsh/aerohit.zsh-theme ~/codes/oh-my-zsh/themes/aerohit.zsh-theme
+    source ~/bin/dotfiles/zshrc
 
 For configuring default gemrc (Gemfile):
 
