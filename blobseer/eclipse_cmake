@@ -1,0 +1,1 @@
+cmake -G"Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug -D CMAKE_ECLIPSE_VERSION=3.6 -D CMAKE_ECLIPSE_MAKE_ARGUMENTS=-j4 ../blobseer

@@ -39,3 +39,8 @@ alias pgtick='padsp gtick'
 #External monitors
 alias extmon='xrandr --output VGA1 --primary; xrandr --output LVDS1 --off'
 alias lapmon='xrandr --output LVDS1 --primary; xrandr --output VGA1 --off'
+alias eccdt='~/Downloads/eclipse_cdt/eclipse'
+alias ecjuno='~/Downloads/eclipse_juno/eclipse'
+
+#Compilers
+alias sg++='g++ -g -Wall -Wextra -Winit-self -Wold-style-cast -Woverloaded-virtual -Wuninitialized -Wmissing-declarations -Winit-self -ansi -pedantic'

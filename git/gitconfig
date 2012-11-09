@@ -44,8 +44,5 @@
   changed = green
   untracked = cyan
 [giggle]
-	main-window-maximized = false
-	main-window-geometry = 700x550+3+108
-	history-view-vpane-position = 469
-	main-window-view = HistoryView
-	file-view-vpane-position = 667
+	main-window-maximized = true
+	main-window-geometry = 700x550+0+24

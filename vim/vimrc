@@ -53,9 +53,12 @@ Bundle 'Shougo/neocomplcache-snippets-complete'
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-
+Bundle 'spolu/dwm.vim'
 " vim-scripts repos
 Bundle 'YankRing.vim'
+Bundle 'vim-scripts/c.vim'
+Bundle 'vim-scripts/Intellisense-for-Vim'
+"Bundle 'vim-scripts/VimLite'
 " Bundle 'Rainbow Parenthsis Bundle'
 " Bundle 'L9'
 " Bundle 'FuzzyFinder'
@@ -247,8 +250,8 @@ set guifont=Anonymous\ 10  " Don't use pro, get it from (http://cooltext.com/Dow
 " Default size of window
 set columns=100
 set lines=70
-set go-=m
-set go-=T
+"set go-=m
+"set go-=T
  
 " Tab headings
 set gtl=%t gtt=%F
