@@ -244,7 +244,7 @@ end
 set anti " Antialias font
 "set guifont=Lucida\ Console\ Semi-Condensed\ 11 " topcoder like font.
 "set guifont=Monaco\ 11	"TextMate (Mac) like font.
-set guifont=Anonymous\ 10  " Don't use pro, get it from (http://cooltext.com/Download-Font-Anonymous)
+set guifont=Anonymous\ 9  " Don't use pro, get it from (http://cooltext.com/Download-Font-Anonymous)
 "set transparency=0
  
 " Default size of window
@@ -384,8 +384,8 @@ nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 " Easy window navigation
 map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
+map <C-j> <C-w>j<C-w>_
+map <C-k> <C-w>k<C-w>_
 map <C-l> <C-w>l
 
 " Tired of clearing highlighted searches by searching for “ldsfhjkhgakjks”
@@ -469,3 +469,19 @@ set iskeyword+=:
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "let g:miniBufExplModSelTarget = 1
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Switching tabs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+map <C-S-]> gt
+map <C-S-[> gT
+map <C-1> 1gt
+map <C-2> 2gt
+map <C-3> 3gt
+map <C-4> 4gt
+map <C-5> 5gt
+map <C-6> 6gt
+map <C-7> 7gt
+map <C-8> 8gt
+map <C-9> 9gt
+map <C-0> :tablast<CR>
