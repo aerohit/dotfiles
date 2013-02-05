@@ -1,10 +1,1 @@
 export EDITOR=gvim
-export PATH=$PATH:~/bin:/usr/local/texlive/2012/bin/x86_64-linux
-ILODGE=~/ilodge
-if [ -d $ILODGE ]; then
-    export AWS_CREDENTIAL_FILE=$ILODGE/scripts/aws_credentials
-    export PATH="$PATH:$ILODGE/scripts/elasticbeanstalk-cli/bin"
-else
-    echo "The ilodge directory doesn't exist"
-    echo "Fix this message in dotfiles/bash/env"
-fi

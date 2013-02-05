@@ -39,30 +39,27 @@ Bundle 'gmarik/vundle'
 " original repos on github
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'msanders/snipmate.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-rvm'
+" Bundle 'msanders/snipmate.vim'
+" Bundle 'tpope/vim-surround'
+" Bundle 'tpope/vim-rvm'
 Bundle 'flazz/vim-colorschemes'
-Bundle 'sjl/splice.vim'
-Bundle 'othree/html5.vim'
-Bundle 'othree/html5-syntax.vim'
+" Bundle 'sjl/splice.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neocomplcache-snippets-complete'
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'spolu/dwm.vim'
+" Bundle 'spolu/dwm.vim'
 " vim-scripts repos
-Bundle 'YankRing.vim'
-Bundle 'vim-scripts/c.vim'
-Bundle 'vim-scripts/Intellisense-for-Vim'
-"Bundle 'vim-scripts/VimLite'
+" Bundle 'YankRing.vim'
+" Bundle 'vim-scripts/c.vim'
+" Bundle 'vim-scripts/Intellisense-for-Vim'
+" Bundle 'vim-scripts/VimLite'
 " Bundle 'Rainbow Parenthsis Bundle'
 " Bundle 'L9'
 " Bundle 'FuzzyFinder'
 " Bundle 'rails.vim'
+Bundle 'Valloric/YouCompleteMe'
 
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
@@ -108,7 +105,7 @@ syntax on " syntax highlighting
 " colorscheme ir_black
 " colorscheme adobe
 " colorscheme solarized
-colorscheme topfunky-light 
+" colorscheme topfunky-light 
 
 " Files/Backups Directories ****************************************************
 "set backup				" make backup file
@@ -213,8 +210,8 @@ let NERDTreeMouseMode=1
 "set complete=.,w,b,u,t,k
 "let g:AutoComplPop_CompleteOption = '.,w,b,u,t,k'
 "set complete=.
-let g:AutoComplPop_IgnoreCaseOption = 0
-let g:AutoComplPop_BehaviorKeywordLength = 2
+"let g:AutoComplPop_IgnoreCaseOption = 0
+"let g:AutoComplPop_BehaviorKeywordLength = 2
  
 " -----------------------------------------------------------------------------
 " | VIM Settings |
