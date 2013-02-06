@@ -38,11 +38,13 @@ Bundle 'gmarik/vundle'
 "
 " original repos on github
 Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'scrooloose/nerdcommenter'
 " Bundle 'msanders/snipmate.vim'
 " Bundle 'tpope/vim-surround'
 " Bundle 'tpope/vim-rvm'
 Bundle 'flazz/vim-colorschemes'
+Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
 " Bundle 'sjl/splice.vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'Lokaltog/vim-powerline'
@@ -99,9 +101,9 @@ set backspace=indent,eol,start
 
 " Colors **********************************************************************
 set t_Co=256 " 256 colors
-set background=dark
+" set background=dark
 syntax on " syntax highlighting
-" colorscheme wuye
+colorscheme Frontier
 " colorscheme ir_black
 " colorscheme adobe
 " colorscheme solarized
@@ -241,7 +243,7 @@ end
 set anti " Antialias font
 "set guifont=Lucida\ Console\ Semi-Condensed\ 11 " topcoder like font.
 "set guifont=Monaco\ 11	"TextMate (Mac) like font.
-set guifont=Anonymous\ 9  " Don't use pro, get it from (http://cooltext.com/Download-Font-Anonymous)
+set guifont=Inconsolata:h14  " Don't use pro, get it from (http://cooltext.com/Download-Font-Anonymous)
 "set transparency=0
  
 " Default size of window
@@ -366,7 +368,8 @@ map ,b :FuzzyFinderBuffer<CR>
 "let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
  
 " NERDTree ********************************************************************
-:noremap ,n :NERDTreeToggle<CR>
+" :noremap ,n :NERDTreeToggle<CR>
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
  
 "Vertical split then hop to new buffer ****************************************
 :noremap ,v :vsp^M^W^W<cr>
@@ -458,27 +461,3 @@ set iskeyword+=:
 
 "The default settings in Latex-Suite are defined in $VIM/ftplugin/latex-suite/texrc.
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Minibufexpl
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
-"let g:miniBufExplModSelTarget = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Switching tabs
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-map <C-S-]> gt
-map <C-S-[> gT
-map <C-1> 1gt
-map <C-2> 2gt
-map <C-3> 3gt
-map <C-4> 4gt
-map <C-5> 5gt
-map <C-6> 6gt
-map <C-7> 7gt
-map <C-8> 8gt
-map <C-9> 9gt
-map <C-0> :tablast<CR>
