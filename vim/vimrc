@@ -103,7 +103,7 @@ set backspace=indent,eol,start
 set t_Co=256 " 256 colors
 " set background=dark
 syntax on " syntax highlighting
-colorscheme Frontier
+" colorscheme Frontier
 " colorscheme ir_black
 " colorscheme adobe
 " colorscheme solarized
