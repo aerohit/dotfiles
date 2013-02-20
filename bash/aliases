@@ -1,6 +1,10 @@
 # Bash
 alias sb='. ~/bin/dotfiles/bashrc' # source bashrc
-alias ea='gvim ~/bin/dotfiles/bash/aliases &'
+if command -v gvim; then
+    alias ea='gvim ~/bin/dotfiles/bash/aliases &'
+else 
+    alias ea='vim ~/bin/dotfiles/bash/aliases &'
+fi
 
 # Package managers
 alias apti='sudo apt-get install'
@@ -25,7 +29,6 @@ alias mcr='rm -r ~/.m2/repository/com/ilodge; cd third-party; ant install; ..'
 # Directories
 alias ..='cd ..'
 alias cdd='cd -'
-alias cdil='cd ~/ilodge'
 alias cddot='cd ~/bin/dotfiles'
 alias cdblog='cd ~/codes/sinatra/aerohitblog'
 
@@ -41,9 +44,39 @@ alias extmon='xrandr --output VGA1 --primary; xrandr --output LVDS1 --off'
 alias lapmon='xrandr --output LVDS1 --primary; xrandr --output VGA1 --off'
 
 # Text editors / IDEs
-alias eccdt='~/Downloads/eclipse_cdt/eclipse'
-alias ecjuno='~/Downloads/eclipse_juno/eclipse'
 alias sublime='~/Downloads/Sublime\ Text\ 2/sublime_text &'
 
 # Compilers
 alias sg++='g++ -g -Wall -Wextra -Winit-self -Wold-style-cast -Woverloaded-virtual -Wuninitialized -Wmissing-declarations -Winit-self -ansi -pedantic'
+
+# Grid5K
+# Have to figure out a more elegant way for each of the functions
+function wjobid {
+    local  __resultvar=$1
+    local  myresult=$(oargridstat | head -n 1 | cut -d' ' -f 3 | cut -d':' -f 1)
+    if [[ $# == 1 ]]; then
+	eval $__resultvar="'$myresult'"
+    else
+	echo "$myresult"
+    fi
+}
+
+function wlistnodes {
+    local jobid=$(wjobid)
+    if [[ $jobid == "" ]]; then
+	echo "No job running"
+    else
+    # can the ordering of greps be optimized
+	oargridstat -l $jobid | sort | uniq | grep -v '^$'
+    fi
+}
+
+function wdeljob {
+    local jobid=$(wjobid)
+    if [[ $jobid == "" ]]; then
+	echo "No job running"
+    else
+    # can the ordering of greps be optimized
+	oargriddel $jobid 
+    fi
+}
