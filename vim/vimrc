@@ -104,6 +104,9 @@ set t_Co=256 " 256 colors
 " set background=dark
 syntax on " syntax highlighting
 " colorscheme Frontier
+if has('gui_running')
+    colorscheme Frontier
+endif
 " colorscheme ir_black
 " colorscheme adobe
 " colorscheme solarized

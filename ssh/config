@@ -1,5 +1,15 @@
-# CAUTION: This is on public repository, disable password access
-Host myserver
-	HostName aerohit.heroku.com
-	User aerohi
-	Port 2332
+Host g5k
+    User rsaxena
+    Hostname access.grid5000.fr
+    ForwardAgent no
+    IdentityFile ~/.ssh/personalid
+
+# Automatic connection to hosts within Grid'5000, and not reachable direction on SSH tcp port 22
+Host *.g5k
+    User rsaxena
+    ProxyCommand ssh g5k "nc -q 0 `basename %h .g5k` %p"
+    ForwardAgent no
+    IdentityFile ~/.ssh/personalid
+
+Host *.github.com
+    IdentityFile ~/.ssh/personalid

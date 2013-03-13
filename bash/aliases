@@ -69,3 +69,8 @@ function wdeljob {
 function wcheckservices {
     taktuk -f $1 broadcast exec [ 'ps aux | grep blobseer | grep -v grep' ]
 }
+
+# Copying to servers
+function copytorennes {
+    scp -r $1 rsaxena@access.grid5000.fr:~/rennes
+}
