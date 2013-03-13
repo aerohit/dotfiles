@@ -51,32 +51,21 @@ alias sg++='g++ -g -Wall -Wextra -Winit-self -Wold-style-cast -Woverloaded-virtu
 
 # Grid5K
 # Have to figure out a more elegant way for each of the functions
-function wjobid {
-    local  __resultvar=$1
-    local  myresult=$(oargridstat | head -n 1 | cut -d' ' -f 3 | cut -d':' -f 1)
-    if [[ $# == 1 ]]; then
-	eval $__resultvar="'$myresult'"
-    else
-	echo "$myresult"
-    fi
+function wjobids {
+    oargridstat | grep Reservation | cut -d' ' -f 3 | cut -d':' -f 1
 }
 
 function wlistnodes {
-    local jobid=$(wjobid)
-    if [[ $jobid == "" ]]; then
-	echo "No job running"
-    else
-    # can the ordering of greps be optimized
+    for jobid in $(wjobids); do 
+	echo "Job: $jobid"
 	oargridstat -l $jobid | sort | uniq | grep -v '^$'
-    fi
+    done
 }
 
 function wdeljob {
-    local jobid=$(wjobid)
-    if [[ $jobid == "" ]]; then
-	echo "No job running"
-    else
-    # can the ordering of greps be optimized
-	oargriddel $jobid 
-    fi
+    echo "Not implemented"
+}
+
+function wcheckservices {
+    taktuk -f $1 broadcast exec [ 'ps aux | grep blobseer | grep -v grep' ]
 }
