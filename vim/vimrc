@@ -62,6 +62,7 @@ Bundle 'Lokaltog/vim-powerline'
 " Bundle 'FuzzyFinder'
 " Bundle 'rails.vim'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'wincent/Command-T'
 
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
