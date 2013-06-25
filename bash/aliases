@@ -58,7 +58,7 @@ function wjobids {
 function wlistnodes {
     for jobid in $(wjobids); do 
 	echo "Job: $jobid"
-	oargridstat -l $jobid | sort | uniq | grep -v '^$'
+	oargridstat -w -l $jobid | sort | uniq | grep -v '^$'
     done
 }
 
@@ -73,4 +73,19 @@ function wcheckservices {
 # Copying to servers
 function copytorennes {
     scp -r $1 rsaxena@access.grid5000.fr:~/rennes
+}
+
+function mygrep {
+    grep --exclude-dir=".svn" -I -r $* *;
+}
+
+function analyze_log {
+    cat $1 | grep FINISH | sed -e 's/^.*elapsed:\(.*\) us.*/\1/' -e 's/00:00://' | awk 'NR == 1 { max=$1; min=$1; sum=0 }  { if ($1>max) max=$1; if ($1<min) min=$1; sum+=$1;} END {printf "Case %d Min: %f\tMax: %f\tAverage: %f\n", NR, min, max, sum/NR}'
+}
+
+function syncdeploy {
+    for var in "$@"; do
+	echo "$var"
+	rsync --delete -aP ~/deploy $var:~;
+    done
 }

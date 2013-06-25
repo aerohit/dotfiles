@@ -104,7 +104,7 @@ set backspace=indent,eol,start
 set t_Co=256 " 256 colors
 " set background=dark
 syntax on " syntax highlighting
-" colorscheme Frontier
+colorscheme solarized
 if has('gui_running')
     colorscheme Frontier
 endif
@@ -120,7 +120,7 @@ endif
 "set directory=~/backup/vim/swap	" Set Swap directory
 set nobackup
 set noswapfile
-
+set wildignore+=CMakeFiles
 
 " Sets path to directory buffer was loaded from
 autocmd BufEnter * lcd %:p:h
