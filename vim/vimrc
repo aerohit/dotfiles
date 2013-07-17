@@ -23,6 +23,8 @@
 " | Put machine/user specific settings in ~/.vimrc.local |
 " -----------------------------------------------------------------------------
 
+set hidden
+
 " Vundle settings ******************************************************************
 set nocompatible               " be iMproved
 filetype off                   " required!
@@ -58,11 +60,14 @@ Bundle 'Lokaltog/vim-powerline'
 " Bundle 'vim-scripts/Intellisense-for-Vim'
 " Bundle 'vim-scripts/VimLite'
 " Bundle 'Rainbow Parenthsis Bundle'
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'LustyExplorer'
 " Bundle 'rails.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'wincent/Command-T'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
@@ -106,7 +111,7 @@ set t_Co=256 " 256 colors
 syntax on " syntax highlighting
 " colorscheme Frontier
 if has('gui_running')
-    colorscheme Frontier
+    colorscheme solarized
 endif
 " colorscheme ir_black
 " colorscheme adobe
@@ -209,6 +214,9 @@ let NERDTreeMouseMode=1
 "let g:snip_elem_delim = ":"
 "let g:snip_set_textmate_cp = '1' " Tab to expand snippets, not automatically.
  
+
+" gist-vim ***************************************************************
+let g:gist_open_browser_after_post = 1
  
 
 " autocomplpop ***************************************************************
@@ -281,14 +289,14 @@ set title           	" show title in console title bar.
 set history=50		" fifty lines of command line history.
 set showmode		" show current-mode.
 set showcmd		" show partially-typed commands.
-
+set noautochdir		" configured for command-T
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim UI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set ruler		" highlights the current line.
-set nu			" displays line numbers.
+set rnu			" displays line numbers.
 set lsp=0 		" space it out a little more (easier to read).
 set cmdheight=1 	" the command bar is 2 high.
 set mouse=a 		" use mouse everywhere.
@@ -465,3 +473,9 @@ set iskeyword+=:
 
 "The default settings in Latex-Suite are defined in $VIM/ftplugin/latex-suite/texrc.
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Run current file in ruby
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+imap <Leader>rr <ESC>:!ruby %<CR>
+nmap <Leader>rr :!ruby %<CR>

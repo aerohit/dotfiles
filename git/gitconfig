@@ -1,6 +1,7 @@
 [user]
-  name = Rohit Saxena
-  email = aerohit.saxena@gmail.com
+	name = Rohit Saxena
+	user = aerohit
+	email = aerohit.saxena@gmail.com
 
 [merge]
   tool = threesome
@@ -46,3 +47,13 @@
 [giggle]
 	main-window-maximized = true
 	main-window-geometry = 700x550+0+24
+[core]
+	excludesfile = /Users/rsaxena/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[github]
+	user = aerohit

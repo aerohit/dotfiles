@@ -13,3 +13,10 @@ Host *.g5k
 
 Host *.github.com
     IdentityFile ~/.ssh/personalid
+
+Host heroku.com
+Hostname heroku.com
+    Port 22 
+    IdentitiesOnly yes 
+    IdentityFile ~/.ssh/personalid
+    TCPKeepAlive yes 

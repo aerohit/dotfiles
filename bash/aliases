@@ -74,3 +74,5 @@ function wcheckservices {
 function copytorennes {
     scp -r $1 rsaxena@access.grid5000.fr:~/rennes
 }
+#alias gnuplot=/Applications/Gnuplot.app/Contents/Resources/bin/gnuplot
+alias gnuplot=/usr/local/Cellar/gnuplot/4.6.3/bin/gnuplot
