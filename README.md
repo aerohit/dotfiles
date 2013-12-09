@@ -8,6 +8,10 @@ Create a symbolic link for ssh config as follows:
 
     ln -s ~/bin/dotfiles/ssh/config ~/.ssh/config
 
+Create a symbolic link for slate config as follows:
+
+    ln -s ~/bin/dotfiles/ssh/slate ~/.slate
+
 For configuring vim:
 
     ln -s ~/bin/dotfiles/vim/vimrc ~/.vimrc
