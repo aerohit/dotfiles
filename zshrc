@@ -23,6 +23,5 @@ function send_notification {
 # Load required functions.
 autoload -Uz add-zsh-hook
 
-# Add hook for calling git-info before each command.
 add-zsh-hook preexec timer_start
 add-zsh-hook precmd timer_stop

@@ -45,6 +45,7 @@ Bundle 'scrooloose/nerdcommenter'
 " Bundle 'msanders/snipmate.vim'
 " Bundle 'tpope/vim-surround'
 " Bundle 'tpope/vim-rvm'
+Bundle 'tpope/vim-rails'
 Bundle 'flazz/vim-colorschemes'
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
 " Bundle 'sjl/splice.vim'
@@ -64,10 +65,11 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'LustyExplorer'
 " Bundle 'rails.vim'
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 Bundle 'wincent/Command-T'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
+Bundle 'thoughtbot/vim-rspec'
 
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
@@ -255,7 +257,8 @@ end
 set anti " Antialias font
 "set guifont=Lucida\ Console\ Semi-Condensed\ 11 " topcoder like font.
 "set guifont=Monaco\ 11	"TextMate (Mac) like font.
-set guifont=Inconsolata:h14  " Don't use pro, get it from (http://cooltext.com/Download-Font-Anonymous)
+"set guifont=Inconsolata:h14  " Don't use pro, get it from (http://cooltext.com/Download-Font-Anonymous)
+set guifont=Monaco:h12  " Don't use pro, get it from (http://cooltext.com/Download-Font-Anonymous)
 "set transparency=0
  
 " Default size of window
@@ -289,7 +292,6 @@ set title           	" show title in console title bar.
 set history=50		" fifty lines of command line history.
 set showmode		" show current-mode.
 set showcmd		" show partially-typed commands.
-set noautochdir		" configured for command-T
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim UI
@@ -479,3 +481,4 @@ set iskeyword+=:
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 imap <Leader>rr <ESC>:!ruby %<CR>
 nmap <Leader>rr :!ruby %<CR>
+set noautochdir		" configured for command-T
