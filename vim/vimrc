@@ -23,6 +23,12 @@
 " | Put machine/user specific settings in ~/.vimrc.local |
 " -----------------------------------------------------------------------------
 
+" Auto-reload vimrc ******************************************************************
+augroup reload_vimrc " {
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
+
 set hidden
 
 " Vundle settings ******************************************************************
@@ -42,6 +48,8 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'amix/vim-zenroom'
+Bundle 'bling/vim-airline'
 " Bundle 'msanders/snipmate.vim'
 " Bundle 'tpope/vim-surround'
 " Bundle 'tpope/vim-rvm'
@@ -52,7 +60,7 @@ Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'Lokaltog/vim-powerline'
 " Bundle 'tpope/vim-fugitive'
-" Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Bundle 'spolu/dwm.vim'
 " vim-scripts repos
@@ -70,6 +78,7 @@ Bundle 'wincent/Command-T'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'thoughtbot/vim-rspec'
+Bundle 'tpope/vim-cucumber'
 
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
@@ -91,21 +100,21 @@ filetype plugin indent on     " required!
 " Scrollbars ******************************************************************
 set sidescrolloff=2
 set numberwidth=4
- 
+
 " Shell ******************************************************************
 set shell=/bin/bash
 
 " Windows *********************************************************************
 set equalalways " Multiple windows, when created, are equal in size
 set splitbelow splitright
- 
+
 
 " Cursor highlights ***********************************************************
 set cursorline
 set cursorcolumn
 " match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
 set backspace=indent,eol,start
- 
+
 
 " Colors **********************************************************************
 set t_Co=256 " 256 colors
@@ -133,24 +142,24 @@ set wildignore+=CMakeFiles
 autocmd BufEnter * lcd %:p:h
 
 "set makeef=error.err " When using make, where should it dump the file
- 
- 
+
+
 " Sessions ********************************************************************
 " Sets what is saved when you save a session
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
- 
- 
+
+
 " Invisible characters *********************************************************
 set listchars=trail:.,tab:>-,eol:$
 set nolist
- 
- 
+
+
 " Mouse ***********************************************************************
 "set mouse=a " Enable the mouse
 "behave xterm
 "set selectmode=mouse
- 
- 
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Omnicompletion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -171,8 +180,8 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 let g:rsenseUseOmniFunc = 1
 " Cucumber syntax highlight
-au Bufread,BufNewFile *.feature set filetype=gherkin
-au! Syntax gherkin source ~/.vim/cucumber.vim
+" au Bufread,BufNewFile *.feature set filetype=gherkin
+" au! Syntax gherkin source ~/.vim/cucumber.vim
 "improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
 
@@ -197,29 +206,35 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
-
 " -----------------------------------------------------------------------------
 " | Plug-ins |
 " -----------------------------------------------------------------------------
- 
+
 " User instead of Netrw when doing an edit /foobar
 let NERDTreeHijackNetrw=1
- 
+
 " Single click for everything
 let NERDTreeMouseMode=1
- 
- 
+
+" -----------------------------------------------------------------------------
+" | Rspec |
+" -----------------------------------------------------------------------------
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+
 " SnippetsEmu *****************************************************************
 "imap <unique> <C-j> <Plug>Jumper
 "let g:snip_start_tag = "_\."
 "let g:snip_end_tag = "\._"
 "let g:snip_elem_delim = ":"
 "let g:snip_set_textmate_cp = '1' " Tab to expand snippets, not automatically.
- 
+
 
 " gist-vim ***************************************************************
 let g:gist_open_browser_after_post = 1
- 
+
 
 " autocomplpop ***************************************************************
 " complete option
@@ -228,31 +243,31 @@ let g:gist_open_browser_after_post = 1
 "set complete=.
 "let g:AutoComplPop_IgnoreCaseOption = 0
 "let g:AutoComplPop_BehaviorKeywordLength = 2
- 
+
 " -----------------------------------------------------------------------------
 " | VIM Settings |
 " | GUI stuff |
 " -----------------------------------------------------------------------------
- 
- 
+
+
 " OS Specific *****************************************************************
 if has("gui_macvim")
- 
-  set fuoptions=maxvert,maxhorz " fullscreen options (MacVim only), resized window when changed to fullscreen
-"  set guifont=Monaco:h13
-  set guioptions-=T " remove toolbar
-  set stal=2 " turn on tabs by default
- 
+
+    set fuoptions=maxvert,maxhorz " fullscreen options (MacVim only), resized window when changed to fullscreen
+    "  set guifont=Monaco:h13
+    set guioptions-=T " remove toolbar
+    set stal=2 " turn on tabs by default
+
 elseif has("gui_gtk2")
- 
-"  set guifont=Monaco
-"  set guioptions-=T " remove toolbar
-"  set guioptions-=m " remove menubar
- 
+
+    "  set guifont=Monaco
+    "  set guioptions-=T " remove toolbar
+    "  set guioptions-=m " remove menubar
+
 elseif has("x11")
 elseif has("gui_win32")
 end
- 
+
 " General *********************************************************************
 set anti " Antialias font
 "set guifont=Lucida\ Console\ Semi-Condensed\ 11 " topcoder like font.
@@ -260,13 +275,13 @@ set anti " Antialias font
 "set guifont=Inconsolata:h14  " Don't use pro, get it from (http://cooltext.com/Download-Font-Anonymous)
 set guifont=Monaco:h12  " Don't use pro, get it from (http://cooltext.com/Download-Font-Anonymous)
 "set transparency=0
- 
+
 " Default size of window
 set columns=100
 set lines=70
 "set go-=m
 "set go-=T
- 
+
 " Tab headings
 set gtl=%t gtt=%F
 
@@ -380,15 +395,15 @@ noremap <Del> 25<C-E>		" scroll-down using Delete -ditto-
 map ,f :FuzzyFinderTextMate<CR>
 map ,b :FuzzyFinderBuffer<CR>
 "let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
- 
+
 " NERDTree ********************************************************************
 " :noremap ,n :NERDTreeToggle<CR>
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
- 
+
 "Vertical split then hop to new buffer ****************************************
 :noremap ,v :vsp^M^W^W<cr>
 :noremap ,h :split^M^W^W<cr>
- 
+
 " Inser New Line **************************************************************
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 "nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
@@ -420,7 +435,7 @@ map <F2> :tabnew $MYVIMRC <CR>
 map <F9> :!make <CR>
 " autocmd FileType java map <F5> :!javac %<CR>
 " autocmd FileType java map <F6> :!java  %<CR>
- 
+
 " Cursor Movement *************************************************************
 " Make cursor move by visual lines instead of file lines (when wrapping)
 " map <up> gk
@@ -430,7 +445,7 @@ map <F9> :!make <CR>
 " map j gj
 " imap <down> <C-o>gj
 " map E ge
- 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Comments
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

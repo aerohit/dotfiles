@@ -33,3 +33,7 @@ For configuring ZSH, first clone [oh-my-zsh](https://github.com/robbyrussell/oh-
 For configuring default gemrc (Gemfile):
 
     ln -s ~/bin/dotfiles/gemrc ~/.gemrc 
+
+For configuring default rspec
+
+    ln -s ~/bin/dotfiles/rspec .rspec

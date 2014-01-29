@@ -11,8 +11,48 @@ alias apti='sudo apt-get install'
 alias aptu='sudo apt-get update'
 alias apts='apt-cache search'
 
+# Pretty print path
+function path(){
+    old=$IFS
+    IFS=:
+    printf "%s\n" $PATH
+    IFS=$old
+}
+
 # Git
 alias g='git'
+
+# Hadoop
+
+alias hhls='hadoop dfs -ls'
+alias hhlsr='hadoop dfs -lsr'
+alias hhdu='hadoop dfs -du'
+alias hhdus='hadoop dfs -dus'
+alias hhcount='hadoop dfs -count'
+alias hhmv='hadoop dfs -mv'
+alias hhcp='hadoop dfs -cp'
+alias hhrm='hadoop dfs -rm'
+alias hhrmr='hadoop dfs -rmr'
+alias hhexpunge='hadoop dfs -expunge'
+alias hhput='hadoop dfs -put'
+alias hhcopyFromLocal='hadoop dfs -copyFromLocal'
+alias hhmoveFromLocal='hadoop dfs -moveFromLocal'
+alias hhget='hadoop dfs -get'
+alias hhgetmerge='hadoop dfs -getmerge'
+alias hhcat='hadoop dfs -cat'
+alias hhtext='hadoop dfs -text'
+alias hhcopyToLocal='hadoop dfs -copyToLocal'
+alias hhmoveToLocal='hadoop dfs -moveToLocal'
+alias hhmkdir='hadoop dfs -mkdir'
+alias hhsetrep='hadoop dfs -setrep'
+alias hhtouchz='hadoop dfs -touchz'
+alias hhtest='hadoop dfs -test'
+alias hhstat='hadoop dfs -stat'
+alias hhtail='hadoop dfs -tail'
+alias hhchmod='hadoop dfs -chmod'
+alias hhchown='hadoop dfs -chown'
+alias hhchgrp='hadoop dfs -chgrp'
+alias hhhelp='hadoop dfs -help'
 
 # Maven
 alias mi='mvn install'
@@ -72,7 +112,7 @@ function wcheckservices {
 
 # Copying to servers
 function copytorennes {
-    scp -r $1 rsaxena@access.grid5000.fr:~/rennes
+    scp -r $1 rennes.g5k:~
 }
 
 #alias gnuplot=/Applications/Gnuplot.app/Contents/Resources/bin/gnuplot
