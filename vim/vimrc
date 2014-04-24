@@ -1,439 +1,215 @@
 " -----------------------------------------------------------------------------*
-" | VIM Settings |*
-" | (see gvimrc for gui vim settings) |*
-" | |*
-" | Some highlights: |*
-" | jj = <esc> Very useful for keeping your hands on the home row |*
-" | ,n = toggle NERDTree off and on |*
-" | |*
-" | ,f = fuzzy find all files |*
-" | ,b = fuzzy find in all buffers |*
-" | |*
-" | hh = inserts '=>' |*
-" | aa = inserts '@' |*
-" | |*
-" | ,h = new horizontal window |*
-" | ,v = new vertical window |*
-" | |*
-" | ,i = toggle invisibles |*
-" | |*
-" | :call Tabstyle_tabs = set tab to real tabs |*
-" | :call Tabstyle_spaces = set tab to 2 spaces |*
-" | |
-" | Put machine/user specific settings in ~/.vimrc.local |
+" | VIM Settings
+" | \n = toggle NERDTree off and on
+" | jk = <esc> Very useful for keeping your hands on the home row
+" | hh = inserts '=>'
+" | aa = inserts '@'
+" | uu = inserts '_'
+" | ,h = new horizontal window
+" | ,v = new vertical window
+" | ,i = toggle invisibles
+" | F2 = opens $MYVIMRC
 " -----------------------------------------------------------------------------
 
 set hidden
 
-" Vundle settings ******************************************************************
+""""" Vundle settings 
 set nocompatible               " be iMproved
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" let Vundle manage Vundle
-" required! 
 Bundle 'gmarik/vundle'
-
-" My Bundles here:
-"
-" original repos on github
 Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'scrooloose/nerdcommenter'
-" Bundle 'msanders/snipmate.vim'
-" Bundle 'tpope/vim-surround'
-" Bundle 'tpope/vim-rvm'
-Bundle 'tpope/vim-rails'
+Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimproc.vim'
 Bundle 'flazz/vim-colorschemes'
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
-" Bundle 'sjl/splice.vim'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'Lokaltog/vim-powerline'
-" Bundle 'tpope/vim-fugitive'
-" Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Bundle 'spolu/dwm.vim'
-" vim-scripts repos
-" Bundle 'YankRing.vim'
-" Bundle 'vim-scripts/c.vim'
-" Bundle 'vim-scripts/Intellisense-for-Vim'
-" Bundle 'vim-scripts/VimLite'
-" Bundle 'Rainbow Parenthsis Bundle'
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'LustyExplorer'
-" Bundle 'rails.vim'
-" Bundle 'Valloric/YouCompleteMe'
-Bundle 'wincent/Command-T'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'thoughtbot/vim-rspec'
-
-" non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
-" ...
-
-filetype plugin indent on     " required! 
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
-
-" Vundle settings end here ******************************************************************
-
-" Scrollbars ******************************************************************
-set sidescrolloff=2
-set numberwidth=4
- 
-" Shell ******************************************************************
-set shell=/bin/bash
-
-" Windows *********************************************************************
-set equalalways " Multiple windows, when created, are equal in size
-set splitbelow splitright
- 
-
-" Cursor highlights ***********************************************************
-set cursorline
-set cursorcolumn
-" match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
-set backspace=indent,eol,start
- 
-
-" Colors **********************************************************************
-set t_Co=256 " 256 colors
-" set background=dark
-syntax on " syntax highlighting
-colorscheme solarized
-if has('gui_running')
-    colorscheme solarized
-endif
-" colorscheme ir_black
-" colorscheme adobe
-" colorscheme solarized
-" colorscheme topfunky-light 
-
-" Files/Backups Directories ****************************************************
-"set backup				" make backup file
-"set backupdir=~/backup/vim
-"set directory=$VIM\vimfiles\temp	" directory is the directory for temp file
-"set directory=~/backup/vim/swap	" Set Swap directory
-set nobackup
-set noswapfile
-set wildignore+=CMakeFiles
-
-" Sets path to directory buffer was loaded from
-autocmd BufEnter * lcd %:p:h
-
-"set makeef=error.err " When using make, where should it dump the file
- 
- 
-" Sessions ********************************************************************
-" Sets what is saved when you save a session
-set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
- 
- 
-" Invisible characters *********************************************************
-set listchars=trail:.,tab:>-,eol:$
-set nolist
- 
- 
-" Mouse ***********************************************************************
-"set mouse=a " Enable the mouse
-"behave xterm
-"set selectmode=mouse
- 
- 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Omnicompletion
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set ofu=syntaxcomplete#Complete
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags, shiftwidth=2
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-let g:pydiction_location = '/home/rohits/.vim/pydiction-1.2/complete-dict'
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
-" May require ruby compiled in
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete, shiftwidth=2
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-let g:rsenseUseOmniFunc = 1
-" Cucumber syntax highlight
-au Bufread,BufNewFile *.feature set filetype=gherkin
-au! Syntax gherkin source ~/.vim/cucumber.vim
-"improve autocomplete menu color
-highlight Pmenu ctermbg=238 gui=bold
-
-" configure tags - add additional tags here or comment out not-used ones
-set tags+=~/.vim/tags/cpp
-"set tags+=~/.vim/tags/gl
-"set tags+=~/.vim/tags/sdl
-"set tags+=~/.vim/tags/qt4
-" build tags of your own project with Ctrl-F12
-map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-
-" OmniCppComplete
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-" automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
-
-
-" -----------------------------------------------------------------------------
-" | Plug-ins |
-" -----------------------------------------------------------------------------
- 
-" User instead of Netrw when doing an edit /foobar
-let NERDTreeHijackNetrw=1
- 
-" Single click for everything
-let NERDTreeMouseMode=1
- 
- 
-" SnippetsEmu *****************************************************************
-"imap <unique> <C-j> <Plug>Jumper
-"let g:snip_start_tag = "_\."
-"let g:snip_end_tag = "\._"
-"let g:snip_elem_delim = ":"
-"let g:snip_set_textmate_cp = '1' " Tab to expand snippets, not automatically.
- 
-
-" gist-vim ***************************************************************
-let g:gist_open_browser_after_post = 1
- 
-
-" autocomplpop ***************************************************************
-" complete option
-"set complete=.,w,b,u,t,k
-"let g:AutoComplPop_CompleteOption = '.,w,b,u,t,k'
-"set complete=.
-"let g:AutoComplPop_IgnoreCaseOption = 0
-"let g:AutoComplPop_BehaviorKeywordLength = 2
- 
-" -----------------------------------------------------------------------------
-" | VIM Settings |
-" | GUI stuff |
-" -----------------------------------------------------------------------------
- 
- 
-" OS Specific *****************************************************************
-if has("gui_macvim")
- 
-  set fuoptions=maxvert,maxhorz " fullscreen options (MacVim only), resized window when changed to fullscreen
-"  set guifont=Monaco:h13
-  set guioptions-=T " remove toolbar
-  set stal=2 " turn on tabs by default
- 
-elseif has("gui_gtk2")
- 
-"  set guifont=Monaco
-"  set guioptions-=T " remove toolbar
-"  set guioptions-=m " remove menubar
- 
-elseif has("x11")
-elseif has("gui_win32")
-end
- 
-" General *********************************************************************
-set anti " Antialias font
-"set guifont=Lucida\ Console\ Semi-Condensed\ 11 " topcoder like font.
-"set guifont=Monaco\ 11	"TextMate (Mac) like font.
-"set guifont=Inconsolata:h14  " Don't use pro, get it from (http://cooltext.com/Download-Font-Anonymous)
-set guifont=Monaco:h12  " Don't use pro, get it from (http://cooltext.com/Download-Font-Anonymous)
-"set transparency=0
- 
-" Default size of window
-set columns=100
-set lines=70
-"set go-=m
-"set go-=T
- 
-" Tab headings
-set gtl=%t gtt=%F
+Bundle 'derekwyatt/vim-scala'
+"Bundle 'vim-ruby/vim-ruby'
+"Bundle 'L9'
+"Bundle 'FuzzyFinder'
+"Bundle 'LustyExplorer'
+"Bundle 'mattn/webapi-vim'
+"Bundle 'mattn/gist-vim'
+"Bundle 'thoughtbot/vim-rspec'
+"Bundle 'Shougo/neomru.vim'
+"Bundle 'tpope/vim-rails'
+"Bundle 'tpope/vim-surround'
+"Bundle 'tpope/vim-rvm'
+"Bundle 'tpope/vim-fugitive'
+"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Bundle 'YankRing.vim'
+"Bundle 'vim-scripts/VimLite'
+"Bundle 'Rainbow Parenthsis Bundle'
+"Bundle 'rails.vim'
 
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Stuff I have decided I don't like
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set nocompatible	" incompatible with vi.
-set visualbell t_vb=    " turn off error beep/flash
-"set vb t_vb=		" avoids beeps, instead flashes screen.
-"set novisualbell	" don't blink
-"set noerrorbells	" no noises
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-filetype plugin indent on 		" detect the type of file.
-set viminfo+=!     	" make sure it can save viminfo.
-set title           	" show title in console title bar.
-set history=50		" fifty lines of command line history.
-set showmode		" show current-mode.
-set showcmd		" show partially-typed commands.
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim UI
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set ruler		" highlights the current line.
-set rnu			" displays line numbers.
-set lsp=0 		" space it out a little more (easier to read).
-set cmdheight=1 	" the command bar is 2 high.
-set mouse=a 		" use mouse everywhere.
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Visual Cues
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set showmatch 		" show matching brackets
-set mat=5 		" how many tenths of a second to blink matching brackets for
-set matchpairs+=<:>	" have % bounce between angled brackets, as well as t'other kinds.
-set laststatus=2	" always show the status line
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Search and Replace
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set hlsearch 		" highlight searched for phrases
-set incsearch 		" highlight as you type you search phrase
-set ignorecase      	" ignore case when searching. 
-set smartcase		" make case sensitive when upper-case included.
-set gdefault		" substitutions to replace all matches in a line.
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Text Formatting/Layout
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set fo=tcrqn 		" See Help (complex)
-set ai 			" autoindent
-set si 			" smartindent 
-
-" for C-like programming, have automatic indentation:
-autocmd FileType c,cpp,slang set cindent
-
-" for actual C (not C++) programming where comments have explicit end
-" characters, if starting a new line in the middle of a comment automatically
-" insert the comment leader characters:
-autocmd FileType c set formatoptions+=ro
-
-" for Perl programming, have things in braces indenting themselves:
-autocmd FileType perl set smartindent
-
-" in makefiles, don't expand tabs to spaces, since actual tab characters are
-" needed, and have indentation at 8 chars to be sure that all indents are tabs
-" (despite the mappings later):
-autocmd FileType make set noexpandtab shiftwidth=8
-
-set tabstop=8 		" tab spacing (settings below are just to unify it)
-set softtabstop=8 	" unify
-set shiftwidth=4 	" unify 
-set noexpandtab 	" real tabs please!
-set nowrap 		" do not wrap lines  
-set smarttab 		" use tabs at the start of a line, spaces elsewhere
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Folding
-"    Enable folding, but by default make it act like folding is off, because folding is annoying in anything but a few rare cases
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""set foldenable 		" Turn on folding
-""set foldmethod=indent 	" Make folding indent sensitive
-""set foldlevel=100 	" Don't autofold anything (but I can still fold manually)
-""set foldopen-=search 	" don't open folds when you search into them
-""set foldopen-=undo 	" don't open folds when you undo stuff
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Keystrokes for moving around
-
+""""" Mappings/Remappings/alternate-key-combinations
 noremap <Space> <PageDown>	" page-down with spacebar (default is like l).
 noremap <BS> <PageUp>		" page-up with backspace (default is like h).
 noremap <Ins> 25<C-Y>		" scroll-up using Insert 25 lines keeping cursor at its position.
 noremap <Del> 25<C-E>		" scroll-down using Delete -ditto-
 " [<Ins> by default is like i, and <Del> like x.]
-
-" fuzzyfinder_textmate ********************************************************
-map ,f :FuzzyFinderTextMate<CR>
-map ,b :FuzzyFinderBuffer<CR>
-"let g:fuzzy_ignore = '.o;.obj;.bak;.exe;.pyc;.pyo;.DS_Store;.db'
- 
-" NERDTree ********************************************************************
-" :noremap ,n :NERDTreeToggle<CR>
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
- 
-"Vertical split then hop to new buffer ****************************************
+" Easy window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j<C-w>_
+map <C-k> <C-w>k<C-w>_
+map <C-l> <C-w>l
+" Vertical split then hop to new buffer
 :noremap ,v :vsp^M^W^W<cr>
 :noremap ,h :split^M^W^W<cr>
- 
-" Inser New Line **************************************************************
+nmap <silent> ,/ :nohlsearch<CR>	" Turn off highlighted searches
+:noremap ,i :set list!<CR>	" Toggle invisible chars
+map T :TaskList<CR>		" Keymap for TaskList (use q to quit)
+map Y :TlistToggle<CR>		" Keymap for TagList
+imap jk <Esc>
+imap uu _
+imap hh =>
+imap aa @
+map <F2> :tabnew $MYVIMRC <CR>
+" Inser New Line
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 "nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 "nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
-" Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j<C-w>_
-map <C-k> <C-w>k<C-w>_
-map <C-l> <C-w>l
 
-" Tired of clearing highlighted searches by searching for “ldsfhjkhgakjks”
-nmap <silent> ,/ :nohlsearch<CR>
-:noremap ,i :set list!<CR> " Toggle invisible chars
 
-map T :TaskList<CR>		" Keymap for TaskList (use q to quit)
-map Y :TlistToggle<CR>		" Keymap for TagList
 
-imap jk <Esc>
-imap uu _
-imap hh =>
+""""" Appearance
+colorscheme solarized
+set anti			" Antialias font
+set guifont=Source\ Code\ Pro:h14 
+set sidescrolloff=2
+set numberwidth=4
+set equalalways			" Multiple windows, when created, are equal in size
+set splitbelow splitright
+set cursorline			" Cursor highlights
+set cursorcolumn		" Cursor highlights
+" match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
+set backspace=indent,eol,start
+syntax on			" syntax highlighting
+set t_Co=256			" 256 colors
+" Invisible characters (toggle with <,i>)
+set listchars=tab:▸\ ,eol:¬,trail:•,extends:❯,precedes:❮
+set list
+"set nolist
+set viminfo+=!			" make sure it can save viminfo.
+set title			" show title in console title bar.
+set history=50			" fifty lines of command line history.
+set showmode			" show current-mode.
+set showcmd			" show partially-typed commands.
+"set transparency=0
+" Default size of window
+set columns=100
+set lines=70
+set gtl=%t gtt=%F		" Tab headings
+set ruler			" highlights the current line.
+set rnu				" displays line numbers.
+set nu
+set lsp=0			" space it out a little more (easier to read).
+set cmdheight=1			" the command bar is 2 high.
+" Text Formatting/Layout
+set fo=tcrqn			" See Help (complex)
+set ai 				" autoindent
+set si 				" smartindent 
+" Tab settings 
+set tabstop=8 			" tab spacing (settings below are just to unify it)
+set softtabstop=8 		" unify
+set shiftwidth=4 		" unify 
+set noexpandtab 		" real tabs please!
+set nowrap 			" do not wrap lines  
+set smarttab 			" use tabs at the start of a line, spaces elsewhere
 
-map <F2> :tabnew $MYVIMRC <CR>
 
-" Compiler stuff
 
-map <F9> :!make <CR>
-" autocmd FileType java map <F5> :!javac %<CR>
-" autocmd FileType java map <F6> :!java  %<CR>
+
+
+
+""""" Behaviour
+filetype plugin indent on	" required! 
+set shell=/usr/local/bin/fish
+set nobackup
+set noswapfile
+set wildignore+=CMakeFiles
+set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize		" Sets what is saved when you save a session
+set nocompatible		" incompatible with vi.
+set visualbell t_vb=		" turn off error beep/flash
+set showmatch			" show matching brackets
+set mat=5			" how many tenths of a second to blink matching brackets for
+set matchpairs+=<:>		" have % bounce between angled brackets, as well as t'other kinds.
+set laststatus=2		" always show the status line
+autocmd BufEnter * lcd %:p:h	" Sets path to directory buffer was loaded from
+" Search and Replace
+set hlsearch			" highlight searched for phrases
+set incsearch 			" highlight as you type you search phrase
+set ignorecase      		" ignore case when searching. 
+set smartcase			" make case sensitive when upper-case included.
+set gdefault			" substitutions to replace all matches in a line.
+set mouse=a			" use mouse everywhere.
+
+
+
+
+
+""""" OS Specific
+if has("gui_macvim")
+  set fuoptions=maxvert,maxhorz " fullscreen options (MacVim only), resized window when changed to fullscreen
+  set guioptions-=T		" remove toolbar
+  set stal=2			" turn on tabs by default
+elseif has("gui_gtk2")
+elseif has("x11")
+elseif has("gui_win32")
+end
+
+
+
+
+
+""""" Plugins configuration
+""" NERDTree
+let NERDTreeHijackNetrw=1	" User instead of Netrw when doing an edit /foobar
+let NERDTreeMouseMode=1		" Single click for everything
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
  
-" Cursor Movement *************************************************************
-" Make cursor move by visual lines instead of file lines (when wrapping)
-" map <up> gk
-" map k gk
-" imap <up> <C-o>gk
-" map <down> gj
-" map j gj
-" imap <down> <C-o>gj
-" map E ge
+""" gist-vim
+let g:gist_open_browser_after_post = 1
  
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Comments
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" Unite
+let g:unite_source_history_yank_enable = 1
+call unite#custom#source('file,file/new,buffer,file_rec,file_rec/async', 'matchers', 'matcher_fuzzy')
+call unite#custom#source('file,file/new,buffer,file_rec,file_rec/async', 'sorters', 'sorter_rank')
+
+call unite#custom#source('file,file_rec,file_rec/async', 'ignore_pattern',
+      \'tmp\|vendor\|\.bundle\|target\|\.git')
+
+nnoremap <C-p> :Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
+
+nnoremap <space>f :Unite -no-split -buffer-name=files  -start-insert file<cr>
+nnoremap <space>h :Unite -no-split -buffer-name=mru    -start-insert file_mru<cr>
+nnoremap <space>o :Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap <space>/ :Unite -no-split -buffer-name=files  -start-insert grep:.<cr>
+nnoremap <space>y :Unite -no-split -buffer-name=yank    history/yank<cr>
+nnoremap <space>b :Unite -no-split -buffer-name=buffer  buffer<cr>
+
+
+
+
+""""" Scala
+au FileType scala setl sw=2 sts=2 et
+
+ 
+ 
+ 
+""""" Comments
 
 " get rid of the default style of C comments, and define a style with two stars
 " at the start of `middle' rows which (looks nicer and) avoids asterisks used
@@ -443,42 +219,13 @@ set comments-=s1:/*,mb:*,ex:*/
 set comments+=s:/*,mb:**,ex:*/
 set comments+=fb:*
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" VJde
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set cfu=VjdeCompletionFun		"setup custom completion function.
-"let g:vjde_lib_path="lib/j2ee.jar:lib/struts.jar:build/classes"		"setup classpath variable.
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TagList
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let Tlist_Ctags_Cmd='/usr/bin/ctags-exuberant'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Latex-suite
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-set grepprg=grep\ -nH\ $*
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-
-" TIP: if you write your \label's as \label{fig:something}, then if you
-" type in \ref{fig: and press <C-n> you will automatically cycle through
-" all the figure labels. Very useful!
-set iskeyword+=:
-
-"The default settings in Latex-Suite are defined in $VIM/ftplugin/latex-suite/texrc.
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Run current file in ruby
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-imap <Leader>rr <ESC>:!ruby %<CR>
-nmap <Leader>rr :!ruby %<CR>
-set noautochdir		" configured for command-T
+
+""""" Folding : enable folding, but by default make it act like folding is off, because folding is annoying in anything but a few rare cases
+
+"set foldenable 		" Turn on folding
+"set foldmethod=indent		" Make folding indent sensitive
+"set foldlevel=100 		" Don't autofold anything (but I can still fold manually)
+"set foldopen-=search 		" don't open folds when you search into them
+"set foldopen-=undo 		" don't open folds when you undo stuff
