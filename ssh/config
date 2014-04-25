@@ -20,3 +20,6 @@ Hostname heroku.com
     IdentitiesOnly yes 
     IdentityFile ~/.ssh/personalid
     TCPKeepAlive yes 
+
+Host *.elmar.nl
+    IdentityFile ~/.ssh/personalid
