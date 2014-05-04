@@ -1,6 +1,6 @@
 " -----------------------------------------------------------------------------*
 " | VIM Settings
-" | \n = toggle NERDTree off and on
+" | <leader>n = toggle NERDTree off and on
 " | jk = <esc> Very useful for keeping your hands on the home row
 " | hh = inserts '=>'
 " | aa = inserts '@'
@@ -30,8 +30,16 @@ Bundle 'Shougo/vimproc.vim'
 Bundle 'flazz/vim-colorschemes'
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
 Bundle 'Lokaltog/vim-powerline'
+"Bundle 'bling/vim-airline'
 Bundle 'derekwyatt/vim-scala'
-"Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-fugitive'
+Bundle 'ervandew/supertab'
+Bundle 'majutsushi/tagbar'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'eagletmt/ghcmod-vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'dag/vim2hs'
+Bundle 'vim-ruby/vim-ruby'
 "Bundle 'L9'
 "Bundle 'FuzzyFinder'
 "Bundle 'LustyExplorer'
@@ -42,50 +50,51 @@ Bundle 'derekwyatt/vim-scala'
 "Bundle 'tpope/vim-rails'
 "Bundle 'tpope/vim-surround'
 "Bundle 'tpope/vim-rvm'
-"Bundle 'tpope/vim-fugitive'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "Bundle 'YankRing.vim'
-"Bundle 'vim-scripts/VimLite'
 "Bundle 'Rainbow Parenthsis Bundle'
 "Bundle 'rails.vim'
 
 
 
 """"" Mappings/Remappings/alternate-key-combinations
-noremap <Space> <PageDown>	" page-down with spacebar (default is like l).
-noremap <BS> <PageUp>		" page-up with backspace (default is like h).
+nnoremap <leader>ev :tabnew $MYVIMRC <CR>
+nnoremap <leader>sv :source $MYVIMRC <CR>
+noremap <Enter> <PageDown>	" page-down with enter (default is like l).
+noremap <C-Enter> <PageUp>	" page-down with enter (default is like l).
+" <Ins> by default is like i, and <Del> like x
 noremap <Ins> 25<C-Y>		" scroll-up using Insert 25 lines keeping cursor at its position.
 noremap <Del> 25<C-E>		" scroll-down using Delete -ditto-
-" [<Ins> by default is like i, and <Del> like x.]
 " Easy window navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j<C-w>_
 map <C-k> <C-w>k<C-w>_
 map <C-l> <C-w>l
 " Vertical split then hop to new buffer
-:noremap ,v :vsp^M^W^W<cr>
-:noremap ,h :split^M^W^W<cr>
-nmap <silent> ,/ :nohlsearch<CR>	" Turn off highlighted searches
-:noremap ,i :set list!<CR>	" Toggle invisible chars
+noremap ,v :vsp^M^W^W<cr>
+noremap ,h :split^M^W^W<cr>
+nmap <Silent> ,/ :nohlsearch<CR>	" Turn off highlighted searches
+noremap ,i :set list!<CR>	" Toggle invisible chars
 map T :TaskList<CR>		" Keymap for TaskList (use q to quit)
 map Y :TlistToggle<CR>		" Keymap for TagList
 imap jk <Esc>
 imap uu _
 imap hh =>
 imap aa @
-map <F2> :tabnew $MYVIMRC <CR>
+nmap <F8> :TagbarToggle<CR>
 " Inser New Line
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 "nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 "nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
-nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
-nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+nnoremap <Silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <Silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 
 
 
 """"" Appearance
 colorscheme solarized
+set background=light
 set anti			" Antialias font
 set guifont=Source\ Code\ Pro:h14 
 set sidescrolloff=2
@@ -97,11 +106,12 @@ set cursorcolumn		" Cursor highlights
 " match LongLineWarning '\%120v.*' " Error format when a line is longer than 120
 set backspace=indent,eol,start
 syntax on			" syntax highlighting
+syntax enable
 set t_Co=256			" 256 colors
 " Invisible characters (toggle with <,i>)
 set listchars=tab:▸\ ,eol:¬,trail:•,extends:❯,precedes:❮
-set list
-"set nolist
+"set list
+set nolist
 set viminfo+=!			" make sure it can save viminfo.
 set title			" show title in console title bar.
 set history=50			" fifty lines of command line history.
@@ -113,8 +123,7 @@ set columns=100
 set lines=70
 set gtl=%t gtt=%F		" Tab headings
 set ruler			" highlights the current line.
-set rnu				" displays line numbers.
-set nu
+set nu rnu			" read "number_relativenumber" in help
 set lsp=0			" space it out a little more (easier to read).
 set cmdheight=1			" the command bar is 2 high.
 " Text Formatting/Layout
@@ -136,7 +145,7 @@ set smarttab 			" use tabs at the start of a line, spaces elsewhere
 
 """"" Behaviour
 filetype plugin indent on	" required! 
-set shell=/usr/local/bin/fish
+set shell=/bin/bash
 set nobackup
 set noswapfile
 set wildignore+=CMakeFiles
@@ -205,6 +214,8 @@ nnoremap <space>b :Unite -no-split -buffer-name=buffer  buffer<cr>
 
 """"" Scala
 au FileType scala setl sw=2 sts=2 et
+""""" Haskell
+au FileType haskell setl sw=2 sts=2 et
 
  
  
@@ -229,4 +240,3 @@ set comments+=fb:*
 "set foldlevel=100 		" Don't autofold anything (but I can still fold manually)
 "set foldopen-=search 		" don't open folds when you search into them
 "set foldopen-=undo 		" don't open folds when you undo stuff
-
