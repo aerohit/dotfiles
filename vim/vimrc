@@ -8,12 +8,11 @@
 " | ,h = new horizontal window
 " | ,v = new vertical window
 " | ,i = toggle invisibles
-" | F2 = opens $MYVIMRC
 " -----------------------------------------------------------------------------
 
 set hidden
 
-""""" Vundle settings 
+""""" Vundle settings
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -37,18 +36,23 @@ Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'eagletmt/ghcmod-vim'
-Bundle 'scrooloose/syntastic'
+"Bundle 'scrooloose/syntastic'
 Bundle 'dag/vim2hs'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/timl'
+Bundle 'sjl/tslime2.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'xolox/vim-session'
+Bundle 'xolox/vim-misc'
 "Bundle 'L9'
 "Bundle 'FuzzyFinder'
 "Bundle 'LustyExplorer'
 "Bundle 'mattn/webapi-vim'
 "Bundle 'mattn/gist-vim'
 "Bundle 'thoughtbot/vim-rspec'
-"Bundle 'Shougo/neomru.vim'
+Bundle 'Shougo/neomru.vim'
 "Bundle 'tpope/vim-rails'
-"Bundle 'tpope/vim-surround'
 "Bundle 'tpope/vim-rvm'
 "Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 "Bundle 'YankRing.vim'
@@ -60,8 +64,8 @@ Bundle 'vim-ruby/vim-ruby'
 """"" Mappings/Remappings/alternate-key-combinations
 nnoremap <leader>ev :tabnew $MYVIMRC <CR>
 nnoremap <leader>sv :source $MYVIMRC <CR>
-noremap <Enter> <PageDown>	" page-down with enter (default is like l).
-noremap <C-Enter> <PageUp>	" page-down with enter (default is like l).
+noremap <space> <PageDown>
+noremap <C-space> <PageUp>
 " <Ins> by default is like i, and <Del> like x
 noremap <Ins> 25<C-Y>		" scroll-up using Insert 25 lines keeping cursor at its position.
 noremap <Del> 25<C-E>		" scroll-down using Delete -ditto-
@@ -78,9 +82,6 @@ noremap ,i :set list!<CR>	" Toggle invisible chars
 map T :TaskList<CR>		" Keymap for TaskList (use q to quit)
 map Y :TlistToggle<CR>		" Keymap for TagList
 imap jk <Esc>
-imap uu _
-imap hh =>
-imap aa @
 nmap <F8> :TagbarToggle<CR>
 " Inser New Line
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
@@ -88,7 +89,20 @@ nmap <F8> :TagbarToggle<CR>
 "nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <Silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <Silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
-
+noremap <F2> :tabnew<CR>
+noremap <F3> :tabp<CR>
+noremap <F4> :tabn<CR>
+" special character(s)
+imap uu _
+imap hh =><Space>
+imap aa @
+autocmd FileType haskell     :imap <buffer> >> -><Space>
+autocmd FileType haskell,scala     :imap <buffer> << <-<Space>
+"inoremap ( ()<Left>
+"inoremap [ []<Left>
+"inoremap { {}<Left>
+"inoremap " ""<Left>
+"inoremap ' ''<Left>
 
 
 
@@ -96,7 +110,7 @@ nnoremap <Silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 colorscheme solarized
 set background=light
 set anti			" Antialias font
-set guifont=Source\ Code\ Pro:h14 
+set guifont=Source\ Code\ Pro:h14
 set sidescrolloff=2
 set numberwidth=4
 set equalalways			" Multiple windows, when created, are equal in size
@@ -119,7 +133,6 @@ set showmode			" show current-mode.
 set showcmd			" show partially-typed commands.
 "set transparency=0
 " Default size of window
-set columns=100
 set lines=70
 set gtl=%t gtt=%F		" Tab headings
 set ruler			" highlights the current line.
@@ -129,13 +142,13 @@ set cmdheight=1			" the command bar is 2 high.
 " Text Formatting/Layout
 set fo=tcrqn			" See Help (complex)
 set ai 				" autoindent
-set si 				" smartindent 
-" Tab settings 
+set si 				" smartindent
+" Tab settings
 set tabstop=8 			" tab spacing (settings below are just to unify it)
 set softtabstop=8 		" unify
-set shiftwidth=4 		" unify 
+set shiftwidth=4 		" unify
 set noexpandtab 		" real tabs please!
-set nowrap 			" do not wrap lines  
+set nowrap 			" do not wrap lines
 set smarttab 			" use tabs at the start of a line, spaces elsewhere
 
 
@@ -144,7 +157,7 @@ set smarttab 			" use tabs at the start of a line, spaces elsewhere
 
 
 """"" Behaviour
-filetype plugin indent on	" required! 
+filetype plugin indent on	" required!
 set shell=/bin/bash
 set nobackup
 set noswapfile
@@ -160,10 +173,11 @@ autocmd BufEnter * lcd %:p:h	" Sets path to directory buffer was loaded from
 " Search and Replace
 set hlsearch			" highlight searched for phrases
 set incsearch 			" highlight as you type you search phrase
-set ignorecase      		" ignore case when searching. 
+set ignorecase      		" ignore case when searching.
 set smartcase			" make case sensitive when upper-case included.
 set gdefault			" substitutions to replace all matches in a line.
 set mouse=a			" use mouse everywhere.
+autocmd BufWritePre * :%s/\s\+$//e	" remove trailing whitespace on save
 
 
 
@@ -171,9 +185,9 @@ set mouse=a			" use mouse everywhere.
 
 """"" OS Specific
 if has("gui_macvim")
-  set fuoptions=maxvert,maxhorz " fullscreen options (MacVim only), resized window when changed to fullscreen
-  set guioptions-=T		" remove toolbar
-  set stal=2			" turn on tabs by default
+ "set fuoptions=maxvert,maxhorz " fullscreen options (MacVim only), resized window when changed to fullscreen
+ "set guioptions-=T		" remove toolbar
+ "set stal=2			" turn on tabs by default
 elseif has("gui_gtk2")
 elseif has("x11")
 elseif has("gui_win32")
@@ -188,26 +202,32 @@ end
 let NERDTreeHijackNetrw=1	" User instead of Netrw when doing an edit /foobar
 let NERDTreeMouseMode=1		" Single click for everything
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
- 
+
 """ gist-vim
 let g:gist_open_browser_after_post = 1
- 
+
 """ Unite
 let g:unite_source_history_yank_enable = 1
 call unite#custom#source('file,file/new,buffer,file_rec,file_rec/async', 'matchers', 'matcher_fuzzy')
 call unite#custom#source('file,file/new,buffer,file_rec,file_rec/async', 'sorters', 'sorter_rank')
 
 call unite#custom#source('file,file_rec,file_rec/async', 'ignore_pattern',
-      \'tmp\|vendor\|\.bundle\|target\|\.git')
+     \'tmp\|vendor\|\.bundle\|target\|\.git\|\.idea')
 
 nnoremap <C-p> :Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
 
-nnoremap <space>f :Unite -no-split -buffer-name=files  -start-insert file<cr>
-nnoremap <space>h :Unite -no-split -buffer-name=mru    -start-insert file_mru<cr>
-nnoremap <space>o :Unite -no-split -buffer-name=outline -start-insert outline<cr>
-nnoremap <space>/ :Unite -no-split -buffer-name=files  -start-insert grep:.<cr>
-nnoremap <space>y :Unite -no-split -buffer-name=yank    history/yank<cr>
-nnoremap <space>b :Unite -no-split -buffer-name=buffer  buffer<cr>
+nnoremap <C-f> :Unite -no-split -buffer-name=files  -start-insert file<cr>
+"nnoremap <C-h> :Unite -no-split -buffer-name=mru    -start-insert file_mru<cr>
+nnoremap <C-o> :Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap <C-g> :Unite -no-split -buffer-name=files  -start-insert grep:.<cr>
+nnoremap <C-y> :Unite -no-split -buffer-name=yank    history/yank<cr>
+nnoremap <C-b> :Unite -no-split -buffer-name=buffer  buffer<cr>
+
+" Drop cache for unite.vim
+function! UniteClearCache()
+  let result = vimproc#system_bg("rm ~/.cache/unite -rf")
+endfunction
+command UniteClearCache call UniteClearCache()
 
 
 
@@ -217,9 +237,9 @@ au FileType scala setl sw=2 sts=2 et
 """"" Haskell
 au FileType haskell setl sw=2 sts=2 et
 
- 
- 
- 
+
+
+
 """"" Comments
 
 " get rid of the default style of C comments, and define a style with two stars
@@ -235,6 +255,7 @@ set comments+=fb:*
 
 """"" Folding : enable folding, but by default make it act like folding is off, because folding is annoying in anything but a few rare cases
 
+set nofoldenable
 "set foldenable 		" Turn on folding
 "set foldmethod=indent		" Make folding indent sensitive
 "set foldlevel=100 		" Don't autofold anything (but I can still fold manually)

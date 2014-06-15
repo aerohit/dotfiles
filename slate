@@ -38,7 +38,7 @@ bind y:shift;cmd ${topleft}
 bind l:shift;cmd ${righthalf}
 #bind l:shift;alt;cmd ${rightthird}
 bind .:shift;cmd ${bottomright}
-bind p:shift;cmd ${topright}
+#bind p:shift;cmd ${topright}
  
 # Resize - Resizes the window in the specified direction
 bind l:alt resize +1% +0
