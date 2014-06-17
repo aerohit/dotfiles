@@ -16,50 +16,50 @@ set hidden
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'flazz/vim-colorschemes'
-Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
-Bundle 'Lokaltog/vim-powerline'
-"Bundle 'bling/vim-airline'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'tpope/vim-fugitive'
-Bundle 'ervandew/supertab'
-Bundle 'majutsushi/tagbar'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'eagletmt/ghcmod-vim'
-"Bundle 'scrooloose/syntastic'
-Bundle 'dag/vim2hs'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/timl'
-Bundle 'sjl/tslime2.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'xolox/vim-session'
-Bundle 'xolox/vim-misc'
-"Bundle 'L9'
-"Bundle 'FuzzyFinder'
-"Bundle 'LustyExplorer'
-"Bundle 'mattn/webapi-vim'
-"Bundle 'mattn/gist-vim'
-"Bundle 'thoughtbot/vim-rspec'
-Bundle 'Shougo/neomru.vim'
-"Bundle 'tpope/vim-rails'
-"Bundle 'tpope/vim-rvm'
-"Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Bundle 'YankRing.vim'
-"Bundle 'Rainbow Parenthsis Bundle'
-"Bundle 'rails.vim'
+Plugin 'gmarik/vundle'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'flazz/vim-colorschemes'
+"Plugin "daylerees/colour-schemes", { "rtp": "vim-themes/" }
+Plugin 'Lokaltog/vim-powerline'
+"Plugin 'bling/vim-airline'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'tpope/vim-fugitive'
+Plugin 'ervandew/supertab'
+Plugin 'majutsushi/tagbar'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'eagletmt/ghcmod-vim'
+"Plugin 'scrooloose/syntastic'
+Plugin 'dag/vim2hs'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/timl'
+Plugin 'sjl/tslime2.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'xolox/vim-session'
+Plugin 'xolox/vim-misc'
+"Plugin 'L9'
+"Plugin 'FuzzyFinder'
+"Plugin 'LustyExplorer'
+"Plugin 'mattn/webapi-vim'
+"Plugin 'mattn/gist-vim'
+"Plugin 'thoughtbot/vim-rspec'
+Plugin 'Shougo/neomru.vim'
+"Plugin 'tpope/vim-rails'
+"Plugin 'tpope/vim-rvm'
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Plugin 'YankRing.vim'
+"Plugin 'Rainbow Parenthsis Plugin'
+"Plugin 'rails.vim'
 
-
+call vundle#end()
 
 """"" Mappings/Remappings/alternate-key-combinations
 nnoremap <leader>ev :tabnew $MYVIMRC <CR>
