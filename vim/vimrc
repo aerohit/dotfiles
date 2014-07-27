@@ -25,6 +25,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/unite-outline'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'flazz/vim-colorschemes'
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
@@ -47,12 +48,19 @@ Bundle "mattn/emmet-vim"
 Bundle "pangloss/vim-javascript"
 Bundle 'Shougo/neomru.vim'
 Bundle 'chriskempson/base16-vim'
+Bundle 'thoughtbot/vim-rspec'
 
 "call vundle#end()
 
 """"" Mappings/Remappings/alternate-key-combinations
 inoremap jk <Esc>:w<CR>					" escape and autosave
 au FocusLost * :wa					" saves on focus lost
+
+" Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
+"nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+"nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+"nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+"nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
 nnoremap <leader>ev :tabnew $MYVIMRC <CR>		" open vimrc
 nnoremap <leader>sv :source $MYVIMRC <CR>		" source vimrc
@@ -80,13 +88,16 @@ nnoremap <F4> :tabn<CR>
 inoremap uu _
 inoremap hh =><Space>
 inoremap aa @
+inoremap ii \|
 autocmd FileType haskell	   :imap <buffer> >> -><Space>
 autocmd FileType haskell,scala     :imap <buffer> << <-<Space>
+
+autocmd FileType ruby		   map <leader>r :!ruby %<cr>
 
 
 """"" Appearance
 set anti						" Antialias font
-set guifont=Source\ Code\ Pro:h14
+set guifont=Source\ Code\ Pro:h15
 colorscheme base16-ocean
 set background=dark
 
@@ -185,31 +196,48 @@ map <leader>n <plug>NERDTreeTabsToggle<CR>
 let g:gist_open_browser_after_post = 1
 
 """ Unite
+
 let g:unite_source_history_yank_enable = 1
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
 call unite#custom#source('file,file/new,buffer,file_rec,file_rec/async', 'matchers', 'matcher_fuzzy')
 call unite#custom#source('file,file/new,buffer,file_rec,file_rec/async', 'sorters', 'sorter_rank')
-
 call unite#custom#source('file,file_rec,file_rec/async', 'ignore_pattern',
      \'tmp\|vendor\|\.bundle\|target\|\.git\|\.idea')
 
-nnoremap <C-p> :Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
+nnoremap <C-p> :Unite -no-split -buffer-name=files    -start-insert  file_rec/async:!<cr>
+nnoremap <C-g> :Unite -no-split -buffer-name=files    -start-insert  grep:.<cr>
+nnoremap <C-b> :Unite -no-split -buffer-name=buffer   -quick-match   buffer<cr>
+nnoremap <C-f> :Unite -no-split -buffer-name=files    -start-insert  file<cr>
 
-nnoremap <C-f> :Unite -no-split -buffer-name=files  -start-insert file<cr>
-"nnoremap <C-h> :Unite -no-split -buffer-name=mru    -start-insert file_mru<cr>
-nnoremap <C-o> :Unite -no-split -buffer-name=outline -start-insert outline<cr>
-nnoremap <C-g> :Unite -no-split -buffer-name=files  -start-insert grep:.<cr>
-nnoremap <C-y> :Unite -no-split -buffer-name=yank    history/yank<cr>
-nnoremap <C-b> :Unite -no-split -buffer-name=buffer  buffer<cr>
+"nnoremap <C-h> :Unite -no-split -buffer-name=mru      -start-insert  file_mru<cr>
+"nnoremap <C-o> :Unite -no-split -buffer-name=outline  -start-insert  outline<cr>
+"nnoremap <C-y> :Unite -no-split -buffer-name=yank		     history/yank<cr>
 
-nnoremap <C-s> :Unite -quick-match buffer<CR>
-nnoremap <C-f> :Unite grep:.<CR>
+
+" Discarded candidates.
+"nnoremap <C-f> :Unite grep:.<CR>
+"nnoremap <C-s> :Unite -quick-match buffer<CR>
+
+
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Play nice with supertab
+  let b:SuperTabDisabled=1
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
+
+
 
 " Drop cache for unite.vim
 function! UniteClearCache()
   let result = vimproc#system_bg("rm ~/.cache/unite -rf")
 endfunction
 command UniteClearCache call UniteClearCache()
-
 
 
 
@@ -267,3 +295,9 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 
+""""" RSpec
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
