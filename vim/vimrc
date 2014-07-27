@@ -1,0 +1,310 @@
+set shell=/bin/bash				" Fish is a non-posix shell
+
+" ============================
+" Plugins
+" ============================
+
+set nocompatible					" vi iMproved
+filetype off						" required
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'ervandew/supertab'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'dag/vim2hs'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-surround'
+Plugin 'Shougo/neomru.vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'godlygeek/tabular'
+
+call vundle#end()
+filetype plugin indent on				" required
+
+
+
+" ============================
+" The Looks
+" ============================
+
+colorscheme base16-ocean
+set background=dark
+set anti						" Antialias font
+set guifont=Source\ Code\ Pro:h15
+
+
+
+" ============================
+" UI Config
+" ============================
+
+syntax on						" syntax highlighting
+syntax enable
+
+set title						" show title in console title bar.
+set cursorline						" highlights line
+set cursorcolumn					" highlights column
+set guitablabel=%t					" Tab headings
+set guitabtooltip=%F					" Tab headings
+set number relativenumber				" read "number_relativenumber" in help
+set lsp=0						" space it out a little more (easier to read).
+set cmdheight=1						" the command bar is 2 high.
+
+set autoindent
+set smartindent
+set showmode						" show current-mode.
+set showcmd						" show partially-typed commands.
+set wildmenu						" visual autocomplete for command menu
+set lazyredraw						" redraw only when we need to.
+set showmatch						" show matching brackets
+
+set sidescrolloff=2
+
+set nofoldenable					" Folding disabled
+
+highlight BoldGroup gui=bold
+match BoldGroup /[\-\[\](){}.,;:=><_+*/]/
+
+set backspace=indent,eol,start
+set t_Co=256						" 256 colors
+
+set listchars=tab:▸\ ,eol:¬,trail:•,extends:❯,precedes:❮	" Invisible characters (toggle with <,i>)
+set nolist						" Invisible characters turned off by default
+nnoremap <leader>i :set list!<CR>			" Toggle invisible chars
+
+
+
+" ============================
+" Comments
+" ============================
+
+" get rid of the default style of C comments, and define a style with two stars
+" at the start of `middle' rows which (looks nicer and) avoids asterisks used
+" for bullet lists being treated like C comments; then define a bullet list
+" style for single stars (like already is for hyphens):
+set comments-=s1:/*,mb:*,ex:*/
+set comments+=s:/*,mb:**,ex:*/
+set comments+=fb:*
+
+
+
+" ============================
+" Misc
+" ============================
+
+set viminfo+=!						" make sure it can save viminfo.
+set history=50						" fifty lines of command line history.
+set nobackup
+set noswapfile
+set visualbell t_vb=					" turn off error beep/flash
+set mat=5						" how many tenths of a second to blink matching brackets for
+set matchpairs+=<:>					" have % bounce between angled brackets, as well as t'other kinds.
+set laststatus=2					" always show the status line
+set mouse=a						" use mouse everywhere.
+
+
+" ============================
+" Spaces and Tabs
+" ============================
+
+set tabstop=8 						" tab spacing (settings below are just to unify it)
+set softtabstop=8 					" unify
+set shiftwidth=4 					" unify
+set expandtab
+set nowrap 						" do not wrap lines
+set smarttab 						" use tabs at the start of a line, spaces elsewhere
+au FileType ruby,scala,haskell,eruby,javascript,html,css setl sw=2 sts=2 et
+
+
+
+" ============================
+" Searching
+" ============================
+
+set hlsearch						" highlight searched for phrases
+set incsearch 						" highlight as you type you search phrase
+set ignorecase      					" ignore case when searching.
+set smartcase						" make case sensitive when upper-case included.
+set gdefault						" substitutions to replace all matches in a line.
+
+nnoremap <leader><space> :nohlsearch<CR>		" turn off search highlight
+
+
+
+" ============================
+" Mappings Shortcuts
+" ============================
+
+inoremap jk <Esc>:w<CR>					" escape and autosave
+
+nnoremap <F2> :tabnew<CR>
+nnoremap <F3> :tabp<CR>
+nnoremap <F4> :tabn<CR>
+
+inoremap uu _
+inoremap hh =><Space>
+inoremap aa @
+inoremap ii \|
+
+
+" ============================
+" Autogroups
+" ============================
+
+augroup configgroup
+    autocmd!
+    autocmd FileType haskell	   :imap <buffer> >> -><Space>
+    autocmd FileType haskell,scala     :imap <buffer> << <-<Space>
+    autocmd BufEnter * lcd %:p:h					" Sets path to directory buffer was loaded from
+    autocmd BufWritePre * :%s/\s\+$//e					" remove trailing whitespace on save
+    autocmd FocusLost * :wa						" saves on focus lost
+    autocmd VimEnter * RainbowParenthesesToggle
+    autocmd Syntax * RainbowParenthesesLoadRound
+    autocmd Syntax * RainbowParenthesesLoadSquare
+    autocmd Syntax * RainbowParenthesesLoadBraces
+augroup END
+
+
+
+" ============================
+" Movement
+" ============================
+nnoremap j gj						" move vertically by visual line
+nnoremap k gk						" move vertically by visual line
+nnoremap <space> <PageDown>
+nnoremap <C-space> <PageUp>
+
+
+
+" ============================
+" Window management
+" ============================
+
+nnoremap <C-h> <C-w>h					" Jump to left window
+nnoremap <C-l> <C-w>l					" Jump to right window
+nnoremap <C-j> <C-w>j<C-w>_				" Jump to below window
+nnoremap <C-k> <C-w>k<C-w>_				" Jump to above window
+
+set equalalways						" Multiple windows, when created, are equal in size
+set splitbelow splitright				" Windows on splitting would be below or to the right
+
+
+
+" ============================
+" Leader shortcuts
+" ============================
+
+nnoremap <leader>ev :tabnew $MYVIMRC <CR>		" open vimrc
+nnoremap <leader>sv :source $MYVIMRC <CR>		" source vimrc
+
+nnoremap <leader>v :vsp^M^W^W<cr>			" vertical split
+nnoremap <leader>h :split^M^W^W<cr>			" horizontal split
+
+autocmd FileType ruby	map <leader>r :!ruby %<cr>
+
+
+
+" ============================
+" OS specific
+" ============================
+
+if has("gui_macvim")
+elseif has("gui_gtk2")
+elseif has("x11")
+elseif has("gui_win32")
+end
+
+
+
+" ============================
+" Custom functions
+" ============================
+
+
+
+" ============================
+" Rspec
+" ============================
+
+map <leader>t :call RunCurrentSpecFile()<CR>
+map <leader>s :call RunNearestSpec()<CR>
+map <leader>l :call RunLastSpec()<CR>
+map <leader>a :call RunAllSpecs()<CR>
+
+
+
+" ============================
+" NerdTree
+" ============================
+
+nnoremap <leader>n :NERDTreeTabsToggle<CR>
+let NERDTreeHijackNetrw=1					" User instead of Netrw when doing an edit /foobar
+let NERDTreeMouseMode=1						" Single click for everything
+
+
+
+" ============================
+" Unite.vim
+" ============================
+
+let g:unite_source_history_yank_enable = 1
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
+call unite#custom#source('file,file/new,buffer,file_rec,file_rec/async', 'matchers', 'matcher_fuzzy')
+call unite#custom#source('file,file/new,buffer,file_rec,file_rec/async', 'sorters', 'sorter_rank')
+call unite#custom#source('file,file_rec,file_rec/async', 'ignore_pattern',
+     \'tmp\|vendor\|\.bundle\|target\|\.git\|\.idea')
+
+nnoremap <C-p> :Unite -no-split -buffer-name=files    -start-insert  file_rec/async:!<cr>
+nnoremap <C-g> :Unite -no-split -buffer-name=files    -start-insert  grep:.<cr>
+nnoremap <C-b> :Unite -no-split -buffer-name=buffer   -quick-match   buffer<cr>
+nnoremap <C-f> :Unite -no-split -buffer-name=files    -start-insert  file<cr>
+
+" Drop cache for unite.vim
+function! UniteClearCache()
+  let result = vimproc#system_bg("rm ~/.cache/unite -rf")
+endfunction
+command UniteClearCache call UniteClearCache()
+
+
+
+" ============================
+" Rainbow parenthesis
+" ============================
+
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
