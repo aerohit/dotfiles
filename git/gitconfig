@@ -49,6 +49,7 @@
 	main-window-geometry = 700x550+0+24
 [core]
 	excludesfile = /Users/rsaxena/.gitignore_global
+	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
