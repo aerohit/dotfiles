@@ -1,0 +1,18 @@
+{
+  "predef": [
+    // AngularJS/Angular-Mocks
+    "angular", "inject",
+
+    // Jasmine
+    "describe", "beforeEach", "it", "expect", "spyOn",
+
+    // Underscore/Lodash
+    "_",
+
+    "$" // to stop complaining jquery
+  ],
+
+  "globalstrict": true,
+
+  "browser": true
+}

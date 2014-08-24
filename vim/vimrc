@@ -18,7 +18,6 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'Lokaltog/vim-powerline'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'ervandew/supertab'
 Plugin 'kien/rainbow_parentheses.vim'
@@ -31,6 +30,14 @@ Plugin 'Shougo/neomru.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'godlygeek/tabular'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-vinegar'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
+"Plugin 'Lokaltog/vim-powerline'
+Plugin 'bling/vim-airline'
+Plugin 'junegunn/limelight.vim'
+Plugin 'junegunn/goyo.vim'
 
 call vundle#end()
 filetype plugin indent on				" required
@@ -41,10 +48,11 @@ filetype plugin indent on				" required
 " The Looks
 " ============================
 
-colorscheme base16-ocean
+"colorscheme base16-ocean
+colorscheme jellybeans
 set background=dark
 set anti						" Antialias font
-set guifont=Source\ Code\ Pro:h15
+set guifont=Sauce\ Code\ Powerline:h15
 
 
 
@@ -84,7 +92,8 @@ set t_Co=256						" 256 colors
 
 set listchars=tab:▸\ ,eol:¬,trail:•,extends:❯,precedes:❮	" Invisible characters (toggle with <,i>)
 set nolist						" Invisible characters turned off by default
-nnoremap <leader>i :set list!<CR>			" Toggle invisible chars
+" Toggle invisible chars
+nnoremap <leader>i :set list!<CR>
 
 
 
@@ -141,7 +150,8 @@ set ignorecase      					" ignore case when searching.
 set smartcase						" make case sensitive when upper-case included.
 set gdefault						" substitutions to replace all matches in a line.
 
-nnoremap <leader><space> :nohlsearch<CR>		" turn off search highlight
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
 
 
 
@@ -149,7 +159,9 @@ nnoremap <leader><space> :nohlsearch<CR>		" turn off search highlight
 " Mappings Shortcuts
 " ============================
 
-inoremap jk <Esc>:w<CR>					" escape and autosave
+" escape and autosave
+inoremap jk <Esc>:w<CR>
+inoremap jj <Esc>:w<CR>
 
 nnoremap <F2> :tabnew<CR>
 nnoremap <F3> :tabp<CR>
@@ -183,8 +195,10 @@ augroup END
 " ============================
 " Movement
 " ============================
-nnoremap j gj						" move vertically by visual line
-nnoremap k gk						" move vertically by visual line
+" move vertically by visual line
+nnoremap j gj
+" move vertically by visual line
+nnoremap k gk
 nnoremap <space> <PageDown>
 nnoremap <C-space> <PageUp>
 
@@ -194,10 +208,14 @@ nnoremap <C-space> <PageUp>
 " Window management
 " ============================
 
-nnoremap <C-h> <C-w>h					" Jump to left window
-nnoremap <C-l> <C-w>l					" Jump to right window
-nnoremap <C-j> <C-w>j<C-w>_				" Jump to below window
-nnoremap <C-k> <C-w>k<C-w>_				" Jump to above window
+" Jump to left window
+nnoremap <C-h> <C-w>h
+" Jump to right window
+nnoremap <C-l> <C-w>l
+" Jump to below window
+nnoremap <C-j> <C-w>j<C-w>_
+" Jump to above window
+nnoremap <C-k> <C-w>k<C-w>_
 
 set equalalways						" Multiple windows, when created, are equal in size
 set splitbelow splitright				" Windows on splitting would be below or to the right
@@ -208,11 +226,15 @@ set splitbelow splitright				" Windows on splitting would be below or to the rig
 " Leader shortcuts
 " ============================
 
-nnoremap <leader>ev :tabnew $MYVIMRC <CR>		" open vimrc
-nnoremap <leader>sv :source $MYVIMRC <CR>		" source vimrc
+" open vimrc
+nnoremap <leader>ev :tabnew $MYVIMRC <CR>
+" source vimrc
+nnoremap <leader>sv :source $MYVIMRC <CR>
 
-nnoremap <leader>v :vsp^M^W^W<cr>			" vertical split
-nnoremap <leader>h :split^M^W^W<cr>			" horizontal split
+" vertical split
+nnoremap <leader>v :vsp^M^W^W<cr>
+" horizontal split
+nnoremap <leader>h :split^M^W^W<cr>
 
 autocmd FileType ruby	map <leader>r :!ruby %<cr>
 
@@ -240,10 +262,10 @@ end
 " Rspec
 " ============================
 
-map <leader>t :call RunCurrentSpecFile()<CR>
-map <leader>s :call RunNearestSpec()<CR>
-map <leader>l :call RunLastSpec()<CR>
-map <leader>a :call RunAllSpecs()<CR>
+nnoremap <leader>t :call RunCurrentSpecFile()<CR>
+nnoremap <leader>s :call RunNearestSpec()<CR>
+nnoremap <leader>l :call RunLastSpec()<CR>
+nnoremap <leader>a :call RunAllSpecs()<CR>
 
 
 
@@ -254,6 +276,7 @@ map <leader>a :call RunAllSpecs()<CR>
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 let NERDTreeHijackNetrw=1					" User instead of Netrw when doing an edit /foobar
 let NERDTreeMouseMode=1						" Single click for everything
+let g:NERDTreeWinPos = "right"
 
 
 
@@ -276,10 +299,10 @@ nnoremap <C-b> :Unite -no-split -buffer-name=buffer   -quick-match   buffer<cr>
 nnoremap <C-f> :Unite -no-split -buffer-name=files    -start-insert  file<cr>
 
 " Drop cache for unite.vim
-function! UniteClearCache()
-  let result = vimproc#system_bg("rm ~/.cache/unite -rf")
-endfunction
-command UniteClearCache call UniteClearCache()
+"function! UniteClearCache()
+  "let result = vimproc#system_bg("rm ~/.cache/unite -rf")
+"endfunction
+"command UniteClearCache call UniteClearCache()
 
 
 
@@ -308,3 +331,28 @@ let g:rbpt_colorpairs = [
 
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
+
+
+" ============================
+" Syntastic
+" ============================
+
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+
+
+
+" ============================
+" vim-notes
+" ============================
+
+let g:notes_directories = ['~/Dropbox/Notes']
+let g:notes_suffix = '.txt'
+let g:notes_title_sync = 'rename_file'
+
+
+
+" ============================
+" vim-airline
+" ============================
+
+let g:airline_powerline_fonts = 1
