@@ -22,6 +22,10 @@ For installing [vundle](https://github.com/gmarik/vundle):
 
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
+Link tmux:
+
+    ln -s ~/bin/dotfiles/tmux.conf ~/.tmux.conf
+
 For configuring Git:
 
     ln -s ~/bin/dotfiles/git/gitconfig ~/.gitconfig
@@ -32,7 +36,7 @@ For configuring ZSH, first clone [oh-my-zsh](https://github.com/robbyrussell/oh-
 
 For configuring default gemrc (Gemfile):
 
-    ln -s ~/bin/dotfiles/gemrc ~/.gemrc 
+    ln -s ~/bin/dotfiles/gemrc ~/.gemrc
 
 For configuring default rspec
 
