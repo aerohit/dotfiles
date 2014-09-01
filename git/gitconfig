@@ -19,9 +19,12 @@
   s    = status
 
 [color]
-  branch = auto
-  diff   = auto
-  status = auto
+  branch      = auto
+  diff        = auto
+  status      = auto
+  interactive = auto
+  ui          = true
+  pager       = true
 
 [color "branch"]
   current = yellow reverse
@@ -35,9 +38,9 @@
   new  = green bold
 
 [color "status"]
-  added     = yellow
-  changed   = green
-  untracked = cyan
+  added     = green
+  changed   = red bold
+  untracked = magenta bold
 
 [core]
   excludesfile = /Users/rsaxena/.gitignore_global
