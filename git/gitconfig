@@ -1,67 +1,57 @@
 [user]
-	name = Rohit Saxena
-	user = aerohit
-	email = aerohit.saxena@gmail.com
-
-[merge]
-  tool = threesome
-
-[mergetool "threesome"]
-  cmd = "gvim -f $BASE $LOCAL $REMOTE $MERGED -c 'ThreesomeInit'"
-  trustExitCode = true
+  name  = Rohit Saxena
+  user  = aerohit
+  email = aerohit.saxena@gmail.com
 
 [alias]
-  s = status
-  cm = commit -m
-  cam = commit -am
-  a = add
-  p = push
-  cob = checkout -b
-  co = checkout
-  aa= !git add -u && git add . && git status
-  up = !git fetch origin && git rebase origin/master
-  ir = !git rebase -i origin/master
-  done = !git fetch && git rebase origin/master && git checkout master && git merge @{-1} && rake && git push
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  a    = add
+  ap   = add -p
+  aa   = add --all
+  c    = commit
+  cm   = commit -m
+  cam  = commit -am
+  co   = checkout
+  cob  = checkout -b
+  d    = diff
+  dc   = diff --cached
+  p    = push
+  lg   = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  s    = status
 
 [color]
   branch = auto
-  diff = auto
+  diff   = auto
   status = auto
 
 [color "branch"]
   current = yellow reverse
-  local = yellow
-  remote = green
+  local   = yellow
+  remote  = green
 
 [color "diff"]
   meta = yellow bold
   frag = magenta bold
-  old = red bold
-  new = green bold
+  old  = red bold
+  new  = green bold
 
 [color "status"]
-  added = yellow
-  changed = green
+  added     = yellow
+  changed   = green
   untracked = cyan
-[giggle]
-	main-window-maximized = true
-	main-window-geometry = 700x550+0+24
+
 [core]
-	excludesfile = /Users/rsaxena/.gitignore_global
-	editor = vim
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  excludesfile = /Users/rsaxena/.gitignore_global
+  editor       = vim
+
 [github]
 	user = aerohit
+
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+  clean  = git-media-clean %f
+  smudge = git-media-smudge %f
+
 [push]
-	default = simple
+  default = simple
+
 [pull]
-	rebase = true
+  rebase = true
