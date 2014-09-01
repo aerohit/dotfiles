@@ -32,7 +32,6 @@ Plugin 'thoughtbot/vim-rspec'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-vinegar'
-"Plugin 'Lokaltog/vim-powerline'
 Plugin 'bling/vim-airline'
 Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/goyo.vim'
@@ -47,8 +46,9 @@ filetype plugin indent on				" required
 " ============================
 
 "colorscheme base16-ocean
-colorscheme jellybeans
-set background=dark
+"colorscheme jellybeans
+colorscheme solarized
+set background=light
 set anti						" Antialias font
 set guifont=Sauce\ Code\ Powerline:h15
 
@@ -234,7 +234,11 @@ nnoremap <leader>v :vsp^M^W^W<cr>
 " horizontal split
 nnoremap <leader>h :split^M^W^W<cr>
 
-autocmd FileType ruby	map <leader>r :!ruby %<cr>
+" toggle goyo
+nnoremap <Leader>g :Goyo<CR>
+
+autocmd FileType javascript	map <leader>r :!node %<cr>
+autocmd FileType ruby	        map <leader>r :!ruby %<cr>
 
 
 
@@ -283,6 +287,7 @@ let g:NERDTreeWinPos = "right"
 " ============================
 
 let g:unite_source_history_yank_enable = 1
+let g:unite_source_rec_unit=500
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
