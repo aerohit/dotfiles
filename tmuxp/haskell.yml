@@ -1,0 +1,12 @@
+session_name: haskell
+windows:
+  - window_name: code
+    layout: even-horizontal
+    focus: true
+    panes:
+      - shell_command:
+        - jump lh
+        - clear
+      - shell_command:
+        - jump lh
+        - clear
