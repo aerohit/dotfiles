@@ -26,6 +26,11 @@ Link tmux:
 
     ln -s ~/bin/dotfiles/tmux.conf ~/.tmux.conf
 
+Link fish:
+
+    ln -s ~/bin/dotfiles/fish/config.fish ~/.config/fish/config.fish
+    ln -s ~/bin/dotfiles/fish/functions ~/.config/fish/functions
+
 For configuring Git:
 
     ln -s ~/bin/dotfiles/git/gitconfig ~/.gitconfig
