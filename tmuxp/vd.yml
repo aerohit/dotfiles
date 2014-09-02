@@ -1,6 +1,7 @@
 session_name: vd
 windows:
   - window_name: code
+    focus: true
     panes:
       - shell_command:
         - jump vd

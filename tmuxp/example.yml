@@ -1,4 +1,4 @@
-session_name: 2-pane-vertical
+session_name: example
 windows:
   - window_name: my test window
     panes:
