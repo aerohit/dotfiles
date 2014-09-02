@@ -1,0 +1,21 @@
+session_name: vd
+windows:
+  - window_name: code
+    panes:
+      - shell_command:
+        - jump vd
+        - clear
+  - window_name: terminal
+    panes:
+      - shell_command:
+        - jump vd
+        - clear
+      - shell_command:
+        - jump trip
+        - clear
+  - window_name: git
+    panes:
+      - shell_command:
+        - jump vd
+        - clear
+        - git status

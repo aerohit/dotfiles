@@ -1,0 +1,6 @@
+session_name: 2-pane-vertical
+windows:
+  - window_name: my test window
+    panes:
+      - echo 'pane 1'
+      - echo 'pane 2'
