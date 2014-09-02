@@ -14,8 +14,8 @@
   cob  = checkout -b
   d    = diff
   dc   = diff --cached
-  p    = push
   lg   = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  p    = push
   s    = status
 
 [color]
