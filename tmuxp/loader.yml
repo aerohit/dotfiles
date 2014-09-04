@@ -1,0 +1,14 @@
+session_name: loader
+windows:
+  - window_name: sbt
+    focus: true
+    panes:
+      - shell_command:
+        - jump esl
+        - clear
+        - sbt
+  - window_name: terminal
+    panes:
+      - shell_command:
+        - jump esl
+        - clear
