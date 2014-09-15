@@ -1,0 +1,12 @@
+session_name: scala
+windows:
+  - window_name: code
+    layout: even-vertical
+    focus: true
+    panes:
+      - shell_command:
+        - jump scala
+        - clear
+      - shell_command:
+        - jump scala
+        - clear

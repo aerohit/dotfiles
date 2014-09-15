@@ -1,20 +1,22 @@
 session_name: vd
 windows:
-  - window_name: code
+  - window_name: vim
     focus: true
     panes:
       - shell_command:
         - jump vd
         - clear
-  - window_name: terminal
+  - window_name: rails
     panes:
       - shell_command:
         - jump vd
         - clear
+  - window_name: trip
+    panes:
       - shell_command:
         - jump trip
         - clear
-  - window_name: git
+  - window_name: terminal
     panes:
       - shell_command:
         - jump vd
