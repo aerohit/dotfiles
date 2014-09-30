@@ -35,6 +35,16 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'bling/vim-airline'
 Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/goyo.vim'
+Plugin 'tpope/vim-fireplace'
+Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-leiningen'
+Plugin 'tpope/vim-classpath'
+Plugin 'vim-scripts/VimClojure'
+Plugin 'adinapoli/cumino'
+Plugin 'tpope/vim-endwise'
+
+" Take a look:
+" vim-scripts/Align
 
 call vundle#end()
 filetype plugin indent on				" required
@@ -236,6 +246,7 @@ nnoremap <leader>h :split^M^W^W<cr>
 autocmd FileType javascript	map <leader>r :!node %<cr>
 autocmd FileType ruby	        map <leader>r :!ruby %<cr>
 autocmd FileType haskell	map <leader>r :!runhaskell %<cr>
+autocmd FileType clojure	map <leader>r :Eval<cr>
 
 
 
