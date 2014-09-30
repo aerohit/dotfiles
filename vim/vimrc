@@ -35,6 +35,7 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'bling/vim-airline'
 Plugin 'junegunn/limelight.vim'
 Plugin 'junegunn/goyo.vim'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-leiningen'
@@ -175,7 +176,7 @@ nnoremap <F4> :tabn<CR>
 
 inoremap uu _
 inoremap hh =><Space>
-inoremap aa @
+"inoremap aa @
 inoremap ii \|
 
 
@@ -219,9 +220,11 @@ nnoremap <C-h> <C-w>h
 " Jump to right window
 nnoremap <C-l> <C-w>l
 " Jump to below window
-nnoremap <C-j> <C-w>j<C-w>_
+"nnoremap <C-j> <C-w>j"<C-w>_
+nnoremap <C-j> <C-w>j
 " Jump to above window
-nnoremap <C-k> <C-w>k<C-w>_
+"nnoremap <C-k> <C-w>k<C-w>_
+nnoremap <C-k> <C-w>k
 
 set equalalways						" Multiple windows, when created, are equal in size
 set splitbelow splitright				" Windows on splitting would be below or to the right
