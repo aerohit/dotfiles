@@ -43,6 +43,7 @@ Plugin 'tpope/vim-classpath'
 Plugin 'vim-scripts/VimClojure'
 Plugin 'adinapoli/cumino'
 Plugin 'tpope/vim-endwise'
+Plugin 'vim-scripts/paredit.vim'
 
 " Take a look:
 " vim-scripts/Align
@@ -57,7 +58,7 @@ filetype plugin indent on				" required
 " ============================
 
 colorscheme solarized
-set background=dark
+set background=light
 set anti						" Antialias font
 set guifont=Sauce\ Code\ Powerline:h15
 
