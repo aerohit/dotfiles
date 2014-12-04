@@ -251,6 +251,7 @@ autocmd FileType javascript	map <leader>r :!node %<cr>
 autocmd FileType ruby	        map <leader>r :!ruby %<cr>
 autocmd FileType haskell	map <leader>r :!runhaskell %<cr>
 autocmd FileType clojure	map <leader>r :Eval<cr>
+autocmd FileType clojure	map <leader>f :%Eval<cr>
 
 
 
