@@ -23,6 +23,7 @@ Plugin 'ervandew/supertab'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'dag/vim2hs'
+Plugin 'raichoo/haskell-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-surround'
@@ -54,6 +55,7 @@ Plugin 'rking/ag.vim'
 " vim-scripts/Align
 
 call vundle#end()
+filetype on
 filetype plugin indent on				" required
 
 
@@ -377,3 +379,22 @@ let g:notes_title_sync = 'rename_file'
 " ============================
 
 let g:airline_powerline_fonts = 1
+
+
+
+" ============================
+" haskell-vim
+" ============================
+
+let g:haskell_enable_quantification = 1
+let g:haskell_enable_recursivedo = 1
+let g:haskell_enable_arrowsyntax = 1
+let g:haskell_enable_pattern_synonyms = 1
+let g:haskell_enable_typeroles = 1
+
+let g:haskell_indent_if = 3
+let g:haskell_indent_case = 5
+let g:haskell_indent_let = 4
+let g:haskell_indent_where = 6
+let g:haskell_indent_do = 3
+let g:haskell_indent_in = 1
