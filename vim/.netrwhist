@@ -1,11 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/aerohit/codes/elmar/vakantie_discounter/spec/lib/search_results'
-let g:netrw_dirhist_2='/Users/aerohit/codes/elmar/vakantie_discounter/spec/lib'
-let g:netrw_dirhist_3='/Users/aerohit/codes/elmar/vakantie_discounter/spec'
-let g:netrw_dirhist_4='/Users/aerohit/codes/elmar/vakantie_discounter/spec/vcr'
-let g:netrw_dirhist_5='/Users/aerohit/codes/elmar/vakantie_discounter/spec/vcr/facets'
-let g:netrw_dirhist_6='/Users/aerohit/codes/elmar/vakantie_discounter/spec/vcr'
-let g:netrw_dirhist_7='/Users/aerohit/codes/elmar/vakantie_discounter/spec'
-let g:netrw_dirhist_8='/Users/aerohit/codes/elmar/vakantie_discounter/lib/search_results'
-let g:netrw_dirhist_9='/Users/aerohit/codes/elmar/vakantie_discounter/lib'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/aerohit/codes/elmar/vakantie_discounter/src/vd/details_page'
+let g:netrw_dirhist_2='/Users/aerohit/codes/elmar/automation/sitemap-export'
+let g:netrw_dirhist_3='/Users/aerohit/codes/elmar/sitemap/scripts'
+let g:netrw_dirhist_4='/Users/aerohit/codes/elmar/elmar-tools-portal'

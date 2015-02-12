@@ -44,6 +44,11 @@ Plugin 'vim-scripts/VimClojure'
 Plugin 'adinapoli/cumino'
 Plugin 'tpope/vim-endwise'
 Plugin 'vim-scripts/paredit.vim'
+"Plugin 'tpope/vim-markdown'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
+Plugin 'rking/ag.vim'
 
 " Take a look:
 " vim-scripts/Align
@@ -302,9 +307,9 @@ let g:NERDTreeWinPos = "right"
 let g:unite_source_history_yank_enable = 1
 let g:unite_source_rec_unit=500
 
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#matcher_default#use(['converter_relative_word', 'matcher_fuzzy'])
 
-call unite#custom#source('file,file/new,buffer,file_rec,file_rec/async', 'matchers', 'matcher_fuzzy')
+call unite#custom#source('file,file/new,buffer,file_rec,file_rec/async', 'matchers', ['converter_relative_word', 'matcher_fuzzy'])
 call unite#custom#source('file,file/new,buffer,file_rec,file_rec/async', 'sorters', 'sorter_rank')
 call unite#custom#source('file,file_rec,file_rec/async', 'ignore_pattern',
      \'tmp\|vendor\|\.bundle\|target\|\.git\|\.idea')
@@ -362,7 +367,7 @@ let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 " ============================
 
 let g:notes_directories = ['~/Dropbox/Notes']
-let g:notes_suffix = '.txt'
+let g:notes_suffix = '.md'
 let g:notes_title_sync = 'rename_file'
 
 
