@@ -50,12 +50,14 @@
 	user = aerohit
 
 [filter "media"]
+	required = true
 	clean = git media clean %f
 	smudge = git media smudge %f
-	required = true
 
 [push]
   default = simple
 
 [pull]
   rebase = true
+[rerere]
+	enabled = true
