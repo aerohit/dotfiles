@@ -1,0 +1,13 @@
+session_name: database
+windows:
+  - window_name: repl
+    focus: true
+    panes:
+      - shell_command:
+        - jump hfsql
+        - clear
+  - window_name: code
+    panes:
+      - shell_command:
+        - jump hfsql
+        - clear

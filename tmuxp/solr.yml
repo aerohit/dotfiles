@@ -1,0 +1,11 @@
+session_name: solr
+windows:
+  - window_name: solr_server
+    panes:
+      - shell_command:
+        - clear
+  - window_name: repl
+    focus: true
+    panes:
+      - shell_command:
+        - clear

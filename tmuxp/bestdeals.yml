@@ -1,0 +1,13 @@
+session_name: bestdeals
+windows:
+  - window_name: code
+    focus: true
+    panes:
+      - shell_command:
+        - jump bestdeals
+        - vim
+  - window_name: repl
+    panes:
+      - shell_command:
+        - jump bestdeals
+        - clear

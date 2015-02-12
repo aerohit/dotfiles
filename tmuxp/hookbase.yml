@@ -1,0 +1,13 @@
+session_name: hookbase
+windows:
+  - window_name: code
+    focus: true
+    panes:
+      - shell_command:
+        - jump hookbase
+        - clear
+  - window_name: terminal
+    panes:
+      - shell_command:
+        - jump hookbase
+        - clear

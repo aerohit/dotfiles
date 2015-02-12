@@ -1,0 +1,15 @@
+session_name: gapedi
+windows:
+  - window_name: code
+    focus: true
+    panes:
+      - shell_command:
+        - jump gapedi
+        - vim
+      - shell_command:
+        - jump gapedi
+        - git status
+  - window_name: server
+    panes:
+      - shell_command:
+        - jump gapedi

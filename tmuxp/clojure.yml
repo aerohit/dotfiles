@@ -1,0 +1,11 @@
+session_name: clojure
+windows:
+  - window_name: programming_clojure
+    focus: true
+    panes:
+      - shell_command:
+        - jump lc
+        - clear
+      - shell_command:
+        - jump lc
+        - clear

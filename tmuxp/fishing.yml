@@ -1,0 +1,11 @@
+session_name: fishing
+windows:
+  - window_name: code
+    focus: true
+    panes:
+      - shell_command:
+        - jump fishing
+        - clear
+      - shell_command:
+        - jump fishing
+        - clear

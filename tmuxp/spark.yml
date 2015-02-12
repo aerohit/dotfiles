@@ -1,0 +1,8 @@
+session_name: spark
+windows:
+  - window_name: code
+    focus: true
+    panes:
+      - shell_command:
+        - jump spark
+        - vim
