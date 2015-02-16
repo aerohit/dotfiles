@@ -1,3 +1,4 @@
+" vimrc
 set shell=/bin/bash				" Fish is a non-posix shell
 
 " ============================
@@ -67,7 +68,7 @@ filetype plugin indent on				" required
 colorscheme solarized
 set background=light
 set anti						" Antialias font
-set guifont=Sauce\ Code\ Powerline:h15
+set guifont=Sauce\ Code\ Powerline:h13
 
 
 

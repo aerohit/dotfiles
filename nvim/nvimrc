@@ -36,6 +36,9 @@ Plug 'vim-scripts/paredit.vim'
 "Plug 'guns/vim-clojure-static'
 "Plug 'guns/vim-clojure-highlight'
 
+" Haskell
+Plug 'raichoo/haskell-vim'
+
 " To try out
 " tacahiroy/ctrlp-funky
 " guns/vim-sexp for s-expressions, might be useful for clojure.
