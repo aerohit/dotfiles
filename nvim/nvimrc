@@ -12,6 +12,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'bling/vim-airline'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+Plug 'rking/ag.vim'
 
 call plug#end()
 
