@@ -156,9 +156,9 @@ nnoremap <leader>ev :tabnew $MYVIMRC <CR>
 nnoremap <leader>sv :source $MYVIMRC <CR>
 
 " vertical split
-nnoremap <leader>v :vsp^M^W^W<cr>
+nnoremap <leader>v :vsp^M^W^W<CR>
 " horizontal split
-nnoremap <leader>h :split^M^W^W<cr>
+nnoremap <leader>h :split^M^W^W<CR>
 
 """"" vim-easy-align
 " ============================
