@@ -1,3 +1,3 @@
 function n
-    vim -c :Note
+    nvim -c :Note
 end
