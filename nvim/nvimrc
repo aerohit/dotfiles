@@ -164,6 +164,7 @@ set splitbelow splitright				" Windows on splitting would be below or to the rig
 
 " open vimrc
 nnoremap <leader>ev :tabnew $MYVIMRC <CR>
+nnoremap <leader>ov :e $MYVIMRC <CR>
 " source vimrc
 nnoremap <leader>sv :source $MYVIMRC <CR>
 " vertical split
