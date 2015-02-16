@@ -33,12 +33,10 @@ syntax enable
 
 """"" The Looks
 " ======================
-
 colorscheme solarized
 set background=light
 set anti						" Antialias font
 set guifont=Sauce\ Code\ Powerline:h13
-
 set title						" show title in console title bar.
 set cursorline						" highlights line
 set cursorcolumn					" highlights column
@@ -47,7 +45,6 @@ set guitabtooltip=%F					" Tab headings
 set number relativenumber				" read "number_relativenumber" in help
 set lsp=0						" space it out a little more (easier to read).
 set cmdheight=1						" the command bar is 2 high.
-
 set autoindent
 set smartindent
 set showmode						" show current-mode.
@@ -55,17 +52,12 @@ set showcmd						" show partially-typed commands.
 set wildmenu						" visual autocomplete for command menu
 set lazyredraw						" redraw only when we need to.
 set showmatch						" show matching brackets
-
 set sidescrolloff=2
-
 set nofoldenable					" Folding disabled
-
 highlight BoldGroup gui=bold
 match BoldGroup /[\-\[\](){}.,;:=><_+*/]/
-
 set backspace=indent,eol,start
 set t_Co=256						" 256 colors
-
 set listchars=tab:▸\ ,eol:¬,trail:•,extends:❯,precedes:❮	" Invisible characters (toggle with <,i>)
 set nolist						" Invisible characters turned off by default
 " Toggle invisible chars
@@ -96,8 +88,6 @@ set nowrap 						" do not wrap lines
 set smarttab 						" use tabs at the start of a line, spaces elsewhere
 au FileType ruby,scala,haskell,eruby,javascript,html,css setl sw=2 sts=2 et
 
-
-
 " Searching
 " ============================
 
@@ -106,20 +96,16 @@ set incsearch 						" highlight as you type you search phrase
 set ignorecase      					" ignore case when searching.
 set smartcase						" make case sensitive when upper-case included.
 set gdefault						" substitutions to replace all matches in a line.
-
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
 """"" Mappings Shortcuts
 " ============================
-
-" escape and autosave
 inoremap jk <Esc>:w<CR>
 
 nnoremap <F2> :tabnew<CR>
 nnoremap <F3> :tabp<CR>
 nnoremap <F4> :tabn<CR>
-
 inoremap uu _
 inoremap hh =><Space>
 "inoremap aa @
@@ -159,36 +145,29 @@ set splitbelow splitright				" Windows on splitting would be below or to the rig
 nnoremap <leader>ev :tabnew $MYVIMRC <CR>
 " source vimrc
 nnoremap <leader>sv :source $MYVIMRC <CR>
-
 " vertical split
 nnoremap <leader>v :vsp^M^W^W<CR>
 " horizontal split
 nnoremap <leader>h :split^M^W^W<CR>
 
-""""" vim-easy-align
+""""" Plugins configuration
 " ============================
 
+" vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
-
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-""""" vim-notes
-" ============================
-
+" vim-notes
 let g:notes_directories = ['~/Dropbox/Notes']
 let g:notes_suffix = '.md'
 let g:notes_title_sync = 'rename_file'
 
-""""" vim-airline
-" ============================
-
+" vim-airline
 let g:airline_powerline_fonts = 1
 
-""""" ctrlp.vim
-" ============================
-
+" ctrlp.vim
 nnoremap <C-b> :CtrlPBuffer<CR>
 nnoremap <C-m> :CtrlPMRU<CR>
 
