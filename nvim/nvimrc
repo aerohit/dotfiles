@@ -269,3 +269,7 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" vim-plug
+nnoremap \pi :PlugInstall<CR>
+nnoremap \pu :PlugUpdate<CR>
