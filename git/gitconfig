@@ -6,6 +6,7 @@
 [alias]
   a    = add
   ap   = add -p
+  ai   = add -i
   aa   = add --all
   c    = commit
   cm   = commit -m
