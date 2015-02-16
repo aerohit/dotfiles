@@ -13,6 +13,7 @@ Plug 'bling/vim-airline'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'rking/ag.vim'
+Plug 'kien/ctrlp.vim'
 
 call plug#end()
 
@@ -179,3 +180,9 @@ let g:notes_title_sync = 'rename_file'
 " ============================
 
 let g:airline_powerline_fonts = 1
+
+""""" ctrlp.vim
+" ============================
+
+nnoremap <C-b> :CtrlPBuffer<CR>
+nnoremap <C-m> :CtrlPMRU<CR>
