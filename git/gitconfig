@@ -16,7 +16,8 @@
   d    = diff
   dc   = diff --cached
   lg   = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-  p    = push
+  pu   = push
+  pl   = pull
   s    = status
 
 [color]
