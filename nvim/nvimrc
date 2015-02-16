@@ -150,6 +150,9 @@ nnoremap <leader>sv :source $MYVIMRC <CR>
 nnoremap <leader>v :vsp^M^W^W<CR>
 " horizontal split
 nnoremap <leader>h :split^M^W^W<CR>
+" set paste and nopaste
+nnoremap <leader>sp :set paste<CR>
+nnoremap <leader>sn :set nopaste<CR>
 
 """"" Plugins configuration
 " ============================
