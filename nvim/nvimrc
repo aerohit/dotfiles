@@ -14,6 +14,11 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+
+" try out
+" tacahiroy/ctrlp-funky
 
 call plug#end()
 
@@ -186,3 +191,10 @@ let g:airline_powerline_fonts = 1
 
 nnoremap <C-b> :CtrlPBuffer<CR>
 nnoremap <C-m> :CtrlPMRU<CR>
+
+" NerdTree
+nnoremap <leader>n :NERDTreeTabsToggle<CR>
+let NERDTreeHijackNetrw=1                                       " User instead of Netrw when doing an edit /foobar
+let NERDTreeMouseMode=1                                         " Single click for everything
+let g:NERDTreeWinPos = "left"
+
