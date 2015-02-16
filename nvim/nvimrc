@@ -24,6 +24,7 @@ Plug 'xolox/vim-notes'
 
 " Text management
 Plug 'junegunn/vim-easy-align'
+Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdcommenter'
 
@@ -38,6 +39,7 @@ Plug 'vim-scripts/paredit.vim'
 
 " Haskell
 Plug 'raichoo/haskell-vim'
+Plug 'dag/vim2hs'
 
 " To try out
 " tacahiroy/ctrlp-funky
@@ -186,10 +188,27 @@ nnoremap <leader>sn :set nopaste<CR>
 vnoremap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nnoremap ga <Plug>(EasyAlign)
-nnoremap <leader>f= vip:EasyAlign=<CR>
-vnoremap <leader>f= :EasyAlign=<CR>
-vnoremap <leader>f. :EasyAlign/->/<CR>
-nnoremap <leader>f. vip:EasyAlign/->/<CR>
+"nnoremap <leader>f= vip:EasyAlign=<CR>
+"vnoremap <leader>f= :EasyAlign=<CR>
+"nnoremap <leader>f. vip:EasyAlign/->/<CR>
+"vnoremap <leader>f. :EasyAlign/->/<CR>
+
+" Tabularize
+" Align by a single colon, useful for Cabal descriptions.
+nnoremap <leader>f; :Tabularize colon<CR>
+" Align a set of bindings by "=".
+nnoremap <leader>f= :Tabularize haskell_bindings<CR>
+" Align line-comments at the end of lines.
+nnoremap <leader>f- :Tabularize haskell_comments<CR>
+" Align a set of monadic binds by "<-".
+nnoremap <leader>f, :Tabularize haskell_do_arrows<CR>
+" Align imports by import list and "as".
+nnoremap <leader>fi :Tabularize haskell_imports<CR>
+" Align a set of pattern matches by "->".
+nnoremap <leader>f. :Tabularize haskell_pattern_arrows<CR>
+" Align type signatures by "::" in a record.
+nnoremap <leader>f: :Tabularize haskell_types<CR>
+
 
 " vim-notes
 let g:notes_directories = ['~/Dropbox/Notes']
