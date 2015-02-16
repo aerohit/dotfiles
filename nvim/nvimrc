@@ -5,21 +5,40 @@
 
 call plug#begin()
 
+" Look and feel
 Plug 'flazz/vim-colorschemes'
-" Plug 'godlygeek/tabular'
-Plug 'junegunn/vim-easy-align'
-Plug 'plasticboy/vim-markdown'
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'bling/vim-airline'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
-Plug 'rking/ag.vim'
-Plug 'kien/ctrlp.vim'
+
+" File navigation and search
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'rking/ag.vim'
+Plug 'kien/ctrlp.vim'
+
+" Notes and markdown
+Plug 'plasticboy/vim-markdown'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
+
+" Text management
+Plug 'junegunn/vim-easy-align'
+Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdcommenter'
 
-" try out
+" Git
+Plug 'tpope/vim-fugitive'
+
+" Clojure plugins
+Plug 'vim-scripts/paredit.vim'
+"Plug 'tpope/vim-fireplace'
+"Plug 'guns/vim-clojure-static'
+"Plug 'guns/vim-clojure-highlight'
+
+" To try out
 " tacahiroy/ctrlp-funky
+" guns/vim-sexp for s-expressions, might be useful for clojure.
+" tpope/vim-sexp-mappings-for-regular-people
 
 call plug#end()
 
@@ -181,3 +200,29 @@ let NERDTreeHijackNetrw=1                                       " User instead o
 let NERDTreeMouseMode=1                                         " Single click for everything
 let g:NERDTreeWinPos = "left"
 
+" Rainbow Parenthesis
+
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
