@@ -284,3 +284,6 @@ au Syntax * RainbowParenthesesLoadBraces
 " vim-plug
 nnoremap \pi :PlugInstall<CR>
 nnoremap \pu :PlugUpdate<CR>
+
+" vim-bookmarks
+let g:bookmark_auto_close = 1
