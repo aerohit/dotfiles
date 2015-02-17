@@ -182,6 +182,7 @@ nnoremap <leader>h :split^M^W^W<CR>
 " set paste and nopaste
 nnoremap <leader>sp :set paste<CR>
 nnoremap <leader>sn :set nopaste<CR>
+nnoremap <leader>r :checktime<CR>
 
 """"" Autogroups
 function! <SID>StripTrailingWhiteSpaces()
