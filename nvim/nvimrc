@@ -243,6 +243,7 @@ let g:airline_powerline_fonts = 1
 " ctrlp.vim
 nnoremap <C-b> :CtrlPBuffer<CR>
 nnoremap <C-m> :CtrlPMRU<CR>
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " NerdTree
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
