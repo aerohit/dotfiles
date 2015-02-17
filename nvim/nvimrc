@@ -23,7 +23,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 
 " Text management
-Plug 'junegunn/vim-easy-align'
+"Plug 'junegunn/vim-easy-align'
 Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdcommenter'
