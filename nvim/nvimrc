@@ -18,6 +18,7 @@ Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'MattesGroeger/vim-bookmarks'
+Plug 'kien/tabman.vim'
 
 " Notes and markdown
 Plug 'plasticboy/vim-markdown'
