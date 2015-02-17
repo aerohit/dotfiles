@@ -9,6 +9,7 @@ call plug#begin()
 Plug 'flazz/vim-colorschemes'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'bling/vim-airline'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " File navigation and search
 Plug 'scrooloose/nerdtree'
