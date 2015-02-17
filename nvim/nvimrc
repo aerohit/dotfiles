@@ -181,12 +181,18 @@ nnoremap <leader>sp :set paste<CR>
 nnoremap <leader>sn :set nopaste<CR>
 
 """"" Autogroups
+function! <SID>StripTrailingWhiteSpaces()
+    let cur_pos = getpos(".")
+    %s/\s\+$//e
+    call setpos(".", cur_pos)
+endfun
+
 augroup configgroup
     autocmd!
     autocmd FileType haskell            :imap <buffer> >> -><Space>
     autocmd FileType haskell,scala      :imap <buffer> << <-<Space>
     autocmd BufEnter * lcd %:p:h                                        " Sets path to directory buffer was loaded from
-    autocmd BufWritePre * :%s/\s\+$//e                                  " remove trailing whitespace on save
+    autocmd BufWritePre * :call <SID>StripTrailingWhiteSpaces()         " remove trailing whitespace on save
     autocmd FocusLost * :wa                                             " saves on focus lost
     autocmd VimEnter * RainbowParenthesesToggle
     autocmd Syntax * RainbowParenthesesLoadRound
