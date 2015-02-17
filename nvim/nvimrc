@@ -17,6 +17,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'Lokaltog/vim-easymotion'
+Plug 'MattesGroeger/vim-bookmarks'
 
 " Notes and markdown
 Plug 'plasticboy/vim-markdown'
