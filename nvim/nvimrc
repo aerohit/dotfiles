@@ -233,6 +233,8 @@ nnoremap <leader>fi :Tabularize haskell_imports<CR>
 nnoremap <leader>f. :Tabularize haskell_pattern_arrows<CR>
 " Align type signatures by "::" in a record.
 nnoremap <leader>f: :Tabularize haskell_types<CR>
+" Repeat the previous Tabularize
+nnoremap <leader>fr :Tabularize<CR>
 
 
 " vim-notes
