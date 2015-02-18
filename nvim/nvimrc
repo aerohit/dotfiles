@@ -1,11 +1,9 @@
-" nvimrc
-
 """"" Plugins
-" ======================
+" ̲̲̲̲̲======================
 
 call plug#begin()
 
-" Look and feel
+" ➜ Look and feel
 Plug 'flazz/vim-colorschemes'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'bling/vim-airline'
@@ -45,26 +43,19 @@ Plug 'vim-scripts/paredit.vim'
 Plug 'raichoo/haskell-vim'
 Plug 'dag/vim2hs'
 
-" To try out
-" tacahiroy/ctrlp-funky
-" guns/vim-sexp for s-expressions, might be useful for clojure.
-" tpope/vim-sexp-mappings-for-regular-people
+" Could be tried
+" 'tacahiroy/ctrlp-funky'
+" 'guns/vim-sexp' for s-expressions, might be useful for clojure.
+" 'tpope/vim-sexp-mappings-for-regular-people'
 
 call plug#end()
 
 
-""""" Sensible defaults
+""""" UI Config
 " ======================
 filetype on
-filetype plugin indent on				" required
-syntax on						" syntax highlighting
-syntax enable
+filetype plugin indent on
 
-
-""""" The Looks
-" ======================
-colorscheme solarized
-set background=light
 set anti						" Antialias font
 set guifont=Sauce\ Code\ Powerline:h13
 set title						" show title in console title bar.
@@ -73,7 +64,7 @@ set cursorcolumn					" highlights column
 set guitablabel=%t					" Tab headings
 set guitabtooltip=%F					" Tab headings
 set number relativenumber				" read "number_relativenumber" in help
-set lsp=0						" space it out a little more (easier to read).
+set linespace=0						" space it out a little more (easier to read).
 set cmdheight=1						" the command bar is 2 high.
 set autoindent
 set smartindent
@@ -83,40 +74,32 @@ set wildmenu						" visual autocomplete for command menu
 set lazyredraw						" redraw only when we need to.
 set showmatch						" show matching brackets
 set sidescrolloff=2
-set nofoldenable					" Folding disabled
 highlight BoldGroup gui=bold
 match BoldGroup /[\-\[\](){}.,;:=><_+*/]/
 set backspace=indent,eol,start
 set t_Co=256						" 256 colors
 set listchars=tab:▸\ ,eol:¬,trail:•,extends:❯,precedes:❮	" Invisible characters (toggle with <,i>)
 set nolist						" Invisible characters turned off by default
-" Toggle invisible chars
-nnoremap <leader>i :set list!<CR>
+set nofoldenable					" Folding disabled
 
 
-""""" Misc
+""""" Colors
 " ======================
-
-set viminfo+=!						" make sure it can save viminfo.
-set history=50						" fifty lines of command line history.
-set nobackup
-set noswapfile
-set visualbell t_vb=					" turn off error beep/flash
-set mat=5						" how many tenths of a second to blink matching brackets for
-set matchpairs+=<:>					" have % bounce between angled brackets, as well as t'other kinds.
-set laststatus=2					" always show the status line
-set mouse=a						" use mouse everywhere.
+colorscheme solarized
+set background=light
+syntax on
+syntax enable
 
 """"" Spaces and Tabs
 " ======================
 
 set tabstop=8 						" tab spacing (settings below are just to unify it)
-set softtabstop=8 					" unify
-set shiftwidth=4 					" unify
+set softtabstop=8
+set shiftwidth=4
 set expandtab
-set nowrap 						" do not wrap lines
+set nowrap
 set smarttab 						" use tabs at the start of a line, spaces elsewhere
-au FileType ruby,scala,haskell,eruby,javascript,html,css setl sw=2 sts=2 et
+au FileType ruby,scala,haskell,eruby,javascript,html,css setl shiftwidth=2 softtabstop=2
 
 " Searching
 " ============================
@@ -126,20 +109,6 @@ set incsearch 						" highlight as you type you search phrase
 set ignorecase      					" ignore case when searching.
 set smartcase						" make case sensitive when upper-case included.
 set gdefault						" substitutions to replace all matches in a line.
-" turn off search highlight
-nnoremap <leader><space> :nohlsearch<CR>
-
-""""" Mappings Shortcuts
-" ============================
-inoremap jk <Esc>:w<CR>
-
-nnoremap <F2> :tabnew<CR>
-nnoremap <F3> :tabp<CR>
-nnoremap <F4> :tabn<CR>
-inoremap uu _
-inoremap hh =><Space>
-"inoremap aa @
-inoremap ii \|
 
 """"" Movement
 " ============================
@@ -150,6 +119,31 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <space> <PageDown>
 nnoremap <C-space> <PageUp>
+
+""""" Misc
+" ======================
+
+set viminfo+=!						" make sure it can save viminfo.
+set history=50						" fifty lines of command line history.
+set nobackup
+set noswapfile
+set visualbell t_vb=					" turn off error beep/flash
+set matchtime=5						" how many tenths of a second to blink matching brackets for
+set matchpairs+=<:>					" have % bounce between angled brackets, as well as t'other kinds.
+set laststatus=2					" always show the status line
+set mouse=a						" use mouse everywhere.
+
+""""" Mappings/Shortcuts
+" ============================
+inoremap jk <Esc>:w<CR>
+
+nnoremap <F2> :tabnew<CR>
+nnoremap <F3> :tabp<CR>
+nnoremap <F4> :tabn<CR>
+inoremap uu _
+inoremap hh =><Space>
+"inoremap aa @
+inoremap ii \|
 
 """"" Window management
 " ============================
@@ -168,23 +162,6 @@ nnoremap <C-k> <C-w>k
 set equalalways						" Multiple windows, when created, are equal in size
 set splitbelow splitright				" Windows on splitting would be below or to the right
 
-""""" Leader shortcuts
-" ============================
-
-" open vimrc
-nnoremap <leader>ev :tabnew $MYVIMRC <CR>
-nnoremap <leader>ov :e $MYVIMRC <CR>
-" source vimrc
-nnoremap <leader>sv :source $MYVIMRC <CR>
-" vertical split
-nnoremap <leader>v :vsp^M^W^W<CR>
-" horizontal split
-nnoremap <leader>h :split^M^W^W<CR>
-" set paste and nopaste
-nnoremap <leader>sp :set paste<CR>
-nnoremap <leader>sn :set nopaste<CR>
-nnoremap <leader>r :checktime<CR>
-
 """"" Autogroups
 function! <SID>StripTrailingWhiteSpaces()
     let cur_pos = getpos(".")
@@ -194,8 +171,8 @@ endfun
 
 augroup configgroup
     autocmd!
-    autocmd FileType haskell            :imap <buffer> >> -><Space>
-    autocmd FileType haskell,scala      :imap <buffer> << <-<Space>
+    autocmd FileType haskell            :inoremap <buffer> >> -><Space>
+    autocmd FileType haskell,scala      :inoremap <buffer> << <-<Space>
     autocmd BufEnter * lcd %:p:h                                        " Sets path to directory buffer was loaded from
     autocmd BufWritePre * :call <SID>StripTrailingWhiteSpaces()         " remove trailing whitespace on save
     autocmd FocusLost * :wa                                             " saves on focus lost
@@ -213,35 +190,11 @@ augroup END
 "vnoremap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 "nnoremap ga <Plug>(EasyAlign)
-"nnoremap <leader>f= vip:EasyAlign=<CR>
-"vnoremap <leader>f= :EasyAlign=<CR>
-"nnoremap <leader>f. vip:EasyAlign/->/<CR>
-"vnoremap <leader>f. :EasyAlign/->/<CR>
-
-" Tabularize
-" Align by a single colon, useful for Cabal descriptions.
-nnoremap <leader>f; :Tabularize colon<CR>
-" Align a set of bindings by "=".
-nnoremap <leader>f= :Tabularize haskell_bindings<CR>
-" Align line-comments at the end of lines.
-nnoremap <leader>f- :Tabularize haskell_comments<CR>
-" Align a set of monadic binds by "<-".
-nnoremap <leader>f, :Tabularize haskell_do_arrows<CR>
-" Align imports by import list and "as".
-nnoremap <leader>fi :Tabularize haskell_imports<CR>
-" Align a set of pattern matches by "->".
-nnoremap <leader>f. :Tabularize haskell_pattern_arrows<CR>
-" Align type signatures by "::" in a record.
-nnoremap <leader>f: :Tabularize haskell_types<CR>
-" Repeat the previous Tabularize
-nnoremap <leader>fr :Tabularize<CR>
-
 
 " vim-notes
 let g:notes_directories = ['~/Dropbox/Notes']
 let g:notes_suffix = '.md'
 let g:notes_title_sync = 'rename_file'
-nnoremap <leader>on :tabnew <CR>:Note vim<CR>
 
 " vim-airline
 let g:airline_powerline_fonts = 1
@@ -252,13 +205,11 @@ nnoremap <C-b> :CtrlPBuffer<CR>
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " NerdTree
-nnoremap <leader>n :NERDTreeTabsToggle<CR>
 let NERDTreeHijackNetrw=1                                       " User instead of Netrw when doing an edit /foobar
 let NERDTreeMouseMode=1                                         " Single click for everything
 let g:NERDTreeWinPos = "left"
 
 " Rainbow Parenthesis
-
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -285,8 +236,59 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " vim-plug
-nnoremap \pi :PlugInstall<CR>
-nnoremap \pu :PlugUpdate<CR>
+nnoremap <leader>pi :PlugInstall<CR>
+nnoremap <leader>pu :PlugUpdate<CR>
 
 " vim-bookmarks
 let g:bookmark_auto_close = 1
+
+""""" Leader shortcuts
+" ============================
+
+" open vimrc
+nnoremap <leader>ev :tabnew $MYVIMRC <CR>
+nnoremap <leader>ov :e $MYVIMRC <CR>
+" source vimrc
+nnoremap <leader>sv :source $MYVIMRC <CR>
+" vertical split
+nnoremap <leader>v :vsp^M^W^W<CR>
+" horizontal split
+nnoremap <leader>h :split^M^W^W<CR>
+" set paste and nopaste
+nnoremap <leader>sp :set paste<CR>
+nnoremap <leader>sn :set nopaste<CR>
+nnoremap <leader>r :checktime<CR>
+" Toggle invisible chars
+nnoremap <leader>i :set list!<CR>
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
+" EasyAlign
+"nnoremap <leader>f= vip:EasyAlign=<CR>
+"vnoremap <leader>f= :EasyAlign=<CR>
+"nnoremap <leader>f. vip:EasyAlign/->/<CR>
+"vnoremap <leader>f. :EasyAlign/->/<CR>
+
+" Tabularize
+" Align by a single colon, useful for Cabal descriptions.
+nnoremap <leader>f; :Tabularize colon<CR>
+" Align a set of bindings by "=".
+nnoremap <leader>f= :Tabularize haskell_bindings<CR>
+" Align line-comments at the end of lines.
+nnoremap <leader>f- :Tabularize haskell_comments<CR>
+" Align a set of monadic binds by "<-".
+nnoremap <leader>f, :Tabularize haskell_do_arrows<CR>
+" Align imports by import list and "as".
+nnoremap <leader>fi :Tabularize haskell_imports<CR>
+" Align a set of pattern matches by "->".
+nnoremap <leader>f. :Tabularize haskell_pattern_arrows<CR>
+" Align type signatures by "::" in a record.
+nnoremap <leader>f: :Tabularize haskell_types<CR>
+" Repeat the previous Tabularize
+nnoremap <leader>fr :Tabularize<CR>
+
+" vim-notes
+nnoremap <leader>on :tabnew <CR>:Note vim<CR>
+
+" NerdTree
+nnoremap <leader>n :NERDTreeTabsToggle<CR>
