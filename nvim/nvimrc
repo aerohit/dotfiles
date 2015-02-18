@@ -7,6 +7,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'bling/vim-airline'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'mhinz/vim-startify'
 
 " File navigation and search
 Plug 'scrooloose/nerdtree'
@@ -46,6 +47,7 @@ Plug 'dag/vim2hs'
 " 'tacahiroy/ctrlp-funky'
 " 'guns/vim-sexp' for s-expressions, might be useful for clojure.
 " 'tpope/vim-sexp-mappings-for-regular-people'
+" 'kshenoy/vim-signature' another approach for handling bookmarks.
 
 call plug#end()
 
