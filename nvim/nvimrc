@@ -8,6 +8,7 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'bling/vim-airline'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'mhinz/vim-startify'
+Plug 'vim-scripts/ScrollColors'
 
 " File navigation and search
 Plug 'scrooloose/nerdtree'

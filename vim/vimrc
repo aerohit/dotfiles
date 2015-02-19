@@ -51,6 +51,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 Plugin 'rking/ag.vim'
+Plugin 'vim-scripts/ScrollColors'
 
 " Take a look:
 " vim-scripts/Align
