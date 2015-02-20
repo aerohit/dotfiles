@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/aerohit/codes/elmar/vakantie_discounter/src/vd/details_page'
-let g:netrw_dirhist_2='/Users/aerohit/codes/elmar/automation/sitemap-export'
-let g:netrw_dirhist_3='/Users/aerohit/codes/elmar/sitemap/scripts'
-let g:netrw_dirhist_4='/Users/aerohit/codes/elmar/elmar-tools-portal'
