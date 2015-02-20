@@ -286,6 +286,9 @@ nnoremap <leader><space> :nohlsearch<CR>
 "nnoremap <leader>f. vip:EasyAlign/->/<CR>
 "vnoremap <leader>f. :EasyAlign/->/<CR>
 
+" Paredit
+let g:paredit_electric_return = 0
+
 " Tabularize
 " Align by a single colon, useful for Cabal descriptions.
 nnoremap <leader>f; :Tabularize colon<CR>
