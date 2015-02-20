@@ -136,6 +136,7 @@ nnoremap <C-space> <PageUp>
 
 " Misc {{{
 
+set shell=/bin/bash
 set viminfo+=!						" make sure it can save viminfo.
 set history=50						" fifty lines of command line history.
 set nobackup
