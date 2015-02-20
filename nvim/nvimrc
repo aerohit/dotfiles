@@ -6,8 +6,8 @@ call plug#begin()
 Plug 'flazz/vim-colorschemes'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'bling/vim-airline'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'mhinz/vim-startify'
+"Plug 'nathanaelkane/vim-indent-guides'
+"Plug 'mhinz/vim-startify'
 "Plug 'vim-scripts/ScrollColors'
 
 " File navigation and search
@@ -17,7 +17,7 @@ Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'Lokaltog/vim-easymotion'
 "Plug 'MattesGroeger/vim-bookmarks'
-Plug 'kien/tabman.vim'
+"Plug 'kien/tabman.vim'
 
 " Notes and markdown
 Plug 'plasticboy/vim-markdown'
