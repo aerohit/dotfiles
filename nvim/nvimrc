@@ -288,6 +288,9 @@ nnoremap <leader><space> :nohlsearch<CR>
 
 " Paredit
 let g:paredit_electric_return = 0
+"let g:paredit_leader          = '\'
+let g:paredit_smartjump       = 1  " When pressing '(' jump to the nearest '(', '[', '{'
+"au Filetype clojure let g:paredit_shortmaps = 1
 
 " Tabularize
 " Align by a single colon, useful for Cabal descriptions.
