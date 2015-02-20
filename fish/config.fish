@@ -15,14 +15,19 @@ set autojump brew bundler fish_plugins jump rails rbenv rvm sublime tmux vi-mode
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
 
-set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
+#set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 set -x SBT_OPTS "-XX:+CMSClassUnloadingEnabled -XX:PermSize=1024M -XX:MaxPermSize=2048M"
 
-set -gx RBENV_ROOT /usr/local/var/rbenv
-. (rbenv init -|psub)
+if test -f /usr/local/var/rbenv
+    set -gx RBENV_ROOT /usr/local/var/rbenv
+    . (rbenv init -|psub)
+end
+
+set -x PATH $PATH ~/.cabal/bin
 
 # Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
-set -x GHC_DOT_APP "/Applications/ghc-7.8.3.app"
-#add-to-path "$HOME/.cabal/bin" "$GHC_DOT_APP/Contents/bin"
-set -x PATH $PATH ~/.cabal/bin
-set -x PATH $PATH "$GHC_DOT_APP/Contents/bin"
+if test -f /Applications/ghc-7.8.3.app
+    set -x GHC_DOT_APP "/Applications/ghc-7.8.3.app"
+    set -x PATH $PATH "$GHC_DOT_APP/Contents/bin"
+end
+set -gx PATH ~/.cabal/bin /opt/cabal/1.20/bin /opt/ghc/7.8.3/bin /opt/happy/1.19.4/bin /opt/alex/3.1.3/bin $PATH

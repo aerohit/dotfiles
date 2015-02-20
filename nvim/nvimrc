@@ -284,6 +284,7 @@ nnoremap <leader>r :checktime<CR>
 nnoremap <leader>i :set list!<CR>
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <leader>u yyp<c-v>$r-I"<ESC>
 
 " EasyAlign
 "nnoremap <leader>f= vip:EasyAlign=<CR>
