@@ -89,9 +89,13 @@ set modelines=1
 " }}}
 
 " Colors {{{
-
-colorscheme solarized
-set background=light
+if has("gui_running")
+    colorscheme gruvbox
+    set background=dark
+else
+    colorscheme solarized
+    set background=light
+endif
 syntax on
 syntax enable
 
