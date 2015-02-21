@@ -1,3 +1,5 @@
+(set-face-attribute 'default nil :font  "Source Code 15")
+
 ;;;;
 ;; Packages
 ;;;;

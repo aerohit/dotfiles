@@ -60,7 +60,8 @@ filetype on
 filetype plugin indent on
 
 set anti						" Antialias font
-set guifont=Sauce\ Code\ Powerline:h15
+set guifont=Sauce\ Code\ Powerline:h14
+set guioptions-=r                                       " Remove the right scrollbar
 set title						" show title in console title bar.
 set cursorline						" highlights line
 set cursorcolumn					" highlights column
@@ -82,6 +83,7 @@ match BoldGroup /[\-\[\](){}.,;:=><_+*/]/
 set backspace=indent,eol,start
 set t_Co=256						" 256 colors
 set listchars=tab:▸\ ,eol:¬,trail:•,extends:❯,precedes:❮	" Invisible characters (toggle with <,i>)
+set showbreak=↪
 set nolist						" Invisible characters turned off by default
 set nofoldenable					" Folding disabled
 set modelines=1
@@ -146,13 +148,15 @@ set matchtime=5						" how many tenths of a second to blink matching brackets fo
 set matchpairs+=<:>					" have % bounce between angled brackets, as well as t'other kinds.
 set laststatus=2					" always show the status line
 set mouse=a						" use mouse everywhere.
+set helpheight=999
 
 " }}}
 
 " Mappings/Shortcuts {{{
 
 inoremap jk <Esc>:w<CR>
-
+vnoremap < <gv
+vnoremap > >gv
 nnoremap <F2> :tabnew<CR>
 nnoremap <F3> :tabp<CR>
 nnoremap <F4> :tabn<CR>
@@ -276,15 +280,16 @@ nnoremap <leader>sv :source $MYVIMRC <CR>
 nnoremap <leader>v :vsp^M^W^W<CR>
 " horizontal split
 nnoremap <leader>h :split^M^W^W<CR>
-" set paste and nopaste
-nnoremap <leader>sp :set paste<CR>
-nnoremap <leader>sn :set nopaste<CR>
+" set paste/nopaste toggle
+nnoremap <leader>pp :set paste!<CR>
 nnoremap <leader>r :checktime<CR>
 " Toggle invisible chars
 nnoremap <leader>i :set list!<CR>
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <leader>u yyp<c-v>$r-I"<ESC>
+nnoremap ; :
+nnoremap : ;
 
 " EasyAlign
 "nnoremap <leader>f= vip:EasyAlign=<CR>
