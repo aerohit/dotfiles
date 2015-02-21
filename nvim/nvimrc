@@ -36,9 +36,9 @@ Plug 'tpope/vim-fugitive'
 
 " Clojure plugins
 Plug 'vim-scripts/paredit.vim'
-Plug 'guns/vim-clojure-static'
-Plug 'guns/vim-clojure-highlight'
-Plug 'tpope/vim-fireplace'
+"Plug 'guns/vim-clojure-static'
+"Plug 'guns/vim-clojure-highlight'
+"Plug 'tpope/vim-fireplace'
 
 " Haskell
 Plug 'raichoo/haskell-vim'
