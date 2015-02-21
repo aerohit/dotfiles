@@ -324,4 +324,4 @@ nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
 " }}}
 
-" vim:foldmethod=marker:foldlevel=0:foldenable
+" vim:foldmethod=marker:foldlevel=0:nofoldenable
