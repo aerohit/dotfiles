@@ -60,7 +60,7 @@ filetype on
 filetype plugin indent on
 
 set anti						" Antialias font
-set guifont=Sauce\ Code\ Powerline:h13
+set guifont=Sauce\ Code\ Powerline:h15
 set title						" show title in console title bar.
 set cursorline						" highlights line
 set cursorcolumn					" highlights column
