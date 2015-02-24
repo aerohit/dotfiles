@@ -18,11 +18,6 @@ set autojump brew bundler fish_plugins jump rails rbenv rvm sublime tmux vi-mode
 #set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 set -x SBT_OPTS "-XX:+CMSClassUnloadingEnabled -XX:PermSize=1024M -XX:MaxPermSize=2048M"
 
-if test -f /usr/local/var/rbenv
-    set -gx RBENV_ROOT /usr/local/var/rbenv
-    . (rbenv init -|psub)
-end
-
 set -x PATH $PATH ~/.cabal/bin
 
 # Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
