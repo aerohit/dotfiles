@@ -23,6 +23,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'plasticboy/vim-markdown'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+Plug 'vim-scripts/VOoM'
 
 " Text management
 "Plug 'junegunn/vim-easy-align'
