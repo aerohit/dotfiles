@@ -8,19 +8,20 @@ Create a symbolic link for ssh config as follows:
 
     ln -s ~/bin/dotfiles/ssh/config ~/.ssh/config
 
-Create a symbolic link for slate config as follows:
-
-    ln -s ~/bin/dotfiles/ssh/slate ~/.slate
+Use Spectacle for window management.
 
 For configuring vim:
 
-    ln -s ~/bin/dotfiles/vim/vimrc ~/.vimrc
-    ln -s ~/bin/dotfiles/vim ~/.vim
-    ln -s ~/bin/dotfiles/vim/bundle/vim-colorschemes/colors ~/.vim/colors
+    ln -s ~/bin/dotfiles/nvim/nvimrc ~/.vimrc
+    ln -s ~/bin/dotfiles/nvim ~/.vim
 
-For installing [vundle](https://github.com/gmarik/vundle):
+    ln -s ~/bin/dotfiles/nvim/nvimrc ~/.nvimrc
+    ln -s ~/bin/dotfiles/nvim ~/.nvim
 
-    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+For installing [vim-plug](https://github.com/junegunn/vim-plug):
+
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 Link tmux:
 
@@ -34,10 +35,6 @@ Link fish:
 For configuring Git:
 
     ln -s ~/bin/dotfiles/git/gitconfig ~/.gitconfig
-
-For configuring ZSH, first clone [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh). Then:
-
-    source ~/bin/dotfiles/zshrc
 
 For configuring default gemrc (Gemfile):
 
