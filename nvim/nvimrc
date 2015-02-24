@@ -51,6 +51,7 @@ Plug 'dag/vim2hs'
 " 'guns/vim-sexp' for s-expressions, might be useful for clojure.
 " 'tpope/vim-sexp-mappings-for-regular-people'
 " 'kshenoy/vim-signature' another approach for handling bookmarks.
+" 'vim-scripts/utl.vim' URL-based hyperlinking to plain text ...
 
 call plug#end()
 
