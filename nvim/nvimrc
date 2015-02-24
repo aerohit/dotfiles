@@ -29,6 +29,7 @@ Plug 'xolox/vim-notes'
 Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdcommenter'
+Plug 'takac/vim-hardtime'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -326,6 +327,10 @@ nnoremap <leader>on :tabnew <CR>:Note vim<CR>
 
 " NerdTree
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
+
+" vim-hardtime
+let g:hardtime_default_on = 1
+let g:hardtime_showmsg = 1
 
 " }}}
 
