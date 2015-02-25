@@ -167,6 +167,9 @@ inoremap uu _
 inoremap hh =><Space>
 "inoremap aa @
 inoremap ii \|
+inoremap >x ✗<Space>
+nnoremap <leader>md <Esc>V:s/✗/✓<CR>:noh<CR>
+nnoremap <leader>mn <Esc>V:s/✓/✗<CR>:noh<CR>
 
 " }}}
 
