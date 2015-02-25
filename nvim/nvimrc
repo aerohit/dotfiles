@@ -330,7 +330,7 @@ nnoremap <leader>f" :Tabularize / "/l1r0<CR>
 nnoremap <leader>f, :Tabularize / ,/l1r0<CR>
 
 " vim-notes
-nnoremap <leader>on :tabnew <CR>:Note vim<CR>
+nnoremap <leader>on :tabnew<CR>:Note<Space>
 
 " NerdTree
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
