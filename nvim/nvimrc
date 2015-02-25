@@ -38,9 +38,9 @@ Plug 'tpope/vim-fugitive'
 
 " Clojure plugins
 Plug 'vim-scripts/paredit.vim'
-"Plug 'guns/vim-clojure-static'
-"Plug 'guns/vim-clojure-highlight'
-"Plug 'tpope/vim-fireplace'
+Plug 'guns/vim-clojure-static'
+Plug 'guns/vim-clojure-highlight'
+Plug 'tpope/vim-fireplace'
 
 " Haskell
 Plug 'raichoo/haskell-vim'
@@ -114,7 +114,7 @@ set shiftwidth=4
 set expandtab
 set nowrap
 set smarttab 						" use tabs at the start of a line, spaces elsewhere
-au FileType ruby,scala,haskell,eruby,javascript,html,css setl shiftwidth=2 softtabstop=2
+au FileType clojure,ruby,scala,haskell,eruby,javascript,html,css setl shiftwidth=2 softtabstop=2
 
 " }}}
 
