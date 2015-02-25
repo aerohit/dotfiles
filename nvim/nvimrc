@@ -34,17 +34,28 @@ Plug 'takac/vim-hardtime'
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 "Plug 'gregsexton/gitv'
+
+" Language agnostic
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'scrooloose/syntastic'             " syntax checker
 
 " Clojure plugins
 Plug 'vim-scripts/paredit.vim'
 Plug 'guns/vim-clojure-static'
 Plug 'guns/vim-clojure-highlight'
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fireplace'
 
 " Haskell
 Plug 'raichoo/haskell-vim'
 Plug 'dag/vim2hs'
+"Plug 'enomsg/vim-haskellConcealPlus'    " unicode for haskell operators
+Plug 'eagletmt/ghcmod-vim'
+Plug 'eagletmt/neco-ghc'
+Plug 'Twinside/vim-hoogle'
 
 " Could be tried
 " 'tacahiroy/ctrlp-funky'
@@ -90,6 +101,11 @@ set showbreak=↪
 set nolist						" Invisible characters turned off by default
 set nofoldenable					" Folding disabled
 set modelines=1
+
+if (exists('+colorcolumn'))
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=9
+endi
 
 " }}}
 
@@ -214,6 +230,43 @@ augroup END
 
 " }}}
 
+" Language Specific {{{
+
+" Clojure
+"autocmd BufEnter *.cljs,*.clj,*.cljs.hl RainbowParenthesesActivate
+"autocmd BufEnter *.cljs,*.clj,*.cljs.hl RainbowParenthesesLoadRound
+"autocmd BufEnter *.cljs,*.clj,*.cljs.hl RainbowParenthesesLoadSquare
+"autocmd BufEnter *.cljs,*.clj,*.cljs.hl RainbowParenthesesLoadBraces
+autocmd BufEnter *.cljs,*.clj,*.cljs.hl setlocal iskeyword+=?,-,*,!,+,/,=,<,>,.,:
+
+" Haskell
+nnoremap <silent> <leader>ht :GhcModType<CR>
+nnoremap <silent> <leader>hh :GhcModTypeClear<CR>
+nnoremap <silent> <leader>hT :GhcModTypeInsert<CR>
+nnoremap <silent> <leader>hc :SyntasticCheck ghc_mod<CR>:lopen<CR>
+let g:syntastic_mode_map={'mode': 'active', 'passive_filetypes': ['haskell']}
+let g:syntastic_always_populate_loc_list = 1
+nnoremap <silent> <leader>hl :SyntasticCheck hlint<CR>:lopen<CR>
+
+" Auto-checking on writing
+autocmd BufWritePost *.hs,*.lhs GhcModCheckAndLintAsync
+
+"  neocomplcache (advanced completion)
+autocmd BufEnter *.hs,*.lhs let g:neocomplcache_enable_at_startup = 1
+function! SetToCabalBuild()
+    if glob("*.cabal") != ''
+        set makeprg=cabal\ build
+    endif
+endfunction
+autocmd BufEnter *.hs,*.lhs :call SetToCabalBuild()
+
+" -- neco-ghc
+let $PATH=$PATH.':'.expand("~/.cabal/bin")
+
+" }}}
+
+
+
 " Plugins configuration {{{
 
 " vim-easy-align
@@ -241,6 +294,24 @@ let NERDTreeMouseMode=1                                         " Single click f
 let g:NERDTreeWinPos = "left"
 
 " Rainbow Parenthesis
+let g:rbpt_colorpairs = [
+        \ ['darkyellow',  'RoyalBlue3'],
+        \ ['darkgreen',   'SeaGreen3'],
+        \ ['darkcyan',    'DarkOrchid3'],
+        \ ['Darkblue',    'firebrick3'],
+        \ ['DarkMagenta', 'RoyalBlue3'],
+        \ ['darkred',     'SeaGreen3'],
+        \ ['darkyellow',  'DarkOrchid3'],
+        \ ['darkgreen',   'firebrick3'],
+        \ ['darkcyan',    'RoyalBlue3'],
+        \ ['Darkblue',    'SeaGreen3'],
+        \ ['DarkMagenta', 'DarkOrchid3'],
+        \ ['Darkblue',    'firebrick3'],
+        \ ['darkcyan',    'SeaGreen3'],
+        \ ['darkgreen',   'RoyalBlue3'],
+        \ ['darkyellow',  'DarkOrchid3'],
+        \ ['darkred',     'firebrick3'],
+        \ ]
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
