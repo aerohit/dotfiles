@@ -26,7 +26,7 @@ Plug 'xolox/vim-notes'
 Plug 'vim-scripts/VOoM'
 
 " Text management
-"Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align'
 Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdcommenter'
