@@ -68,12 +68,28 @@ call plug#end()
 
 " }}}
 
+" Colors {{{
+if has("gui_running")
+    colorscheme gruvbox
+    set background=dark
+else
+    colorscheme gruvbox
+    set background=dark
+endif
+syntax on
+syntax enable
+
+" }}}
+
 " UI Config {{{
 
 filetype on
 filetype plugin indent on
 
-set anti						" Antialias font
+highlight Comment gui=bold,italic
+highlight cursorline gui=bold cterm=bold
+
+set anti enc=utf-8						" Antialias font
 set guifont=Sauce\ Code\ Powerline:h14
 set guioptions-=r                                       " Remove the right scrollbar
 set title						" show title in console title bar.
@@ -104,21 +120,7 @@ set modelines=1
 
 if (exists('+colorcolumn'))
     set colorcolumn=80
-    highlight ColorColumn ctermbg=9
 endi
-
-" }}}
-
-" Colors {{{
-if has("gui_running")
-    colorscheme gruvbox
-    set background=dark
-else
-    colorscheme gruvbox
-    set background=dark
-endif
-syntax on
-syntax enable
 
 " }}}
 
