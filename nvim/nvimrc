@@ -399,7 +399,7 @@ nnoremap <leader>f> :Tabularize haskell_pattern_arrows<CR>
 nnoremap <leader>f: :Tabularize haskell_types<CR>
 " Repeat the previous Tabularize
 nnoremap <leader>fr :Tabularize<CR>
-nnoremap <leader>f" :Tabularize / "/l1r0<CR>
+nnoremap <leader>f" :Tabularize / "/l0r0<CR>
 nnoremap <leader>f, :Tabularize / ,/l1r0<CR>
 
 " vim-notes
