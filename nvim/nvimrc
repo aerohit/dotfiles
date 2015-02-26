@@ -412,6 +412,9 @@ nnoremap <leader>n :NERDTreeTabsToggle<CR>
 let g:hardtime_default_on = 1
 "let g:hardtime_showmsg = 1
 
+" ghcmod-vim
+let g:ghcmod_ghc_options = ['-fno-warn-unused-binds', '-fno-warn-missing-signatures']
+
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0:nofoldenable
