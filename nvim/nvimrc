@@ -53,7 +53,7 @@ Plug 'tpope/vim-fireplace'
 Plug 'raichoo/haskell-vim'
 Plug 'dag/vim2hs'
 "Plug 'enomsg/vim-haskellConcealPlus'    " unicode for haskell operators
-Plug 'eagletmt/ghcmod-vim'
+"Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/neco-ghc'
 Plug 'Twinside/vim-hoogle'
 
@@ -242,28 +242,31 @@ augroup END
 autocmd BufEnter *.cljs,*.clj,*.cljs.hl setlocal iskeyword+=?,-,*,!,+,/,=,<,>,.,:
 
 " Haskell
-nnoremap <silent> <leader>ht :GhcModType<CR>
-nnoremap <silent> <leader>hh :GhcModTypeClear<CR>
-nnoremap <silent> <leader>hT :GhcModTypeInsert<CR>
-nnoremap <silent> <leader>hc :SyntasticCheck ghc_mod<CR>:lopen<CR>
-let g:syntastic_mode_map={'mode': 'active', 'passive_filetypes': ['haskell']}
-let g:syntastic_always_populate_loc_list = 1
-nnoremap <silent> <leader>hl :SyntasticCheck hlint<CR>:lopen<CR>
+"nnoremap <silent> <leader>ht :GhcModType<CR>
+"nnoremap <silent> <leader>hh :GhcModTypeClear<CR>
+"nnoremap <silent> <leader>hT :GhcModTypeInsert<CR>
+"nnoremap <silent> <leader>hc :SyntasticCheck ghc_mod<CR>:lopen<CR>
+"let g:syntastic_mode_map={'mode': 'active', 'passive_filetypes': ['haskell']}
+"let g:syntastic_always_populate_loc_list = 1
+"nnoremap <silent> <leader>hl :SyntasticCheck hlint<CR>:lopen<CR>
 
 " Auto-checking on writing
-autocmd BufWritePost *.hs,*.lhs GhcModCheckAndLintAsync
+"autocmd BufWritePost *.hs,*.lhs GhcModCheckAndLintAsync
 
-"  neocomplcache (advanced completion)
-autocmd BufEnter *.hs,*.lhs let g:neocomplcache_enable_at_startup = 1
-function! SetToCabalBuild()
-    if glob("*.cabal") != ''
-        set makeprg=cabal\ build
-    endif
-endfunction
-autocmd BufEnter *.hs,*.lhs :call SetToCabalBuild()
+""  neocomplcache (advanced completion)
+"autocmd BufEnter *.hs,*.lhs let g:neocomplcache_enable_at_startup = 1
+"function! SetToCabalBuild()
+    "if glob("*.cabal") != ''
+        "set makeprg=cabal\ build
+    "endif
+"endfunction
+"autocmd BufEnter *.hs,*.lhs :call SetToCabalBuild()
 
-" -- neco-ghc
-let $PATH=$PATH.':'.expand("~/.cabal/bin")
+"" ghcmod-vim
+""let g:ghcmod_ghc_options = ['-fno-warn-unused-binds', '-fno-warn-missing-signatures']
+
+"" -- neco-ghc
+"let $PATH=$PATH.':'.expand("~/.cabal/bin")
 
 " }}}
 
@@ -411,9 +414,6 @@ nnoremap <leader>n :NERDTreeTabsToggle<CR>
 " vim-hardtime
 let g:hardtime_default_on = 1
 "let g:hardtime_showmsg = 1
-
-" ghcmod-vim
-let g:ghcmod_ghc_options = ['-fno-warn-unused-binds', '-fno-warn-missing-signatures']
 
 " }}}
 
