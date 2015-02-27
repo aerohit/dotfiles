@@ -4,3 +4,4 @@ vim/colors
 nvim/plugged
 nvim/autoload
 nvim/.netrwhist
+nvim/sessions
