@@ -184,7 +184,7 @@ nnoremap <F4> :tabn<CR>
 inoremap uu _
 inoremap hh =><Space>
 "inoremap aa @
-inoremap ii \|
+inoremap ii \|<Space>
 inoremap >x ✗<Space>
 nnoremap <leader>md <Esc>V:s/✗/✓<CR>:noh<CR>
 nnoremap <leader>mn <Esc>V:s/✓/✗<CR>:noh<CR>
@@ -404,6 +404,7 @@ nnoremap <leader>f: :Tabularize haskell_types<CR>
 nnoremap <leader>fr :Tabularize<CR>
 nnoremap <leader>f" :Tabularize / "/l0r0<CR>
 nnoremap <leader>f, :Tabularize / ,/l1r0<CR>
+vnoremap <leader>f= :EasyAlign-1=<CR>
 
 " vim-notes
 nnoremap <leader>on :tabnew<CR>:Note<Space>
@@ -412,7 +413,7 @@ nnoremap <leader>on :tabnew<CR>:Note<Space>
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
 " vim-hardtime
-let g:hardtime_default_on = 1
+let g:hardtime_default_on = 0
 "let g:hardtime_showmsg = 1
 
 " }}}
