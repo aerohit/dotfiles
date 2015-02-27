@@ -1,4 +1,4 @@
-" Plugins {{{
+" Plugins
 
 call plug#begin()
 
@@ -64,9 +64,9 @@ Plug 'dag/vim2hs'
 
 call plug#end()
 
-" }}}
 
-" Colors {{{
+
+" Colors
 if has("gui_running")
     colorscheme gruvbox
     set background=dark
@@ -77,9 +77,9 @@ endif
 syntax on
 syntax enable
 
-" }}}
 
-" UI Config {{{
+
+" UI Config
 
 filetype on
 filetype plugin indent on
@@ -120,9 +120,9 @@ if (exists('+colorcolumn'))
     set colorcolumn=80
 endi
 
-" }}}
 
-" Spaces and Tabs {{{
+
+" Spaces and Tabs
 
 set tabstop=8 						" tab spacing (settings below are just to unify it)
 set softtabstop=8
@@ -132,9 +132,9 @@ set nowrap
 set smarttab 						" use tabs at the start of a line, spaces elsewhere
 au FileType clojure,ruby,scala,haskell,eruby,javascript,html,css setl shiftwidth=2 softtabstop=2
 
-" }}}
 
-" Search {{{
+
+" Search
 
 set hlsearch						" highlight searched for phrases
 set incsearch 						" highlight as you type you search phrase
@@ -142,9 +142,9 @@ set ignorecase      					" ignore case when searching.
 set smartcase						" make case sensitive when upper-case included.
 set gdefault						" substitutions to replace all matches in a line.
 
-" }}}
 
-" Movement {{{
+
+" Movement
 
 " move vertically by visual line
 nnoremap j gj
@@ -153,9 +153,9 @@ nnoremap k gk
 nnoremap <space> <PageDown>
 nnoremap <C-space> <PageUp>
 
-" }}}
 
-" Misc {{{
+
+" Misc
 
 set shell=/bin/bash
 set viminfo+=!						" make sure it can save viminfo.
@@ -169,9 +169,9 @@ set laststatus=2					" always show the status line
 set mouse=a						" use mouse everywhere.
 set helpheight=999
 
-" }}}
 
-" Mappings/Shortcuts {{{
+
+" Mappings/Shortcuts
 
 inoremap jk <Esc>:w<CR>
 vnoremap < <gv
@@ -187,9 +187,9 @@ inoremap >x ✗<Space>
 nnoremap <leader>md <Esc>V:s/✗/✓<CR>:noh<CR>
 nnoremap <leader>mn <Esc>V:s/✓/✗<CR>:noh<CR>
 
-" }}}
 
-" Window management {{{
+
+" Window management
 
 " Jump to left window
 nnoremap <C-h> <C-w>h
@@ -205,9 +205,9 @@ nnoremap <C-k> <C-w>k
 set equalalways						" Multiple windows, when created, are equal in size
 set splitbelow splitright				" Windows on splitting would be below or to the right
 
-" }}}
 
-" Autogroups {{{
+
+" Autogroups
 
 function! <SID>StripTrailingWhiteSpaces()
     let cur_pos = getpos(".")
@@ -224,9 +224,9 @@ augroup configgroup
     autocmd FocusLost * :wa                                             " saves on focus lost
 augroup END
 
-" }}}
 
-" Language Specific {{{
+
+" Language Specific
 
 " Clojure
 autocmd BufEnter *.cljs,*.clj,*.cljs.hl setlocal iskeyword+=?,-,*,!,+,/,=,<,>,.,:
@@ -258,11 +258,11 @@ autocmd BufEnter *.cljs,*.clj,*.cljs.hl setlocal iskeyword+=?,-,*,!,+,/,=,<,>,.,
 "" -- neco-ghc
 "let $PATH=$PATH.':'.expand("~/.cabal/bin")
 
-" }}}
 
 
 
-" Plugins configuration {{{
+
+" Plugins configuration
 
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
@@ -298,9 +298,9 @@ nnoremap <leader>pu :PlugUpdate<CR>
 " vim-bookmarks
 "let g:bookmark_auto_close = 1
 
-" }}}
 
-" Leader shortcuts {{{
+
+" Leader shortcuts
 
 " open vimrc
 nnoremap <leader>ev :tabnew $MYVIMRC <CR>
@@ -365,6 +365,7 @@ nnoremap <leader>n :NERDTreeTabsToggle<CR>
 let g:hardtime_default_on = 0
 "let g:hardtime_showmsg = 1
 
-" }}}
+" vim-session
+let g:session_autoload='no'
 
 " vim:foldmethod=marker:foldlevel=0:nofoldenable
