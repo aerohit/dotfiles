@@ -2,12 +2,14 @@
 
 call plug#begin()
 
-" ➜ Look and feel
+" Misc
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'xolox/vim-misc'
+
+" Look and feel
 Plug 'flazz/vim-colorschemes'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'bling/vim-airline'
-"Plug 'nathanaelkane/vim-indent-guides'
-"Plug 'mhinz/vim-startify'
 "Plug 'vim-scripts/ScrollColors'
 
 " File navigation and search
@@ -16,30 +18,28 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'Lokaltog/vim-easymotion'
+Plug 'xolox/vim-session'
+Plug 'takac/vim-hardtime'
 "Plug 'MattesGroeger/vim-bookmarks'
 "Plug 'kien/tabman.vim'
-
-" Notes and markdown
-Plug 'plasticboy/vim-markdown'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
-Plug 'vim-scripts/VOoM'
 
 " Text management
 Plug 'junegunn/vim-easy-align'
 Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdcommenter'
-Plug 'takac/vim-hardtime'
+
+" Notes and markdown
+Plug 'plasticboy/vim-markdown'
+Plug 'xolox/vim-notes'
+Plug 'vim-scripts/VOoM'
+
+" Language agnostic
+Plug 'scrooloose/syntastic'             " syntax checker
 
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-"Plug 'gregsexton/gitv'
-
-" Language agnostic
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'scrooloose/syntastic'             " syntax checker
 
 " Clojure plugins
 Plug 'vim-scripts/paredit.vim'
@@ -52,10 +52,9 @@ Plug 'tpope/vim-fireplace'
 " Haskell
 Plug 'raichoo/haskell-vim'
 Plug 'dag/vim2hs'
-"Plug 'enomsg/vim-haskellConcealPlus'    " unicode for haskell operators
 "Plug 'eagletmt/ghcmod-vim'
-Plug 'eagletmt/neco-ghc'
-Plug 'Twinside/vim-hoogle'
+"Plug 'eagletmt/neco-ghc'
+"Plug 'Twinside/vim-hoogle'
 
 " Could be tried
 " 'tacahiroy/ctrlp-funky'
