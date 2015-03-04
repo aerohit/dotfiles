@@ -18,8 +18,6 @@ set fish_plugins autojump brew bundler jump rails rvm sublime tmux vi-mode vundl
 #set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 set -x SBT_OPTS "-XX:+CMSClassUnloadingEnabled -XX:PermSize=1024M -XX:MaxPermSize=2048M"
 
-set -x PATH $PATH ~/.cabal/bin
-
 # Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
 if test -f /Applications/ghc-7.8.3.app
     set -x GHC_DOT_APP "/Applications/ghc-7.8.3.app"
