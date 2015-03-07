@@ -24,3 +24,4 @@ if test -f /Applications/ghc-7.8.3.app
     set -x PATH $PATH "$GHC_DOT_APP/Contents/bin"
 end
 set -gx PATH ~/.cabal/bin /opt/cabal/1.20/bin /opt/ghc/7.8.3/bin /opt/happy/1.19.4/bin /opt/alex/3.1.3/bin $PATH
+set -gx PATH ~/bin $PATH
