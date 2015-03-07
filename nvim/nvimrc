@@ -27,6 +27,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
 
 " Notes and markdown
 Plug 'plasticboy/vim-markdown'
