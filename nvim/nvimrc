@@ -16,11 +16,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
-Plug 'Lokaltog/vim-easymotion'
-Plug 'xolox/vim-session'
-Plug 'takac/vim-hardtime'
-"Plug 'MattesGroeger/vim-bookmarks'
-"Plug 'kien/tabman.vim'
 
 " Text management
 Plug 'junegunn/vim-easy-align'
@@ -32,7 +27,6 @@ Plug 'tpope/vim-surround'
 " Notes and markdown
 Plug 'plasticboy/vim-markdown'
 Plug 'xolox/vim-notes'
-Plug 'vim-scripts/VOoM'
 
 " Language agnostic
 Plug 'scrooloose/syntastic'             " syntax checker
