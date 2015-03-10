@@ -36,19 +36,19 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 " Clojure plugins
-Plug 'vim-scripts/paredit.vim'
-Plug 'guns/vim-clojure-static'
-Plug 'guns/vim-clojure-highlight'
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-fireplace'
+Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+Plug 'guns/vim-sexp', { 'for': 'clojure' }
+Plug 'tpope/vim-repeat', { 'for': 'clojure' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Scala
-Plug 'derekwyatt/vim-scala'
+Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 
 " Haskell
-Plug 'raichoo/haskell-vim'
-Plug 'dag/vim2hs'
+Plug 'raichoo/haskell-vim', { 'for': 'haskell' }
+Plug 'dag/vim2hs', { 'for': 'haskell' }
 "Plug 'eagletmt/ghcmod-vim'
 "Plug 'eagletmt/neco-ghc'
 "Plug 'Twinside/vim-hoogle'
