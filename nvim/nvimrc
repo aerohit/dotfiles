@@ -29,7 +29,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'xolox/vim-notes'
 
 " Language agnostic
-Plug 'scrooloose/syntastic'             " syntax checker
+"Plug 'scrooloose/syntastic'             " syntax checker
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -42,6 +42,9 @@ Plug 'guns/vim-clojure-highlight'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fireplace'
+
+" Scala
+Plug 'derekwyatt/vim-scala'
 
 " Haskell
 Plug 'raichoo/haskell-vim'
