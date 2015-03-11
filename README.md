@@ -43,3 +43,17 @@ For configuring default gemrc (Gemfile):
 For configuring default rspec
 
     ln -s ~/bin/dotfiles/rspec .rspec
+
+To install powerline for tmux
+
+    brew install python
+    pip install git+git://github.com/Lokaltog/powerline
+
+    mkdir ~/.config/powerline
+    cp -R /usr/local/lib/python2.7/site-packages/powerline/config_files/* ~/.config/powerline
+
+Download Powerline patched fonts
+
+    git clone https://github.com/Lokaltog/powerline-fonts.git
+
+Don't forget to install Powerline patched fonts!
