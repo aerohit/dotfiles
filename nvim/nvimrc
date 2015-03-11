@@ -293,11 +293,6 @@ let g:NERDTreeWinPos = "left"
 nnoremap <leader>pi :PlugInstall<CR>
 nnoremap <leader>pu :PlugUpdate<CR>
 
-" vim-bookmarks
-"let g:bookmark_auto_close = 1
-
-
-
 " Leader shortcuts
 
 " open vimrc
