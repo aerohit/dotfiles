@@ -354,11 +354,4 @@ nnoremap <leader>on :tabnew<CR>:Note<Space>
 " NerdTree
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
-" vim-hardtime
-let g:hardtime_default_on = 0
-"let g:hardtime_showmsg = 1
-
-" vim-session
-let g:session_autoload = 'no'
-
 " vim:foldmethod=marker:foldlevel=0:nofoldenable
