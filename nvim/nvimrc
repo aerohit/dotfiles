@@ -16,6 +16,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Text management
 Plug 'junegunn/vim-easy-align'
