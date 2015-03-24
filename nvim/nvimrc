@@ -201,6 +201,12 @@ nnoremap <C-j> <C-w>j
 "nnoremap <C-k> <C-w>k<C-w>_
 nnoremap <C-k> <C-w>k
 
+" Read this issue why the following is needed
+" https://github.com/neovim/neovim/issues/2048
+if has('nvim')
+     nmap <BS> <C-W>h
+ endif
+
 set equalalways						" Multiple windows, when created, are equal in size
 set splitbelow splitright				" Windows on splitting would be below or to the right
 
