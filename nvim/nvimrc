@@ -220,6 +220,7 @@ augroup configgroup
     autocmd BufEnter * lcd %:p:h                                        " Sets path to directory buffer was loaded from
     autocmd BufWritePre * :call <SID>StripTrailingWhiteSpaces()         " remove trailing whitespace on save
     autocmd FocusLost * :wa                                             " saves on focus lost
+    au FileType gitcommit execute "normal! O" | startinsert             " when commiting add new line and enter insert mode
 augroup END
 
 
