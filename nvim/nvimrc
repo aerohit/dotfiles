@@ -175,9 +175,6 @@ set helpheight=999
 inoremap jk <Esc>:w<CR>
 vnoremap < <gv
 vnoremap > >gv
-nnoremap <F2> :tabnew<CR>
-nnoremap <F3> :tabp<CR>
-nnoremap <F4> :tabn<CR>
 inoremap uu _
 inoremap hh =><Space>
 "inoremap aa @
@@ -186,6 +183,16 @@ inoremap >x ✗<Space>
 nnoremap <leader>md <Esc>V:s/✗/✓<CR>:noh<CR>
 nnoremap <leader>mn <Esc>V:s/✓/✗<CR>:noh<CR>
 
+nnoremap <D-1> 1gt
+nnoremap <D-2> 2gt
+nnoremap <D-3> 3gt
+nnoremap <D-4> 4gt
+nnoremap <D-0> :tablast<CR>
+inoremap <D-1> <esc>1gt
+inoremap <D-2> <esc>2gt
+inoremap <D-3> <esc>3gt
+inoremap <D-4> <esc>4gt
+inoremap <D-0> <esc>:tablast<CR>
 
 
 " Window management
