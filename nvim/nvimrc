@@ -6,16 +6,17 @@ call plug#begin()
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'xolox/vim-misc'
 
-" Look and feel
-Plug 'flazz/vim-colorschemes'
-Plug 'bling/vim-airline'
-"Plug 'vim-scripts/ScrollColors'
-
 " File navigation and search
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
+
+" Look and feel
+Plug 'flazz/vim-colorschemes'
+Plug 'bling/vim-airline'
+Plug 'ryanoasis/vim-webdevicons'
+"Plug 'vim-scripts/ScrollColors'
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -91,7 +92,7 @@ highlight Comment gui=bold,italic
 highlight cursorline gui=bold cterm=bold
 
 set anti enc=utf-8						" Antialias font
-set guifont=Sauce\ Code\ Powerline:h14
+set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types:h14
 set guioptions-=r                                       " Remove the right scrollbar
 set title						" show title in console title bar.
 set cursorline						" highlights line
