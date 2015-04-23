@@ -178,7 +178,7 @@ set helpheight=999
 
 " Mappings/Shortcuts
 
-inoremap jk <Esc>:w<CR>
+inoremap jk <Esc>
 vnoremap < <gv
 vnoremap > >gv
 inoremap uu _
@@ -245,7 +245,7 @@ augroup configgroup
     autocmd FileType haskell,scala      :inoremap <buffer> << <-<Space>
     autocmd BufEnter * lcd %:p:h                                        " Sets path to directory buffer was loaded from
     autocmd BufWritePre * :call <SID>StripTrailingWhiteSpaces()         " remove trailing whitespace on save
-    autocmd FocusLost * :wa                                             " saves on focus lost
+    "autocmd FocusLost * :wa                                             " saves on focus lost
     au FileType gitcommit execute "normal! O" | startinsert             " when commiting add new line and enter insert mode
 augroup END
 
