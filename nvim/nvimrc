@@ -335,7 +335,7 @@ nnoremap <leader>h :split^M^W^W<CR>
 nnoremap <leader>pp :set paste!<CR>
 nnoremap <leader>r :checktime<CR>
 " Toggle invisible chars
-nnoremap <leader>i :set list!<CR>
+nnoremap <leader>l :set list!<CR>
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <leader>u yyp<c-v>$r-I"<ESC>
