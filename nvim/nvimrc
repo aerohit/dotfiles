@@ -22,6 +22,7 @@ Plug 'ryanoasis/vim-webdevicons'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'epeli/slimux'
 
 " Text management
 Plug 'junegunn/vim-easy-align'
@@ -407,5 +408,10 @@ call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+
+" Slimux
+nnoremap <leader>sl :SlimuxREPLSendLine<CR>
+vnoremap <leader>ss :SlimuxREPLSendSelection<CR>
+nnoremap <leader>sb :SlimuxREPLSendBuffer<CR>
 
 " vim:foldmethod=marker:foldlevel=0:nofoldenable
