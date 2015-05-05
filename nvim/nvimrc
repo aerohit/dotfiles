@@ -414,5 +414,8 @@ nnoremap <leader>sl :SlimuxREPLSendLine<CR>
 vnoremap <leader>ss :SlimuxREPLSendSelection<CR>
 nnoremap <leader>sb :SlimuxREPLSendBuffer<CR>
 
+" vim fugitive git
+command! -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
+nnoremap <C-F> :Ggr <cword><CR>
 
 " vim:foldmethod=marker:foldlevel=0:nofoldenable
