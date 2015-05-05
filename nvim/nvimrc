@@ -226,7 +226,7 @@ nnoremap <C-k> <C-w>k
 " Read this issue why the following is needed
 " https://github.com/neovim/neovim/issues/2048
 if has('nvim')
-     nmap <BS> <C-W>h
+     nnoremap <BS> <C-W>h
  endif
 
 set equalalways						" Multiple windows, when created, are equal in size
