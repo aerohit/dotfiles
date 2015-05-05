@@ -11,8 +11,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
-Plug 'osyo-manga/vim-hopping'
-Plug 'osyo-manga/vim-anzu'
 
 " Look and feel
 Plug 'flazz/vim-colorschemes'
@@ -415,15 +413,6 @@ call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 nnoremap <leader>sl :SlimuxREPLSendLine<CR>
 vnoremap <leader>ss :SlimuxREPLSendSelection<CR>
 nnoremap <leader>sb :SlimuxREPLSendBuffer<CR>
-
-" vim -anzu
-
-nnoremap n <Plug>(anzu-n-with-echo)
-nnoremap N <Plug>(anzu-N-with-echo)
-nnoremap * <Plug>(anzu-star-with-echo)
-nnoremap # <Plug>(anzu-sharp-with-echo)
-nnoremap <Esc><Esc> <Plug>(anzu-clear-search-status)
-set statusline=%{anzu#search_status()}
 
 
 " vim:foldmethod=marker:foldlevel=0:nofoldenable
