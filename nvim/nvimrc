@@ -11,6 +11,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
 
 " Look and feel
 Plug 'flazz/vim-colorschemes'
@@ -307,7 +308,9 @@ let g:airline_powerline_fonts = 1
 " ctrlp.vim
 nnoremap <C-b> :CtrlPBuffer<CR>
 "nnoremap <C-m> :CtrlPMRU<CR>
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+"let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_by_filename = 0
 let g:ctrlp_regexp = 0
 let g:ctrlp_mruf_relative = 1
