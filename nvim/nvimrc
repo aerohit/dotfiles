@@ -11,6 +11,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
+Plug 'osyo-manga/vim-hopping'
 Plug 'osyo-manga/vim-anzu'
 
 " Look and feel
