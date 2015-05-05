@@ -343,8 +343,6 @@ nnoremap <leader>l :set list!<CR>
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <leader>u yyp<c-v>$r-I"<ESC>
-nnoremap ; :
-nnoremap : ;
 
 " EasyAlign
 "nnoremap <leader>f= vip:EasyAlign=<CR>
