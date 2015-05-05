@@ -51,6 +51,9 @@ To install powerline for tmux
 
     mkdir ~/.config/powerline
     cp -R /usr/local/lib/python2.7/site-packages/powerline/config_files/* ~/.config/powerline
+    mv ~/.config/powerline/config.json ~/.config/powerline/config.json.bak
+    ln -s ~/bin/dotfiles/powerline/config.json ~/.config/powerline/config.json
+    ln -s ~/bin/dotfiles/powerline/themes/tmux/custom.json ~/.config/powerline/themes/tmux/custom.json
 
 Download Powerline patched fonts
 
