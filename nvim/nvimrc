@@ -12,6 +12,8 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'rking/ag.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'reedes/vim-wheel'
+Plug 'reedes/vim-thematic'
 
 " Look and feel
 Plug 'flazz/vim-colorschemes'
@@ -425,5 +427,38 @@ nnoremap <leader>fp :Ggr <cword><CR>
 " Ag
 nnoremap <leader>fr :Ag <cword><CR>
 
+" vim-wheel
+let g:wheel#map#up   = '<D-k>'
+let g:wheel#map#down = '<D-j>'
+
+" vim-thematic
+let g:thematic#themes = {
+\ 'bubblegum'  : { 'typeface': 'Menlo',
+\                  'font-size': 18,
+\                  'transparency': 10,
+\                  'linespace': 2,
+\                },
+\ 'pencil_dark' :{ 'colorscheme': 'pencil',
+\                  'background': 'dark',
+\                  'airline-theme': 'badwolf',
+\                  'ruler': 1,
+\                  'laststatus': 0,
+\                  'typeface': 'Source Code Pro Light',
+\                  'font-size': 20,
+\                  'transparency': 10,
+\                  'linespace': 8,
+\                },
+\ 'pencil_lite' :{ 'colorscheme': 'pencil',
+\                  'background': 'light',
+\                  'airline-theme': 'light',
+\                  'laststatus': 0,
+\                  'ruler': 1,
+\                  'typeface': 'Source Code Pro',
+\                  'fullscreen': 1,
+\                  'transparency': 0,
+\                  'font-size': 20,
+\                  'linespace': 6,
+\                },
+\ }
 
 " vim:foldmethod=marker:foldlevel=0:nofoldenable
