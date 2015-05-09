@@ -260,6 +260,9 @@ augroup END
 " Clojure
 autocmd BufEnter *.cljs,*.clj,*.cljs.hl setlocal iskeyword+=?,-,*,!,+,/,=,<,>,.,:
 
+" Scala
+au BufNewFile,BufRead *.sc set filetype=scala
+
 " Haskell
 "nnoremap <silent> <leader>ht :GhcModType<CR>
 "nnoremap <silent> <leader>hh :GhcModTypeClear<CR>
@@ -393,7 +396,7 @@ let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ' '
 
-"let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['cljs'] = 'M'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sc'] = ''
 
 " webdevicons -- NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -403,6 +406,7 @@ endfunction
 
 call NERDTreeHighlightFile('rb', 'red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('scala', 'red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('sc', 'red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('clj', 'green', 'none', 'green', '#151515')
 call NERDTreeHighlightFile('cljs', 'green', 'none', 'green', '#151515')
 call NERDTreeHighlightFile('hs', 'grey', 'none', 'grey', '#151515')
