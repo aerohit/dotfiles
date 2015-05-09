@@ -35,7 +35,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 
 " Notes and markdown
-Plug 'plasticboy/vim-markdown'
+"Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-markdown'
 Plug 'xolox/vim-notes'
 
 " Language agnostic
@@ -464,5 +465,8 @@ let g:thematic#themes = {
 \                  'linespace': 6,
 \                },
 \ }
+
+" Markdown
+let g:markdown_fenced_languages = ['clojure', 'erb=eruby', 'haskell', 'ruby', 'scala']
 
 " vim:foldmethod=marker:foldlevel=0:nofoldenable
