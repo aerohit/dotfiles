@@ -397,7 +397,7 @@ let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
 
 let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ' '
 
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sc'] = ''
+"let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sc'] = ''
 
 " webdevicons -- NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
