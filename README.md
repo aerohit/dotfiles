@@ -10,6 +10,10 @@ Create a symbolic link for ssh config as follows:
 
 Use Spectacle for window management.
 
+Install tmux with 24 bit or true colour support:
+
+    https://github.com/choppsv1/homebrew-term24
+
 For configuring vim:
 
     ln -s ~/bin/dotfiles/nvim/nvimrc ~/.vimrc
