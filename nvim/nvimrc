@@ -33,6 +33,7 @@ Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
+Plug 'terryma/vim-expand-region'
 
 " Notes and markdown
 "Plug 'plasticboy/vim-markdown'
@@ -465,5 +466,9 @@ let g:thematic#themes = {
 
 " Markdown
 let g:markdown_fenced_languages = ['clojure', 'erb=eruby', 'haskell', 'ruby', 'scala']
+
+" Vim-expand-region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 " vim:foldmethod=marker:foldlevel=0:nofoldenable
