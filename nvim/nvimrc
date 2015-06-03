@@ -18,7 +18,7 @@ Plug 'reedes/vim-thematic'
 " Look and feel
 Plug 'flazz/vim-colorschemes'
 Plug 'bling/vim-airline'
-Plug 'ryanoasis/vim-webdevicons'
+"Plug 'ryanoasis/vim-webdevicons'
 "Plug 'vim-scripts/ScrollColors'
 
 " Tmux
@@ -391,33 +391,30 @@ nnoremap <leader>on :tabnew<CR>:Note<Space>
 " NerdTree
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
-" webdevicons
-
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
-
-let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ' '
-
-"let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sc'] = ''
-
-" webdevicons -- NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-
-call NERDTreeHighlightFile('rb', 'red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('scala', 'red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('sc', 'red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('clj', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('cljs', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('hs', 'grey', 'none', 'grey', '#151515')
-call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+""""" webdevicons
+""""let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+""""let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ' '
+"""""let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sc'] = ''
+""""
+""""" webdevicons -- NERDTress File highlighting
+""""function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+""""exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+""""exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+""""endfunction
+""""
+""""call NERDTreeHighlightFile('rb', 'red', 'none', 'red', '#151515')
+""""call NERDTreeHighlightFile('scala', 'red', 'none', 'red', '#151515')
+""""call NERDTreeHighlightFile('sc', 'red', 'none', 'red', '#151515')
+""""call NERDTreeHighlightFile('clj', 'green', 'none', 'green', '#151515')
+""""call NERDTreeHighlightFile('cljs', 'green', 'none', 'green', '#151515')
+""""call NERDTreeHighlightFile('hs', 'grey', 'none', 'grey', '#151515')
+""""call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+""""call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+""""call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+""""call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+""""call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+""""call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+""""call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 
 " Slimux
 nnoremap <leader>sl :SlimuxREPLSendLine<CR>
