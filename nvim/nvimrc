@@ -353,6 +353,17 @@ nnoremap <leader>l :set list!<CR>
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <leader>u yyp<c-v>$r-I"<ESC>
 
+" vp doesn't replace paste buffer
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
+
 " EasyAlign
 "nnoremap <leader>f= vip:EasyAlign=<CR>
 "vnoremap <leader>f= :EasyAlign=<CR>
