@@ -17,7 +17,7 @@ Plug 'reedes/vim-thematic'
 
 " Look and feel
 Plug 'flazz/vim-colorschemes'
-Plug 'bling/vim-airline'
+"Plug 'bling/vim-airline'
 "Plug 'ryanoasis/vim-webdevicons'
 "Plug 'vim-scripts/ScrollColors'
 
@@ -310,7 +310,7 @@ let g:notes_suffix = '.md'
 let g:notes_title_sync = 'rename_file'
 
 " vim-airline
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
 
 " ctrlp.vim
 nnoremap <C-b> :CtrlPBuffer<CR>
