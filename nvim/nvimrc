@@ -39,6 +39,7 @@ Plug 'terryma/vim-expand-region'
 "Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-markdown'
 Plug 'xolox/vim-notes'
+Plug 'vitalk/vim-simple-todo'
 
 " Language agnostic
 "Plug 'scrooloose/syntastic'             " syntax checker
