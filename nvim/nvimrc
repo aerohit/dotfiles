@@ -196,6 +196,8 @@ inoremap >x ✗<Space>
 nnoremap <leader>md <Esc>V:s/✗/✓<CR>:noh<CR>
 nnoremap <leader>mn <Esc>V:s/✓/✗<CR>:noh<CR>
 
+nnoremap <leader>fm :<C-U>call PareditFindDefunBck()<CR>V%=
+
 nnoremap <D-1> 1gt
 nnoremap <D-2> 2gt
 nnoremap <D-3> 3gt
