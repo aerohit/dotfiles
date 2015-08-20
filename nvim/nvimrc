@@ -18,6 +18,7 @@ Plug 'reedes/vim-thematic'
 " Look and feel
 Plug 'flazz/vim-colorschemes'
 "Plug 'bling/vim-airline'
+Plug 'mhartington/oceanic-next'
 "Plug 'ryanoasis/vim-webdevicons'
 "Plug 'vim-scripts/ScrollColors'
 
@@ -79,10 +80,10 @@ call plug#end()
 
 " Colors
 if has("gui_running")
-    colorscheme gruvbox
+    colorscheme OceanicNext
     set background=dark
 else
-    colorscheme gruvbox
+    colorscheme OceanicNext
     set background=dark
 endif
 syntax on
