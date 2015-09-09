@@ -66,6 +66,9 @@ Plug 'dag/vim2hs', { 'for': 'haskell' }
 "Plug 'eagletmt/neco-ghc'
 "Plug 'Twinside/vim-hoogle'
 
+" Json
+Plug 'elzr/vim-json'
+
 " Could be tried
 " 'tacahiroy/ctrlp-funky'
 " 'guns/vim-sexp' for s-expressions, might be useful for clojure.
