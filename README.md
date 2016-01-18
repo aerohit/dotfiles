@@ -24,6 +24,13 @@ For configuring vim:
 
 For installing [vim-plug](https://github.com/junegunn/vim-plug):
 
+For neovim:
+
+    curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+For vim:
+
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
