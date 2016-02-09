@@ -69,6 +69,9 @@ Plug 'dag/vim2hs', { 'for': 'haskell' }
 " Json
 Plug 'elzr/vim-json'
 
+" Velocity templates
+Plug 'lepture/vim-velocity'
+
 " Could be tried
 " 'tacahiroy/ctrlp-funky'
 " 'guns/vim-sexp' for s-expressions, might be useful for clojure.
