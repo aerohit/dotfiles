@@ -39,10 +39,12 @@ Plug 'terryma/vim-expand-region'
 "Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-markdown'
 Plug 'xolox/vim-notes'
-Plug 'vitalk/vim-simple-todo'
+"Plug 'vitalk/vim-simple-todo'
+Plug 'freitass/todo.txt-vim'
 
 " Language agnostic
-"Plug 'scrooloose/syntastic'             " syntax checker
+Plug 'scrooloose/syntastic'             " syntax checker
+Plug 'Shougo/deoplete.nvim'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -62,12 +64,12 @@ Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 " Haskell
 Plug 'raichoo/haskell-vim', { 'for': 'haskell' }
 Plug 'dag/vim2hs', { 'for': 'haskell' }
-"Plug 'eagletmt/ghcmod-vim'
-"Plug 'eagletmt/neco-ghc'
+Plug 'eagletmt/ghcmod-vim'
+Plug 'eagletmt/neco-ghc'
 "Plug 'Twinside/vim-hoogle'
 
 " Json
-Plug 'elzr/vim-json'
+"Plug 'elzr/vim-json'
 
 " Velocity templates
 Plug 'lepture/vim-velocity'
@@ -92,6 +94,7 @@ else
     set background=dark
 endif
 syntax on
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 syntax enable
 
 
@@ -112,7 +115,7 @@ set cursorline						" highlights line
 set cursorcolumn					" highlights column
 set guitablabel=%t					" Tab headings
 set guitabtooltip=%F					" Tab headings
-set number relativenumber				" read "number_relativenumber" in help
+set number                                              " read "number_relativenumber" in help
 set linespace=0						" space it out a little more (easier to read).
 set cmdheight=1						" the command bar is 2 high.
 set autoindent
@@ -120,6 +123,9 @@ set smartindent
 set showmode						" show current-mode.
 set showcmd						" show partially-typed commands.
 set wildmenu						" visual autocomplete for command menu
+set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
+set wildmode=longest,list,full
+set completeopt=menuone,menu,longest                    " autocomplete related options.
 set lazyredraw						" redraw only when we need to.
 set showmatch						" show matching brackets
 set sidescrolloff=2
