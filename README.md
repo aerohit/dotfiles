@@ -4,10 +4,6 @@ Source the bashrc (in .bashrc or .zshrc) as follows:
 
     source ~/dotfiles/bashrc
 
-Create a symbolic link for ssh config as follows:
-
-    ln -s ~/dotfiles/ssh/config ~/.ssh/config
-
 Use Spectacle for window management.
 
 Install tmux with 24 bit or true colour support:
