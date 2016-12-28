@@ -85,17 +85,20 @@ call plug#end()
 
 
 
+syntax on
+syntax enable
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let g:solarized_termcolors=256
+"set term=xterm-256color
+
 " Colors
 if has("gui_running")
-    colorscheme OceanicNext
+    colorscheme solarized
     set background=dark
 else
-    colorscheme OceanicNext
+    colorscheme solarized
     set background=dark
 endif
-syntax on
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-syntax enable
 
 
 
