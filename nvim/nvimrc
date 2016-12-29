@@ -15,11 +15,10 @@ Plug 'reedes/vim-wheel'
 Plug 'reedes/vim-thematic'
 
 " Look and feel
-Plug 'flazz/vim-colorschemes'
-"Plug 'bling/vim-airline'
-Plug 'mhartington/oceanic-next'
-"Plug 'ryanoasis/vim-webdevicons'
-"Plug 'vim-scripts/ScrollColors'
+Plug 'chriskempson/base16-vim'
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'morhetz/gruvbox'
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -43,7 +42,8 @@ Plug 'xolox/vim-notes'
 Plug 'freitass/todo.txt-vim'
 
 " Language agnostic
-Plug 'scrooloose/syntastic'             " syntax checker
+"Plug 'scrooloose/syntastic'             " syntax checker
+Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim'
 
 " Git
@@ -60,6 +60,7 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+Plug 'ensime/ensime-vim'
 
 " Haskell
 Plug 'raichoo/haskell-vim', { 'for': 'haskell' }
@@ -73,6 +74,7 @@ Plug 'eagletmt/neco-ghc'
 
 " Velocity templates
 Plug 'lepture/vim-velocity'
+
 
 " Could be tried
 " 'tacahiroy/ctrlp-funky'
@@ -89,16 +91,11 @@ syntax on
 syntax enable
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:solarized_termcolors=256
-"set term=xterm-256color
 
 " Colors
-if has("gui_running")
-    colorscheme solarized
-    set background=dark
-else
-    colorscheme solarized
-    set background=dark
-endif
+set termguicolors
+set background=dark
+colorscheme base16-solarized-light
 
 
 
@@ -110,7 +107,6 @@ filetype plugin indent on
 highlight Comment gui=bold,italic
 highlight cursorline gui=bold cterm=bold
 
-set anti enc=utf-8						" Antialias font
 set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types:h14
 set guioptions-=r                                       " Remove the right scrollbar
 set title						" show title in console title bar.
@@ -149,13 +145,14 @@ endi
 
 
 " Show syntax highlighting groups for word under cursor
-nmap <C-S-P> :call <SID>SynStack()<CR>
+nmap <leader>sp :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
     return
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
 
 
 " Spaces and Tabs
@@ -291,6 +288,11 @@ autocmd BufEnter *.cljs,*.clj,*.cljs.hl setlocal iskeyword+=?,-,*,!,+,/,=,<,>,.,
 
 " Scala
 au BufNewFile,BufRead *.sc set filetype=scala
+autocmd BufWritePost *.scala silent :EnTypeCheck
+nnoremap <localleader>tc :EnTypeCheck<CR>
+nnoremap <localleader>it :EnInspectType<CR>
+nnoremap <localleader>t :EnType<CR>
+au FileType scala nnoremap <localleader>df :EnDeclaration<CR>
 
 " Haskell
 "nnoremap <silent> <leader>ht :GhcModType<CR>
@@ -357,6 +359,7 @@ let g:NERDTreeWinPos = "left"
 
 " vim-plug
 nnoremap <leader>pi :PlugInstall<CR>
+nnoremap <leader>pc :PlugClean<CR>
 nnoremap <leader>pu :PlugUpdate<CR>
 
 " Leader shortcuts
