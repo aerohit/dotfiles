@@ -122,7 +122,7 @@ set smartindent
 set showmode						" show current-mode.
 set showcmd						" show partially-typed commands.
 set wildmenu						" visual autocomplete for command menu
-set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox
+set wildignore+=*\\tmp\\*,*.swp,*.swo,*.zip,.git,.cabal-sandbox,*.class,target
 set wildmode=longest,list,full
 set completeopt=menuone,menu,longest                    " autocomplete related options.
 set lazyredraw						" redraw only when we need to.
