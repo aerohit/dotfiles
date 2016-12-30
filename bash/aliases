@@ -1,9 +1,9 @@
 # Bash
-alias sb='. ~/bin/dotfiles/bashrc' # source bashrc
+alias sb='. ~/dotfiles/bashrc' # source bashrc
 if command -v gvim; then
-    alias ea='gvim ~/bin/dotfiles/bash/aliases &'
+    alias ea='gvim ~/dotfiles/bash/aliases &'
 else 
-    alias ea='vim ~/bin/dotfiles/bash/aliases &'
+    alias ea='vim ~/dotfiles/bash/aliases &'
 fi
 
 # Package managers
@@ -69,7 +69,7 @@ alias mcr='rm -r ~/.m2/repository/com/ilodge; cd third-party; ant install; ..'
 # Directories
 alias ..='cd ..'
 alias cdd='cd -'
-alias cddot='cd ~/bin/dotfiles'
+alias cddot='cd ~/dotfiles'
 alias cdblog='cd ~/codes/sinatra/aerohitblog'
 
 # Applications
