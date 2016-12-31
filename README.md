@@ -22,6 +22,7 @@ Create the config directory
     mkdir -p ~/.config/nvim
 
 And then link the config files
+
     ln -s ~/dotfiles/nvim/nvimrc ~/.config/nvim/init.vim
     ln -s ~/dotfiles/nvim ~/.config/nvim
 
