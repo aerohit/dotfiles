@@ -12,7 +12,6 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'reedes/vim-wheel'
-Plug 'reedes/vim-thematic'
 
 " Look and feel
 Plug 'chriskempson/base16-vim'
@@ -31,32 +30,12 @@ Plug 'junegunn/vim-easy-align'
 Plug 'godlygeek/tabular'
 Plug 'ervandew/supertab'
 Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-surround'
-Plug 'terryma/vim-expand-region'
-
-" Notes and markdown
-"Plug 'plasticboy/vim-markdown'
-Plug 'tpope/vim-markdown'
-Plug 'xolox/vim-notes'
-"Plug 'vitalk/vim-simple-todo'
-Plug 'freitass/todo.txt-vim'
+Plug 'jceb/vim-orgmode'
 
 " Language agnostic
 "Plug 'scrooloose/syntastic'             " syntax checker
 Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim'
-
-" Git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-" Clojure plugins
-Plug 'vim-scripts/paredit.vim', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
-Plug 'guns/vim-sexp', { 'for': 'clojure' }
-Plug 'tpope/vim-repeat', { 'for': 'clojure' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
@@ -67,13 +46,6 @@ Plug 'raichoo/haskell-vim', { 'for': 'haskell' }
 Plug 'dag/vim2hs', { 'for': 'haskell' }
 Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/neco-ghc'
-"Plug 'Twinside/vim-hoogle'
-
-" Json
-"Plug 'elzr/vim-json'
-
-" Velocity templates
-Plug 'lepture/vim-velocity'
 
 
 " Could be tried
@@ -107,7 +79,7 @@ filetype plugin indent on
 highlight Comment gui=bold,italic
 highlight cursorline gui=bold cterm=bold
 
-set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types:h14
+set guifont=Monaco:h14
 set guioptions-=r                                       " Remove the right scrollbar
 set title						" show title in console title bar.
 set cursorline						" highlights line
@@ -201,6 +173,9 @@ set matchpairs+=<:>					" have % bounce between angled brackets, as well as t'ot
 set laststatus=2					" always show the status line
 set mouse=a						" use mouse everywhere.
 set helpheight=999
+" Open help in new tab
+cabbrev help tab help
+cabbrev h tab h
 
 
 
@@ -229,12 +204,6 @@ inoremap <D-2> <esc>2gt
 inoremap <D-3> <esc>3gt
 inoremap <D-4> <esc>4gt
 inoremap <D-0> <esc>:tablast<CR>
-
-" Bubble lines, preserves indentation, courtesy of -romainl-
-"nnoremap <silent> <Up>   :move-2<CR>==
-"nnoremap <silent> <Down> :move+<CR>==
-"xnoremap <silent> <Up>   :move-2<CR>gv=gv
-"xnoremap <silent> <Down> :move'>+<CR>gv=gv
 
 
 " Window management
@@ -269,6 +238,10 @@ function! <SID>StripTrailingWhiteSpaces()
     call setpos(".", cur_pos)
 endfun
 
+
+
+" Language Specific
+
 augroup configgroup
     autocmd!
     autocmd FileType haskell            :inoremap <buffer> >> -><Space>
@@ -279,13 +252,6 @@ augroup configgroup
     au FileType gitcommit execute "normal! O" | startinsert             " when commiting add new line and enter insert mode
 augroup END
 
-
-
-" Language Specific
-
-" Clojure
-autocmd BufEnter *.cljs,*.clj,*.cljs.hl setlocal iskeyword+=?,-,*,!,+,/,=,<,>,.,:
-
 " Scala
 au BufNewFile,BufRead *.sc set filetype=scala
 autocmd BufWritePost *.scala silent :EnTypeCheck
@@ -294,52 +260,11 @@ nnoremap <localleader>it :EnInspectType<CR>
 nnoremap <localleader>t :EnType<CR>
 au FileType scala nnoremap <localleader>df :EnDeclaration<CR>
 
-" Haskell
-"nnoremap <silent> <leader>ht :GhcModType<CR>
-"nnoremap <silent> <leader>hh :GhcModTypeClear<CR>
-"nnoremap <silent> <leader>hT :GhcModTypeInsert<CR>
-"nnoremap <silent> <leader>hc :SyntasticCheck ghc_mod<CR>:lopen<CR>
-"let g:syntastic_mode_map={'mode': 'active', 'passive_filetypes': ['haskell']}
-"let g:syntastic_always_populate_loc_list = 1
-"nnoremap <silent> <leader>hl :SyntasticCheck hlint<CR>:lopen<CR>
-
-" Auto-checking on writing
-"autocmd BufWritePost *.hs,*.lhs GhcModCheckAndLintAsync
-
-""  neocomplcache (advanced completion)
-"autocmd BufEnter *.hs,*.lhs let g:neocomplcache_enable_at_startup = 1
-"function! SetToCabalBuild()
-    "if glob("*.cabal") != ''
-        "set makeprg=cabal\ build
-    "endif
-"endfunction
-"autocmd BufEnter *.hs,*.lhs :call SetToCabalBuild()
-
-"" ghcmod-vim
-""let g:ghcmod_ghc_options = ['-fno-warn-unused-binds', '-fno-warn-missing-signatures']
-
-"" -- neco-ghc
-"let $PATH=$PATH.':'.expand("~/.cabal/bin")
-
-
-
 
 
 " Plugins configuration
 
-" vim-easy-align
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-"vnoremap <Enter> <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-"nnoremap ga <Plug>(EasyAlign)
 
-" vim-notes
-let g:notes_directories = ['~/Dropbox/Notes']
-let g:notes_suffix = '.md'
-let g:notes_title_sync = 'rename_file'
-
-" vim-airline
-"let g:airline_powerline_fonts = 1
 
 " ctrlp.vim
 nnoremap <C-b> :CtrlPBuffer<CR>
@@ -380,6 +305,7 @@ nnoremap <leader>r :checktime<CR>
 nnoremap <leader>l :set list!<CR>
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
+" underline with dashes
 nnoremap <leader>u yyp<c-v>$r-I"<ESC>
 
 " vp doesn't replace paste buffer
@@ -399,11 +325,6 @@ vmap <silent> <expr> p <sid>Repl()
 "nnoremap <leader>f. vip:EasyAlign/->/<CR>
 "vnoremap <leader>f. :EasyAlign/->/<CR>
 
-" Paredit
-let g:paredit_electric_return = 0
-"let g:paredit_leader          = '\'
-let g:paredit_smartjump       = 1  " When pressing '(' jump to the nearest '(', '[', '{'
-"au Filetype clojure let g:paredit_shortmaps = 1
 
 " Tabularize
 " Align by a single colon, useful for Cabal descriptions.
@@ -426,46 +347,16 @@ nnoremap <leader>f" :Tabularize / "/l0r0<CR>
 nnoremap <leader>f, :Tabularize / ,/l1r0<CR>
 vnoremap <leader>f= :EasyAlign-1=<CR>
 
-" vim-notes
-nnoremap <leader>on :tabnew<CR>:Note<Space>
 
 " NerdTree
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 
-""""" webdevicons
-""""let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
-""""let g:WebDevIconsUnicodeDecorateFileNodesDefaultSymbol = ' '
-"""""let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sc'] = ''
-""""
-""""" webdevicons -- NERDTress File highlighting
-""""function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-""""exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-""""exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-""""endfunction
-""""
-""""call NERDTreeHighlightFile('rb', 'red', 'none', 'red', '#151515')
-""""call NERDTreeHighlightFile('scala', 'red', 'none', 'red', '#151515')
-""""call NERDTreeHighlightFile('sc', 'red', 'none', 'red', '#151515')
-""""call NERDTreeHighlightFile('clj', 'green', 'none', 'green', '#151515')
-""""call NERDTreeHighlightFile('cljs', 'green', 'none', 'green', '#151515')
-""""call NERDTreeHighlightFile('hs', 'grey', 'none', 'grey', '#151515')
-""""call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-""""call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-""""call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-""""call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-""""call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-""""call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-""""call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 
 " Slimux
 nnoremap <leader>sl :SlimuxREPLSendLine<CR>
 vnoremap <leader>ss :SlimuxREPLSendSelection<CR>
 nnoremap <leader>sb :SlimuxREPLSendBuffer<CR>
 
-" vim fugitive git
-command! -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
-nnoremap <C-F> :Ggr <cword><CR>
-nnoremap <leader>fp :Ggr <cword><CR>
 
 " Ag
 nnoremap <leader>fr :Ag <cword><CR>
@@ -474,41 +365,5 @@ nnoremap <leader>fr :Ag <cword><CR>
 let g:wheel#map#up   = '<D-k>'
 let g:wheel#map#down = '<D-j>'
 
-" vim-thematic
-let g:thematic#themes = {
-\ 'bubblegum'  : { 'typeface': 'Menlo',
-\                  'font-size': 18,
-\                  'transparency': 10,
-\                  'linespace': 2,
-\                },
-\ 'pencil_dark' :{ 'colorscheme': 'pencil',
-\                  'background': 'dark',
-\                  'airline-theme': 'badwolf',
-\                  'ruler': 1,
-\                  'laststatus': 0,
-\                  'typeface': 'Source Code Pro Light',
-\                  'font-size': 20,
-\                  'transparency': 10,
-\                  'linespace': 8,
-\                },
-\ 'pencil_lite' :{ 'colorscheme': 'pencil',
-\                  'background': 'light',
-\                  'airline-theme': 'light',
-\                  'laststatus': 0,
-\                  'ruler': 1,
-\                  'typeface': 'Source Code Pro',
-\                  'fullscreen': 1,
-\                  'transparency': 0,
-\                  'font-size': 20,
-\                  'linespace': 6,
-\                },
-\ }
-
-" Markdown
-let g:markdown_fenced_languages = ['clojure', 'erb=eruby', 'haskell', 'ruby', 'scala']
-
-" Vim-expand-region
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
 
 " vim:foldmethod=marker:foldlevel=0:nofoldenable
