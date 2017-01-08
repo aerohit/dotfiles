@@ -38,6 +38,13 @@ Install https://github.com/junegunn/vim-plug
 
 Instal the fonts from here https://github.com/powerline/fonts
 
+### Configure Tmux powerline
+
+    mkdir -p ~/.config/powerline
+    mkdir -p ~/.config/powerline/themes/tmux
+    ln -s ~/dotfiles/powerline/config.json ~/.config/powerline/config.json
+    ln -s ~/dotfiles/powerline/themes/tmux/custom.json ~/.config/powerline/themes/tmux/custom.json
+
 ### Ruby things
 
     ln -s ~/dotfiles/gemrc ~/.gemrc
