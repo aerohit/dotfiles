@@ -37,6 +37,12 @@ Plug 'jceb/vim-orgmode'
 Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim'
 
+" Task Management
+" Alternatives to try:
+" https://github.com/tbabej/taskwiki
+" https://github.com/freitass/todo.txt-vim
+Plug 'irrationalistic/vim-tasks'
+
 " Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
 "Plug 'ensime/ensime-vim'
@@ -343,7 +349,7 @@ vnoremap <leader>f= :EasyAlign-1=<CR>
 
 
 " NerdTree
-nnoremap <leader>n :NERDTreeTabsToggle<CR>
+nnoremap <leader>t :NERDTreeTabsToggle<CR>
 
 
 " Slimux
