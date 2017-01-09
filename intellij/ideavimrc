@@ -1,0 +1,2 @@
+" Escape
+inoremap jk <Esc>`^
