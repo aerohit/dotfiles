@@ -39,7 +39,7 @@ Plug 'Shougo/deoplete.nvim'
 
 " Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-Plug 'ensime/ensime-vim'
+"Plug 'ensime/ensime-vim'
 
 " Haskell
 Plug 'raichoo/haskell-vim', { 'for': 'haskell' }
@@ -254,12 +254,6 @@ augroup END
 
 " Scala
 au BufNewFile,BufRead *.sc set filetype=scala
-autocmd BufWritePost *.scala silent :EnTypeCheck
-nnoremap <localleader>tc :EnTypeCheck<CR>
-nnoremap <localleader>it :EnInspectType<CR>
-nnoremap <localleader>t :EnType<CR>
-au FileType scala nnoremap <localleader>df :EnDeclaration<CR>
-
 
 
 " Plugins configuration
