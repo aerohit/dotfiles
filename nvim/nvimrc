@@ -23,7 +23,8 @@ Plug 'morhetz/gruvbox'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'epeli/slimux'
+"Plug 'epeli/slimux'
+Plug 'jpalardy/vim-slime'
 
 " Text management
 Plug 'junegunn/vim-easy-align'
@@ -39,9 +40,17 @@ Plug 'Shougo/deoplete.nvim'
 
 " Task Management
 " Alternatives to try:
-" https://github.com/tbabej/taskwiki
 " https://github.com/freitass/todo.txt-vim
+"Plug 'https://github.com/aaronbieber/vim-quicktask'
 Plug 'irrationalistic/vim-tasks'
+"Plug 'blindFS/vim-taskwarrior'
+"Plug 'davidoc/taskpaper.vim'
+
+" To be used together with taskwiki (Taskwarrior plugin)
+"Plug 'tbabej/taskwiki'
+"Plug 'powerman/vim-plugin-AnsiEsc'
+"Plug 'majutsushi/tagbar'
+"Plug 'farseer90718/vim-taskwarrior'
 
 " Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
@@ -353,10 +362,16 @@ nnoremap <leader>t :NERDTreeTabsToggle<CR>
 
 
 " Slimux
-nnoremap <leader>sl :SlimuxREPLSendLine<CR>
-vnoremap <leader>ss :SlimuxREPLSendSelection<CR>
-nnoremap <leader>sb :SlimuxREPLSendBuffer<CR>
+"nnoremap <leader>sl :SlimuxREPLSendLine<CR>
+"vnoremap <leader>ss :SlimuxREPLSendSelection<CR>
+"nnoremap <leader>sb :SlimuxREPLSendBuffer<CR>
 
+" vim-slime
+let g:slime_target = "tmux"
+let g:slime_no_mappings = 1
+xmap <leader>s <Plug>SlimeRegionSend
+nmap <leader>s <Plug>SlimeMotionSend
+nmap <leader>ss <Plug>SlimeLineSend
 
 " Ag
 nnoremap <leader>fr :Ag <cword><CR>
