@@ -20,3 +20,7 @@ alias tmkss="tmux kill-session"
 
 alias vim="env NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
 alias nvim="env NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
+
+alias g="git"
+
+alias dc="docker-compose"
