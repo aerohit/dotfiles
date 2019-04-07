@@ -82,7 +82,7 @@ let g:solarized_termcolors=256
 " Colors
 set termguicolors
 set background=dark
-colorscheme base16-solarized-light
+colorscheme base16-solarized-dark
 
 
 
@@ -151,6 +151,7 @@ set expandtab
 set nowrap
 set smarttab 						" use tabs at the start of a line, spaces elsewhere
 au FileType clojure,ruby,scala,haskell,eruby,javascript,html,css setl shiftwidth=2 softtabstop=2
+nnoremap J gJ                                           " Join lines without spaces
 
 
 
@@ -264,7 +265,7 @@ augroup configgroup
     autocmd BufEnter * lcd %:p:h                                        " Sets path to directory buffer was loaded from
     autocmd BufWritePre * :call <SID>StripTrailingWhiteSpaces()         " remove trailing whitespace on save
     "autocmd FocusLost * :wa                                             " saves on focus lost
-    au FileType gitcommit execute "normal! O" | startinsert             " when commiting add new line and enter insert mode
+    au FileType gitcommit execute "normal! A " | startinsert             " when commiting enter insert mode at the end of line
 augroup END
 
 " Scala
@@ -285,6 +286,7 @@ let g:ctrlp_by_filename = 1
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_use_caching = 0
 "let g:ctrlp_lazy_update = 1
+let g:ctrlp_root_markers = ['.ctrlp_root']
 
 " NerdTree
 let NERDTreeHijackNetrw=1                                       " User instead of Netrw when doing an edit /foobar
@@ -380,5 +382,6 @@ nnoremap <leader>fr :Ag <cword><CR>
 let g:wheel#map#up   = '<D-k>'
 let g:wheel#map#down = '<D-j>'
 
+com! FormatJSON %!python -m json.tool
 
 " vim:foldmethod=marker:foldlevel=0:nofoldenable
