@@ -18,6 +18,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'morhetz/gruvbox'
+Plug 'aonemd/kuroi.vim'
+Plug 'rakr/vim-two-firewatch'
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -54,6 +56,7 @@ Plug 'irrationalistic/vim-tasks'
 
 " Scala
 Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 "Plug 'ensime/ensime-vim'
 
 " Haskell
@@ -62,6 +65,7 @@ Plug 'dag/vim2hs', { 'for': 'haskell' }
 Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/neco-ghc'
 
+Plug 'chrisbra/csv.vim'
 
 " Could be tried
 " 'tacahiroy/ctrlp-funky'
@@ -82,7 +86,8 @@ let g:solarized_termcolors=256
 " Colors
 set termguicolors
 set background=dark
-colorscheme base16-solarized-dark
+"colorscheme base16-solarized-dark
+colorscheme kuroi
 
 
 
@@ -94,7 +99,7 @@ filetype plugin indent on
 highlight Comment gui=bold,italic
 highlight cursorline gui=bold cterm=bold
 
-set guifont=Monaco:h14
+set guifont=Monaco:h24
 set guioptions-=r                                       " Remove the right scrollbar
 set title						" show title in console title bar.
 set cursorline						" highlights line
@@ -270,7 +275,9 @@ augroup END
 
 " Scala
 au BufNewFile,BufRead *.sc set filetype=scala
+au BufRead,BufNewFile *.sbt set filetype=scala
 
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " Plugins configuration
 
@@ -278,7 +285,7 @@ au BufNewFile,BufRead *.sc set filetype=scala
 
 " ctrlp.vim
 nnoremap <C-b> :CtrlPBuffer<CR>
-"nnoremap <C-m> :CtrlPMRU<CR>
+nnoremap <C-m> :CtrlPMRU<CR>
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 "let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
 let g:ctrlp_by_filename = 1
@@ -303,6 +310,8 @@ nnoremap <leader>pu :PlugUpdate<CR>
 " open vimrc
 nnoremap <leader>ev :tabnew $MYVIMRC <CR>
 nnoremap <leader>ov :e $MYVIMRC <CR>
+nnoremap <leader>ec :tabnew ~/dotfiles/nvim/coc-nvim-scala.vim <CR>
+
 " source vimrc
 nnoremap <leader>sv :source $MYVIMRC <CR>
 " vertical split
@@ -382,6 +391,11 @@ nnoremap <leader>fr :Ag <cword><CR>
 let g:wheel#map#up   = '<D-k>'
 let g:wheel#map#down = '<D-j>'
 
+" coc.nvim  for Scala
+
+if filereadable(expand("~/dotfiles/nvim/coc-nvim-scala.vim"))
+  source ~/dotfiles/nvim/coc-nvim-scala.vim
+endif
 com! FormatJSON %!python -m json.tool
 
 " vim:foldmethod=marker:foldlevel=0:nofoldenable
