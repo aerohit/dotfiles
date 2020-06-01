@@ -40,39 +40,11 @@ Plug 'jceb/vim-orgmode'
 Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim'
 
-" Task Management
-" Alternatives to try:
-" https://github.com/freitass/todo.txt-vim
-"Plug 'https://github.com/aaronbieber/vim-quicktask'
-Plug 'irrationalistic/vim-tasks'
-"Plug 'blindFS/vim-taskwarrior'
-"Plug 'davidoc/taskpaper.vim'
 
-" To be used together with taskwiki (Taskwarrior plugin)
-"Plug 'tbabej/taskwiki'
-"Plug 'powerman/vim-plugin-AnsiEsc'
-"Plug 'majutsushi/tagbar'
-"Plug 'farseer90718/vim-taskwarrior'
+" LSP support
+"Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Scala
-Plug 'derekwyatt/vim-scala', { 'for': 'scala' }
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-"Plug 'ensime/ensime-vim'
-
-" Haskell
-Plug 'raichoo/haskell-vim', { 'for': 'haskell' }
-Plug 'dag/vim2hs', { 'for': 'haskell' }
-Plug 'eagletmt/ghcmod-vim'
-Plug 'eagletmt/neco-ghc'
-
-Plug 'chrisbra/csv.vim'
-
-" Could be tried
-" 'tacahiroy/ctrlp-funky'
-" 'guns/vim-sexp' for s-expressions, might be useful for clojure.
-" 'tpope/vim-sexp-mappings-for-regular-people'
-" 'kshenoy/vim-signature' another approach for handling bookmarks.
-" 'vim-scripts/utl.vim' URL-based hyperlinking to plain text ...
 
 call plug#end()
 
@@ -85,9 +57,16 @@ let g:solarized_termcolors=256
 
 " Colors
 set termguicolors
+colorscheme gruvbox
 set background=dark
-"colorscheme base16-solarized-dark
-colorscheme kuroi
+"colorscheme kuroi
+"set background=dark " or light if you prefer the light version
+
+"colo two-firewatch
+"set background=light " or light if you prefer the light version
+"let g:two_firewatch_italics=1
+
+let g:airline_theme='twofirewatch'
 
 
 
@@ -99,7 +78,7 @@ filetype plugin indent on
 highlight Comment gui=bold,italic
 highlight cursorline gui=bold cterm=bold
 
-set guifont=Monaco:h24
+set guifont=Monaco:h18
 set guioptions-=r                                       " Remove the right scrollbar
 set title						" show title in console title bar.
 set cursorline						" highlights line
@@ -293,7 +272,7 @@ let g:ctrlp_by_filename = 1
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_use_caching = 0
 "let g:ctrlp_lazy_update = 1
-let g:ctrlp_root_markers = ['.ctrlp_root']
+let g:ctrlp_root_markers = ['.ctrlp_root', 'stack.yaml']
 
 " NerdTree
 let NERDTreeHijackNetrw=1                                       " User instead of Netrw when doing an edit /foobar
@@ -344,28 +323,6 @@ vmap <silent> <expr> p <sid>Repl()
 "vnoremap <leader>f= :EasyAlign=<CR>
 "nnoremap <leader>f. vip:EasyAlign/->/<CR>
 "vnoremap <leader>f. :EasyAlign/->/<CR>
-
-
-" Tabularize
-" Align by a single colon, useful for Cabal descriptions.
-nnoremap <leader>f; :Tabularize colon<CR>
-" Align a set of bindings by "=".
-nnoremap <leader>f= :Tabularize haskell_bindings<CR>
-" Align line-comments at the end of lines.
-nnoremap <leader>f- :Tabularize haskell_comments<CR>
-" Align a set of monadic binds by "<-".
-nnoremap <leader>f< :Tabularize haskell_do_arrows<CR>
-" Align imports by import list and "as".
-nnoremap <leader>fi :Tabularize haskell_imports<CR>
-" Align a set of pattern matches by "->".
-nnoremap <leader>f> :Tabularize haskell_pattern_arrows<CR>
-" Align type signatures by "::" in a record.
-nnoremap <leader>f: :Tabularize haskell_types<CR>
-" Repeat the previous Tabularize
-nnoremap <leader>fr :Tabularize<CR>
-nnoremap <leader>f" :Tabularize / "/l0r0<CR>
-nnoremap <leader>f, :Tabularize / ,/l1r0<CR>
-vnoremap <leader>f= :EasyAlign-1=<CR>
 
 
 " NerdTree
