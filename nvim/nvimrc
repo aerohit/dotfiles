@@ -11,40 +11,30 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'reedes/vim-wheel'
 
 " Look and feel
 Plug 'chriskempson/base16-vim'
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
-Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'morhetz/gruvbox'
-Plug 'aonemd/kuroi.vim'
 Plug 'rakr/vim-two-firewatch'
+Plug 'rakr/vim-one'
 
 " Tmux
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-"Plug 'epeli/slimux'
-Plug 'jpalardy/vim-slime'
-
-" Text management
-Plug 'junegunn/vim-easy-align'
-Plug 'godlygeek/tabular'
-Plug 'ervandew/supertab'
-Plug 'scrooloose/nerdcommenter'
-Plug 'jceb/vim-orgmode'
 
 " Language agnostic
-"Plug 'scrooloose/syntastic'             " syntax checker
 Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim'
 
 
 " LSP support
-"Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
+Plug 'meck/vim-brittany'
 
 call plug#end()
 
@@ -59,14 +49,6 @@ let g:solarized_termcolors=256
 set termguicolors
 colorscheme gruvbox
 set background=dark
-"colorscheme kuroi
-"set background=dark " or light if you prefer the light version
-
-"colo two-firewatch
-"set background=light " or light if you prefer the light version
-"let g:two_firewatch_italics=1
-
-let g:airline_theme='twofirewatch'
 
 
 
@@ -115,16 +97,6 @@ if (exists('+colorcolumn'))
 endi
 
 
-" Show syntax highlighting groups for word under cursor
-nmap <leader>sp :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-
-
 
 " Spaces and Tabs
 
@@ -136,8 +108,6 @@ set nowrap
 set smarttab 						" use tabs at the start of a line, spaces elsewhere
 au FileType clojure,ruby,scala,haskell,eruby,javascript,html,css setl shiftwidth=2 softtabstop=2
 nnoremap J gJ                                           " Join lines without spaces
-
-
 
 " Search
 
@@ -184,26 +154,13 @@ cabbrev h tab h
 inoremap jk <Esc>
 vnoremap < <gv
 vnoremap > >gv
-inoremap uu _
+"inoremap uu _
 inoremap hh =><Space>
 "inoremap aa @
 inoremap ii \|<Space>
 inoremap >x ✗<Space>
 nnoremap <leader>md <Esc>V:s/✗/✓<CR>:noh<CR>
 nnoremap <leader>mn <Esc>V:s/✓/✗<CR>:noh<CR>
-
-nnoremap <leader>fm :<C-U>call PareditFindDefunBck()<CR>V%=
-
-nnoremap <D-1> 1gt
-nnoremap <D-2> 2gt
-nnoremap <D-3> 3gt
-nnoremap <D-4> 4gt
-nnoremap <D-0> :tablast<CR>
-inoremap <D-1> <esc>1gt
-inoremap <D-2> <esc>2gt
-inoremap <D-3> <esc>3gt
-inoremap <D-4> <esc>4gt
-inoremap <D-0> <esc>:tablast<CR>
 
 
 " Window management
@@ -213,10 +170,8 @@ nnoremap <C-h> <C-w>h
 " Jump to right window
 nnoremap <C-l> <C-w>l
 " Jump to below window
-"nnoremap <C-j> <C-w>j"<C-w>_
 nnoremap <C-j> <C-w>j
 " Jump to above window
-"nnoremap <C-k> <C-w>k<C-w>_
 nnoremap <C-k> <C-w>k
 
 " Read this issue why the following is needed
@@ -289,7 +244,6 @@ nnoremap <leader>pu :PlugUpdate<CR>
 " open vimrc
 nnoremap <leader>ev :tabnew $MYVIMRC <CR>
 nnoremap <leader>ov :e $MYVIMRC <CR>
-nnoremap <leader>ec :tabnew ~/dotfiles/nvim/coc-nvim-scala.vim <CR>
 
 " source vimrc
 nnoremap <leader>sv :source $MYVIMRC <CR>
@@ -318,41 +272,19 @@ function! s:Repl()
 endfunction
 vmap <silent> <expr> p <sid>Repl()
 
-" EasyAlign
-"nnoremap <leader>f= vip:EasyAlign=<CR>
-"vnoremap <leader>f= :EasyAlign=<CR>
-"nnoremap <leader>f. vip:EasyAlign/->/<CR>
-"vnoremap <leader>f. :EasyAlign/->/<CR>
 
 
 " NerdTree
 nnoremap <leader>t :NERDTreeTabsToggle<CR>
 
+" Coc
+let g:coc_node_path = "/usr/local/bin/node"
 
-" Slimux
-"nnoremap <leader>sl :SlimuxREPLSendLine<CR>
-"vnoremap <leader>ss :SlimuxREPLSendSelection<CR>
-"nnoremap <leader>sb :SlimuxREPLSendBuffer<CR>
 
-" vim-slime
-let g:slime_target = "tmux"
-let g:slime_no_mappings = 1
-xmap <leader>s <Plug>SlimeRegionSend
-nmap <leader>s <Plug>SlimeMotionSend
-nmap <leader>ss <Plug>SlimeLineSend
 
 " Ag
 nnoremap <leader>fr :Ag <cword><CR>
 
-" vim-wheel
-let g:wheel#map#up   = '<D-k>'
-let g:wheel#map#down = '<D-j>'
-
-" coc.nvim  for Scala
-
-if filereadable(expand("~/dotfiles/nvim/coc-nvim-scala.vim"))
-  source ~/dotfiles/nvim/coc-nvim-scala.vim
-endif
 com! FormatJSON %!python -m json.tool
 
 " vim:foldmethod=marker:foldlevel=0:nofoldenable
