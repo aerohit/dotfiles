@@ -36,6 +36,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovimhaskell/haskell-vim'
 Plug 'meck/vim-brittany'
 
+" Note taking
+Plug 'vimwiki/vimwiki'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'michal-h21/vim-zettel'
+Plug 'alok/notational-fzf-vim'
+
 call plug#end()
 
 
@@ -278,9 +285,26 @@ vmap <silent> <expr> p <sid>Repl()
 nnoremap <leader>t :NERDTreeTabsToggle<CR>
 
 " Coc
-let g:coc_node_path = "/usr/local/bin/node"
+let g:coc_node_path = '/usr/local/bin/node'
 
-
+" Note taking
+let g:zettel_format = '%Y-%m-%d-%H:%M'
+" Settings for Vimwiki
+let g:vimwiki_list = [
+            \           {'path':'~/Dropbox/Notes/Zettels/'}
+            \           ,
+            \           {'path':'~/Dropbox/Notes/Organized/'}
+            \   ]
+" Set template and custom header variable for Zettel
+let g:zettel_options = [
+            \           {'front_matter' : {'tags' : ''}, 'template' :  '~/Dropbox/Notes/vimwiki-template.tpl'}
+            \   ]
+" Notational FZF search path
+let g:nv_search_paths = [
+            \           '~/Dropbox/Notes/Zettels/'
+            \           ,
+            \           '~/Dropbox/Notes/Organized/'
+            \   ]
 
 " Ag
 nnoremap <leader>fr :Ag <cword><CR>
