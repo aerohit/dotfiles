@@ -11,6 +11,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'preservim/nerdcommenter'
 
 " Look and feel
 Plug 'chriskempson/base16-vim'
@@ -32,6 +33,9 @@ Plug 'Shougo/deoplete.nvim'
 " LSP support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Linting
+Plug 'dense-analysis/ale'
+
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
 Plug 'meck/vim-brittany'
@@ -42,6 +46,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'michal-h21/vim-zettel'
 Plug 'alok/notational-fzf-vim'
+Plug 'tibabit/vim-templates'
 
 call plug#end()
 
@@ -98,6 +103,8 @@ set nolist						" Invisible characters turned off by default
 set nofoldenable					" Folding disabled
 set modelines=1
 set autoread                                            "reload files when changed on disk
+" reload files when changed on disk
+autocmd FocusGained * checktime
 
 if (exists('+colorcolumn'))
     set colorcolumn=80
@@ -240,6 +247,9 @@ let g:ctrlp_root_markers = ['.ctrlp_root', 'stack.yaml']
 let NERDTreeHijackNetrw=1                                       " User instead of Netrw when doing an edit /foobar
 let NERDTreeMouseMode=1                                         " Single click for everything
 let g:NERDTreeWinPos = "left"
+" let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+nnoremap <leader>t :NERDTreeTabsToggle<CR>
 
 " vim-plug
 nnoremap <leader>pi :PlugInstall<CR>
@@ -281,11 +291,11 @@ vmap <silent> <expr> p <sid>Repl()
 
 
 
-" NerdTree
-nnoremap <leader>t :NERDTreeTabsToggle<CR>
 
 " Coc
 let g:coc_node_path = '/usr/local/bin/node'
+" apply refactoring
+nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Note taking
 let g:zettel_format = '%Y-%m-%d-%H:%M'
@@ -308,6 +318,10 @@ let g:nv_search_paths = [
 
 " Ag
 nnoremap <leader>fr :Ag <cword><CR>
+
+" Template files
+let g:tmpl_search_paths = ['~/dotfiles/nvim/templates']
+cab hnew e <C-R>=strftime("%Y%m%d%H%M")<CR>.hs
 
 com! FormatJSON %!python -m json.tool
 

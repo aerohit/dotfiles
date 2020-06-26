@@ -1,0 +1,3 @@
+module {{FILE}} () where
+
+-- TAGS <tag1>:<tag2>
