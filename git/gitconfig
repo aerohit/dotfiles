@@ -1,7 +1,7 @@
-[user]
-  name  = Rohit Saxena
-  user  = aerohit
-  email = aerohit.saxena@gmail.com
+[includeIf "gitdir:/Users/rohitsaxena/newmotion/"]
+    path = ~/.gitconfig-newmotion
+[includeIf "gitdir:/Users/rohitsaxena/personal/"]
+    path = ~/.gitconfig-personal
 
 [alias]
   a    = add
@@ -49,9 +49,6 @@
   excludesfile = /Users/rsaxena/.gitignore_global
   editor = nvim
 
-[github]
-	user = aerohit
-
 [filter "media"]
 	required = true
 	clean = git media clean %f
@@ -75,5 +72,3 @@
 
 [merge]
     tool = meld
-[credential]
-	helper = cache --timeout=2628000
